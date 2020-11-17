@@ -9,6 +9,7 @@ import emoji from 'react-easy-emoji'
 import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from 'Reducers/rootReducer'
 import {
+	currentQuestionSelector,
 	flatRulesSelector,
 	nextStepsSelector,
 	analysisWithDefaultsOnlySelector,
@@ -61,7 +62,7 @@ export default function Conversation({
 	const [dismissedRespirations, dismissRespiration] = useState([])
 	const dispatch = useDispatch()
 	const flatRules = useSelector(flatRulesSelector)
-	const currentQuestion = useSelector(orderedCurrentQuestionSelector)
+	const currentQuestion = useSelector(currentQuestionSelector)
 	const previousAnswers = useSelector(
 		(state: RootState) => state.conversationSteps.foldedSteps
 	)
