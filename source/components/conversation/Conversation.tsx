@@ -53,11 +53,11 @@ export default function Conversation({
 
 	const sortedQuestions = orderByCategories
 		? sortBy(
-				(question) =>
-					-orderByCategories.find((c) => question.indexOf(c.dottedName) === 0)
-						?.nodeValue,
-				nextQuestions
-		  )
+			(question) =>
+				-orderByCategories.find((c) => question.indexOf(c.dottedName) === 0)
+					?.nodeValue,
+			nextQuestions
+		)
 		: nextQuestions
 	const unfoldedStep = useSelector((state) => state.simulation.unfoldedStep)
 	const isMainSimulation = objectifs.length === 1 && objectifs[0] === 'bilan',
@@ -100,10 +100,10 @@ export default function Conversation({
 		: rules[currentQuestion]?.rawNode?.question
 	const questionsToSubmit = mosaicQuestion
 		? Object.entries(rules)
-				.filter(([dottedName, value]) =>
-					mosaicQuestion.isApplicable(dottedName)
-				)
-				.map(([dottedName]) => dottedName)
+			.filter(([dottedName, value]) =>
+				mosaicQuestion.isApplicable(dottedName)
+			)
+			.map(([dottedName]) => dottedName)
 		: [currentQuestion]
 	const submit = (source: string) => {
 		questionsToSubmit.map((question) =>

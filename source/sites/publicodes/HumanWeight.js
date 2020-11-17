@@ -7,14 +7,28 @@ export const humanWeight = (v) => {
 		v === 0
 			? [v, '']
 			: v < 1
-			? [v * 1000, 'g']
-			: v < 1000
-			? [v, 'kg']
-			: [v / 1000, v > 2000 ? 'tonnes' : 'tonne']
+				? [v * 1000, 'g']
+				: v < 1000
+					? [v, 'kg']
+					: [v / 1000, v > 2000 ? 'tonnes' : 'tonne']
 	return [raw, unit]
 }
 export default ({ nodeValue }) => {
-	return <HumanWeight nodeValue={nodeValue} />
+	const foldedSteps = useSelector(
+		(state) => state.conversationSteps?.foldedSteps
+	),
+		simulationStarted = foldedSteps && foldedSteps.length
+
+	return (
+		<span>
+			{!simulationStarted ? (
+				<em> Un usager de l&#39;ECN émet en moyenne</em>
+			) : (
+				<em>Votre total provisoire</em>
+			)}
+			<HumanWeight nodeValue={nodeValue} />
+		</span>
+	)
 }
 
 export const humanValueAndUnit = (possiblyNegativeValue) => {
