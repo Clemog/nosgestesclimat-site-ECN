@@ -14,7 +14,7 @@ export const weeklyDietQuestion = (dottedName) =>
 	dottedName.includes('alimentation . plats') &&
 	dottedName.includes(' . nombre')
 // This is the number of possible answers in this very custom input component
-const chipsTotal = 14
+const chipsTotal = 5
 
 export default function SelectWeeklyDiet({
 	name,
