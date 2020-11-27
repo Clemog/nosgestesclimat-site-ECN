@@ -34,7 +34,7 @@ export default ({ nodeValue }) => {
 export const humanValueAndUnit = (possiblyNegativeValue) => {
 	let v = Math.abs(possiblyNegativeValue),
 		[raw, unit] = humanWeight(v),
-		value = raw.toFixed(1) * (possiblyNegativeValue < 0 ? -1 : 1)
+		value = raw.toPrecision(3) * (possiblyNegativeValue < 0 ? -1 : 1)
 	return { value, unit }
 }
 

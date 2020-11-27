@@ -6,7 +6,6 @@ import { animated, useSpring } from 'react-spring'
 import ShareButton from 'Components/ShareButton'
 import { findContrastedTextColor } from 'Components/utils/colors'
 import { motion } from 'framer-motion'
-
 import BallonGES from './images/ballonGES.svg'
 import StartingBlock from './images/starting block.svg'
 import SessionBar from 'Components/SessionBar'
@@ -15,23 +14,23 @@ import { Link } from 'react-router-dom'
 import Meta from '../../components/utils/Meta'
 
 const gradient = tinygradient([
-		'#78e08f',
-		'#e1d738',
-		'#f6b93b',
-		'#b71540',
-		'#000000',
-	]),
+	'#78e08f',
+	'#e1d738',
+	'#f6b93b',
+	'#b71540',
+	'#000000',
+]),
 	colors = gradient.rgb(20)
 
 const getBackgroundColor = (score) =>
 	colors[
-		Math.round((score < 2000 ? 0 : score > 20000 ? 19000 : score - 2000) / 1000)
+	Math.round((score < 2000 ? 0 : score > 20000 ? 19000 : score - 2000) / 1000)
 	]
 
 const sumFromDetails = (details) =>
 	details.reduce((memo, [name, value]) => memo + value, 0)
 
-export default ({}) => {
+export default ({ }) => {
 	const query = new URLSearchParams(useLocation().search)
 	const details = query.get('details')
 
@@ -55,10 +54,10 @@ export default ({}) => {
 	const { value } = headlessMode
 		? { value: score }
 		: useSpring({
-				config: { mass: 1, tension: 150, friction: 150, precision: 1000 },
-				value: score,
-				from: { value: 0 },
-		  })
+			config: { mass: 1, tension: 150, friction: 150, precision: 1000 },
+			value: score,
+			from: { value: 0 },
+		})
 
 	return (
 		<AnimatedDiv
@@ -113,9 +112,17 @@ const AnimatedDiv = animated(({ score, value, details, headlessMode }) => {
 					font-size: 110%;
 				`}
 			>
-				<div id="shareImage" css="padding: 2rem 0">
-					<div css="display: flex; align-items: center; justify-content: center">
-						<img src={BallonGES} css="height: 10rem" />
+				<div css="display: flex; align-items: center; justify-content: center">
+					<img src={BallonGES} css="height: 10rem" />
+					<div>
+						<div css="font-weight: bold; font-size: 280%; margin-bottom: .3rem">
+							<span css="width: 3.6rem; text-align: right; display: inline-block">
+								{Number.parseFloat(value / 1000).toFixed(2)}
+							</span>{' '}
+							<span css="width: 13rem; text-align: right; display: inline-block">
+								tonnes
+							</span>{' '}
+						</div>
 						<div
 							css={`
 								flex-direction: ${headlessMode ? 'column-reverse' : 'column'};
