@@ -6,7 +6,6 @@ import { animated, useSpring } from 'react-spring'
 import ShareButton from 'Components/ShareButton'
 import { findContrastedTextColor } from 'Components/utils/colors'
 import { motion } from 'framer-motion'
-
 import BallonGES from './images/ballonGES.svg'
 import StartingBlock from './images/starting block.svg'
 import SessionBar from 'Components/SessionBar'
@@ -99,9 +98,11 @@ const AnimatedDiv = animated(({ score, value, details }) => {
 					<div>
 						<div css="font-weight: bold; font-size: 280%; margin-bottom: .3rem">
 							<span css="width: 3.6rem; text-align: right; display: inline-block">
-								{Math.round(value / 1000)}
+								{Number.parseFloat(value / 1000).toFixed(2)}
 							</span>{' '}
-							tonnes
+							<span css="width: 13rem; text-align: right; display: inline-block">
+								tonnes
+							</span>{' '}
 						</div>
 						<div
 							css={`
