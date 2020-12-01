@@ -19,8 +19,9 @@ import {
 } from 'Selectors/analyseSelectors'
 import { useDispatch, useSelector } from 'react-redux'
 import { setSimulationConfig } from 'Actions/actions'
-import Viande from './Viande'
 import Action from './Action'
+import ActionPlus from './ActionPlus'
+import ListeActionPlus from './ListeActionPlus'
 import { humanValueAndUnit } from './HumanWeight'
 import { encodeRuleName, decodeRuleName, splitName } from 'Engine/rules'
 
@@ -30,9 +31,16 @@ const gradient = tinygradient(['#0000ff', '#ff0000']),
 export default ({}) => {
 	return (
 		<Switch>
+			<Route exact path="/actions/plus">
+				<ListeActionPlus />
+			</Route>
+			<Route path="/actions/plus/:encodedName+">
+				<ActionPlus />
+			</Route>
 			<Route path="/actions/:encodedName+">
 				<Action />
 			</Route>
+
 			<Route path="/actions">
 				<AnimatedDiv />
 			</Route>
@@ -98,6 +106,7 @@ const AnimatedDiv = animated(({}) => {
 					total={bilans.length ? bilans[0].nodeValue : null}
 				/>
 			))}
+			<Link to="/actions/plus">Consulter les fiches complètes</Link>
 		</div>
 	)
 })
@@ -173,7 +182,7 @@ const MiniAction = ({ data, total }) => {
 					`}
 				>
 					<h2>{title}</h2>
-					<ActionValue {...{ total, nodeValue }} />
+					{nodeValue != null && <ActionValue {...{ total, nodeValue }} />}
 				</div>
 			</motion.div>
 		</Link>

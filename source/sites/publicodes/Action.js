@@ -26,7 +26,6 @@ export const Footprint = ({ value }) => <div>Lala {value}</div>
 
 export default ({}) => {
 	const { encodedName } = useParams()
-	console.log('ECN', encodedName)
 	const sitePaths = useContext(SitePathsContext)
 	const rules = useSelector(flatRulesSelector)
 	const nextSteps = useSelector(nextStepsSelector)
@@ -43,7 +42,7 @@ export default ({}) => {
 	useEffect(() => dispatch(setSimulationConfig(config)), [encodedName])
 	if (!configSet) return null
 
-	const { nodeValue, description, icons, title } = analysis.targets[0]
+	const { nodeValue, description, icons, title, plus } = analysis.targets[0]
 
 	const flatActions = rules.find((r) => r.dottedName === 'actions')
 	const relatedActions = flatActions.formule.somme
@@ -67,32 +66,31 @@ export default ({}) => {
 						{icons && <span>{emoji(icons)}</span>}
 						{title}
 					</h1>
-					<div css="display: flex; align-items: center">
-						<img src={BallonGES} css="height: 6rem" />
-						<div>
-							<HumanWeight nodeValue={nodeValue} />
-							<Link
-								to={
-									sitePaths.documentation.index +
-									'/' +
-									encodeRuleName(dottedName)
-								}
-							>
-								{emoji('🔬 ')} comprendre le calcul
-							</Link>
+					{nodeValue != null && (
+						<div css="display: flex; align-items: center">
+							<img src={BallonGES} css="height: 6rem" />
+							<div>
+								<HumanWeight nodeValue={nodeValue} />
+								<Link
+									to={
+										sitePaths.documentation.index +
+										'/' +
+										encodeRuleName(dottedName)
+									}
+								>
+									{emoji('🔬 ')} comprendre le calcul
+								</Link>
+							</div>
 						</div>
-					</div>
+					)}
 				</header>
 				<div css="margin: 1.6rem 0">
 					<Markdown source={description} />
-					{
-						// Nous n'avons pas encore intégré cette fonctionnalités, qui affichera le markdown de l'attribut "en savvoir plus"
-						false && (
-							<button className="ui__ button simple small">
-								En savoir plus
-							</button>
-						)
-					}
+					{plus && (
+						<Link to={'/actions/plus/' + encodedName}>
+							<button className="ui__ button plain">En savoir plus</button>
+						</Link>
+					)}
 				</div>
 			</div>
 			<SessionBar answerButtonOnly />
@@ -109,17 +107,21 @@ export default ({}) => {
 					/>
 				</>
 			)}
-			<p>Sur le même sujet</p>
-			<div>
-				{relatedActions.map((action) => (
-					<Link
-						to={'/actions/' + encodeRuleName(action.dottedName)}
-						css="> button {margin: .3rem .6rem}"
-					>
-						<button className="ui__ small button">{action.title}</button>
-					</Link>
-				))}
-			</div>
+			{relatedActions && (
+				<>
+					<p>Sur le même sujet</p>
+					<div>
+						{relatedActions.map((action) => (
+							<Link
+								to={'/actions/' + encodeRuleName(action.dottedName)}
+								css="> button {margin: .3rem .6rem}"
+							>
+								<button className="ui__ small button">{action.title}</button>
+							</Link>
+						))}
+					</div>
+				</>
+			)}
 		</div>
 	)
 }
