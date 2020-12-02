@@ -14,6 +14,7 @@ let SelectTwoAirports = React.lazy(() =>
 	import('Components/conversation/select/SelectTwoAirports')
 )
 import SelectWeeklyDiet from 'Components/conversation/custom/SelectWeeklyDiet'
+import SelectWeeklyTransport from 'Components/conversation/custom/SelectWeeklyTransport'
 
 // This function takes the unknown rule and finds which React component should be displayed to get a user input through successive if statements
 // That's not great, but we won't invest more time until we have more diverse input components and a better type system.
@@ -57,6 +58,31 @@ export default (rules) => (dottedName) => {
 				}}
 			/>
 		)
+
+	const weeklyTransportQuestion = (dottedName) =>
+		dottedName.includes('transport . moyens de transport') &&
+		dottedName.includes(' . pourcent')
+	if (weeklyTransportQuestion(rule.dottedName))
+		// This selected a precise set of questions to bypass their regular components and answer all of them in one big custom UI
+		return (
+			<SelectWeeklyTransport
+				{...{
+					...commonProps,
+					question:
+						'Dans quelles proportions utilisez-vous ces moyens de transport pour vous rendre à Centrale ?',
+					transportRules: rules
+						.filter((rule) => weeklyTransportQuestion(rule.dottedName))
+						.map((question) => [
+							rules.find(
+								({ dottedName }) =>
+									dottedName === parentName(question.dottedName)
+							),
+							question,
+						]),
+				}}
+			/>
+		)
+
 	if (getVariant(rule))
 		return (
 			<Question
