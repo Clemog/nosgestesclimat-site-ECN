@@ -104,6 +104,9 @@ export default compose(FormDecorator('selectWeeklyTransport'))(function Question
 											value={value}
 											suffix={'%'}
 											autoComplete="off"
+											onValueChange={({ floatValue }) =>
+												dispatch(updateSituation(question.dottedName, floatValue))
+											}
 										/>
 									</span>
 									<button
