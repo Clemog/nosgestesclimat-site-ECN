@@ -62,6 +62,7 @@ export default compose(FormDecorator('selectWeeklyTransport'))(function Question
 					}
 
 					> li h4 {
+						text-align: center;
 						margin: 0;
 					}
 					> li p {
