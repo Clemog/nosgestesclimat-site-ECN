@@ -53,7 +53,7 @@ export default compose(FormDecorator('selectWeeklyTransport'))(function Question
 
 					> li {
 						width: 14rem;
-						margin: 1rem;
+						margin: 0.7rem;
 						display: flex;
 						flex-direction: column;
 						justify-content: space-between;
