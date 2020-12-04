@@ -39,5 +39,8 @@ export let getSituationValue = (situationGate, variableName, rule) => {
 	if (rule.formule && rule.formule['une possibilité'])
 		return evaluateBottomUp(situationGate)(splitName(variableName))
 
+	if (rule.formule && rule.formule['plusieurs possibilités'])
+		return evaluateBottomUp(situationGate)(splitName(variableName))
+
 	return value
 }

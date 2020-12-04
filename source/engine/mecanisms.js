@@ -574,6 +574,7 @@ export let mecanismComplement = (recurse, k, v) => {
 	}
 }
 
+
 export let mecanismSynchronisation = (recurse, k, v) => {
 	let evaluate = (cache, situationGate, parsedRules, node) => {
 		let APIExplanation = evaluateNode(
@@ -615,9 +616,6 @@ export let mecanismSynchronisation = (recurse, k, v) => {
 	}
 }
 
-export let mecanismError = (recurse, k, v) => {
-	throw new Error("Le mécanisme '" + k + "' est inconnu !" + v)
-}
 export let mecanismOnePossibility = dottedName => (recurse, k, v) => ({
 	...v,
 	'une possibilité': 'oui',
@@ -626,3 +624,18 @@ export let mecanismOnePossibility = dottedName => (recurse, k, v) => ({
 		missingVariables: { [dottedName]: 1 }
 	})
 })
+
+export let mecanismMultiplePossibilities = dottedName => (recurse, k, v) => ({
+	...v,
+	'plusieurs possibilités': 'oui',
+	evaluate: (cache, situationGate, parsedRules, node) => ({
+		...node,
+		missingVariables: { [dottedName]: 1 }
+	})
+})
+
+export let mecanismError = (recurse, k, v) => {
+	throw new Error("Le mécanisme '" + k + "' est inconnu !" + v)
+}
+
+

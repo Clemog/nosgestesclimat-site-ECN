@@ -4,6 +4,9 @@
 une possibilité:
   type: enum
 
+plusieurs possibilités:
+  type: enum
+
 inversion numérique:
   type: numeric
   description: |
