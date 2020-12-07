@@ -34,20 +34,11 @@ export default () => {
 		>
 			<h1>Connaissez-vous l'empreinte carbone liée à votre activité professionnelle ?</h1>
 			<img src={Illustration} />
-			<div css="margin-bottom: 1rem">
-				<div css="margin: 1rem 0 .6rem;">
-					<Link to="/simulateur/bilan" className="ui__ plain button">
-						Faire le test
-					</Link>
-				</div>
-				<div css="margin: .6rem 0 1rem;">
-					<Link to="/actions" className="ui__ button">
-						Passer à l'action
-					</Link>
-				</div>
-				<NewsBanner />
+			<div css="margin: 1rem 0 .6rem;">
+				<Link to="/simulateur/bilan" className="ui__ plain button">
+					Faire le test
+				</Link>
 			</div>
-
 			<footer>
 				<div
 					css={`
