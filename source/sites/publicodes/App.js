@@ -15,6 +15,8 @@ import VersionBeta from './VersionBeta'
 import Actions from './Actions'
 import sitePaths from './sitePaths'
 import Logo from './Logo'
+import LogoNCO2 from './images/logo-NCO2.png'
+import LogoECN from './images/logo-ECN.png'
 import { StoreProvider } from './StoreContext'
 import {
 	persistSimulation,
@@ -60,7 +62,20 @@ class App extends Component {
 			>
 				<StoreProvider>
 					<div className="ui__ container">
-						<nav css="display: flex; justify-content: center; margin: .6rem auto">
+						<nav 
+							css={`
+								display: flex;
+								justify-content: space-evenly;
+								margin: .6rem;
+								margin-right: 2rem;
+							`}
+						>
+							<a href="https://www.ec-nantes.fr">
+								<img
+									css="height: 4.5rem;"
+									src={LogoECN}
+								/>
+							</a>						
 							<Link
 								to="/"
 								css={`
@@ -73,6 +88,12 @@ class App extends Component {
 							>
 								<Logo />
 							</Link>
+							<a href="https://neutralite-carbone.ec-nantes.fr">
+								<img
+									css="height: 4.5rem;"
+									src={LogoNCO2}
+								/>
+							</a>											
 						</nav>
 						<Switch>
 							<Route exact path="/" component={Landing} />
