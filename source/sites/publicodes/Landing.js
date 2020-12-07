@@ -39,11 +39,6 @@ export default () => {
 					Faire le test
 				</Link>
 			</div>
-			<div css="margin: .6rem 0 2rem;">
-				<Link to="/actions" className="ui__ button">
-					Passer à l'action
-				</Link>
-			</div>
 			<footer>
 				<div
 					css={`
