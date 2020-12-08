@@ -13,7 +13,9 @@ export default () => {
 				border-radius: 1rem;
 				padding: 0.4rem;
 				h1 {
+					width:80%;
 					margin-top: 0.3rem;
+					margin-left: 4.5rem;
 					font-size: 140%;
 					line-height: 1.2em;
 				}
@@ -31,7 +33,7 @@ export default () => {
 				}
 			`}
 		>
-			<h1>Connaissez-vous l'empreinte carbone liée à votre activité professionnelle ?</h1>
+			<h1>Connaissez-vous l'empreinte carbone liée à votre activité au sein de Centrale Nantes ?</h1>
 			<img src={Illustration} />
 			<div css="margin: 1rem 0 .6rem;">
 				<Link to="/simulateur/bilan" className="ui__ plain button">
@@ -74,7 +76,10 @@ export default () => {
 						}
 					`}
 				>
-					<Link to="/à-propos">{emoji('❔ ')}À propos</Link>
+					<Link to="/à-propos">
+						{emoji('❔ ')}
+						À propos
+					</Link>
 					<DocumentationButton />
 					<Link to="/nouveautés">
 						{emoji('✨️ ')}

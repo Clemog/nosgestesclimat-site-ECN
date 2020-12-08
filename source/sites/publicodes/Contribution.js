@@ -32,14 +32,14 @@ let createIssue = (title, body, setURL, disableButton) => {
 
 	fetch(
 		'https://publicodes.netlify.app/.netlify/functions/createIssue?' +
-			toPairs({
-				repo: 'datagir/nosgestesclimat',
-				title,
-				body,
-				labels: ['contribution'],
-			})
-				.map(([k, v]) => k + '=' + encodeURIComponent(v))
-				.join('&'),
+		toPairs({
+			repo: 'datagir/nosgestesclimat',
+			title,
+			body,
+			labels: ['contribution'],
+		})
+			.map(([k, v]) => k + '=' + encodeURIComponent(v))
+			.join('&'),
 		{ mode: 'cors' }
 	)
 		.then((response) => response.json())
@@ -52,7 +52,7 @@ function useQuery() {
 	return new URLSearchParams(useLocation().search)
 }
 
-export default ({}) => {
+export default ({ }) => {
 	let fromLocation = useQuery().get('fromLocation')
 	let [sujet, setSujet] = useState('')
 	let [comment, setComment] = useState('')
@@ -61,22 +61,16 @@ export default ({}) => {
 
 	return (
 		<div className="ui__ container" css="padding-bottom: 1rem">
-			<h1>Contribuer</h1>
 			<h2 css="font-size: 180%">{emoji('❔')}Questions fréquentes</h2>
 			<div className="ui__ card" css="padding-bottom: 1rem">
 				<Markdown escapeHtml={false} source={FAQ} />
 			</div>
 			<h2 css="font-size: 180%">{emoji('🙋‍♀️')}J'ai une autre question</h2>
 			<p>
-				{emoji('➡ ')}Vous connaissez Github ? Dans ce cas, venez contribuer
-				directement sur le projet{' '}
-				<a
-					href="https://github.com/betagouv/ecolab-data/blob/master/CONTRIBUTING.md"
-					target="_blank"
-				>
-					en suivant ce guide
-				</a>
-				.
+				{emoji('➡ ')}Laissez-nous un message à l'adresse mail suivante :
+				<a href="mailto: clement.auger@eleves.ec-nantes.fr">
+					clement.auger@eleves.ec-nantes.fr
+				</a>.
 			</p>
 			<p>
 				{emoji('➡ ')}Sinon, laissez-nous un message via le formulaire suivant.
@@ -148,6 +142,6 @@ ${fromLocation ? `Depuis la page : \`${fromLocation}\`` : ''}
 					</p>
 				)}
 			</div>
-		</div>
+		</div >
 	)
 }
