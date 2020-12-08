@@ -2,35 +2,12 @@ Bonjour, et bienvenue sur la Foire Aux Questions de Nos GEStes Climat, le calcul
 
 Vous trouverez sur ce document la réponse aux questions les plus fréquentes. S’il vous reste des interrogations ou si vous souhaitez nous proposer des améliorations, rendez-vous plus bas dans la section dédiée aux interrogations et aux contributions.
 
-Bonne lecture !
+### Je n'ai pas de voiture mais on me demande quand même toutes les informations de la voiture
+Dès que vous renseignez un kilométrage de voiture plus grand que 0, l'amortissement de la construction d'une voiture est appliqué. En effet, la fabrication d'une voiture (en moyenne 1 200 kg d'acier et matériaux divers) émet plusieurs tonnes de CO2.
+Pour ceux qui possèdent une voiture, toute l'empreinte de la construction de la voiture leur est attribuée. Si vous louez ou empruntez une voiture, seule une part de cette fabrication vous est ainsi appliquée, au prorata de votre utilisation.
+Une voiture reste inutilisée et à l’arrêt en moyenne 95 % du temps : vous faites donc bien de la partager !
 
-## GENERAL
-<h3 id="foyer">Je ne comprends pas si le calcul est fait par foyer ou par individu</h3>
-
-Le calculateur Nos GEStes Climat est un calculateur **d’empreinte carbone individuelle.**
-
-Cependant, certaines questions peuvent prêter à confusion (comme le nombre de personnes vivant dans votre logement ou encore le nombre de passagers en moyenne dans votre voiture). Ces questions sont là pour que l’on puisse ramener un impact global à l’échelle individuelle.
-
-Néanmoins, pour certains biens de consommation, cette distinction n’est pas toujours claire.
-
-En effet, au sein d’un foyer, il est très difficile d’arbitrer entre certains biens et services utilisés dans le cadre d’une consommation personnelle et d’autres pouvant être mutualisés (streaming vidéo, outils, etc.). Cependant, cela n’est pas très significatif car comme vous avez dû le découvrir (ou comme vous le découvrirez) ces postes sont rarement les plus importants de notre empreinte carbone.
-
-Vous pouvez donc répondre simplement aux questions sans vous préoccuper d’une estimation potentiellement fausse.
-
-L’équipe de Nos GEStes Climat travaille à développer une approche « foyer » du calculateur afin de pouvoir estimer l’empreinte carbone de sa famille.
-
-##  SERVICES PUBLICS
-### A la fin de mon calcul il y a un poste « service publique », qu’est-ce que c’est ?</h3>
-
-Ce poste représente l’empreinte carbone des services publics français ramené à une échelle individuelle. C’est-à-dire que l’on répartit l’impact des services entre les 66 millions de français.
-
-Tout le monde prend donc en quelque sorte « sa part » et ce pour plusieurs raisons.
-
-Tout d’abord, il est extrêmement rare voire quasi impossible de vivre sans jamais utiliser un seul service public. Qu’il s’agisse de service santé, de routes aménagées, de déclaration aux impôts, etc. tout le monde bénéficie des services publics.
-
-Deuxièmement, essayer de comptabiliser la part de service public qu’un individu utilise « pour de vrai » serait un travail titanesque et peu pertinent.
-
-### Oui mais quand même, ce poste représente parfois plus que certains de mes impacts…
+### Dois-je renseigner mes déplacements personnels ? 
 
 En effet, il peut être frustrant de se voir comptabiliser des impacts pour lesquels nous n’avons aucun levier d’action direct.
 
@@ -55,8 +32,13 @@ Ces ratios monétaires permettent d’estimer le contenu carbone d’un produit 
 
 Nos GEStes Climat a fait le choix de focaliser ses questions sur les produits achetés neufs car la différence d’impact avec les produits d’occasion est très significative. La phase de production du produit, qui représente très souvent la majorité des impacts, n’est pas prise en compte pour les produits d’occasion. Quant aux différences d’impacts entre les produits neufs (typiquement entre un jean issu de la fast-fashion et un jean éco-conçu), Nos GEStes Climat choisit, une fois encore, de rester simple.
 
+<<<<<<< HEAD
 ## ALIMENTATION
 ### Je consomme bio mais je ne vois pas de questions spécifiques à ce sujet ?
+=======
+### Dois-je renseigner mes déplacements personnels ? 
+### Pourquoi dois-je renseigner seulement 5 repas ?
+>>>>>>> Adapatation concernant la page d'accueil
 
 **Attention : manger bio ne réduit pas, en soit, l’empreinte carbone.**
 
