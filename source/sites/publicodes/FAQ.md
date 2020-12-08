@@ -1,37 +1,12 @@
 Voici quelques réponses aux questions très souvent posées sur les lacunes du calcul, les points surprenants ou les travaux en cours.
 
 
-
-<h3 id="foyer">Je ne comprends pas si le calcul est fait par foyer ou par individu</h3>
-
-Répondez simplement aux questions. Si l'on vous demande la surface ou la consommation de votre logement, répondez simplement à la question. Nous vous demanderons par la suite combien de personnes vivent sous ce toit pour en déduire votre empreinte *individuelle*. 
-
-Même raisonnement pour la voiture : vous répondez le nombre de km que vous faites vous en tant qu'individu. Nous déduirons votre empreinte individuelle en divisant par le nombre de passagers moyens de la voiture. 
-
-Pour le numérique et l'électroménager, il y a en effet une confusion, que nous tâcherons d'améliorer : nous ne divisons pas par le nombre de personnes du foyer. Si vous le pouvez, répondez donc pour vous en tant qu'individu. Mais comme vous le verrez, ces postes ne sont pas les plus importants en général dans l'empreinte totale.
- 
-Voir [113](https://github.com/betagouv/ecolab-data/issues/113).
-
- ### J'ai souscrit à un contrat d'électricité "verte" mais je ne vois pas cette question
-
-Quand on est abonné à une offre de fourniture d'électricité dite "verte", l'empreinte de notre consommation d'électricité est celle du réseau électrique français, unique et partagé par tout le monde. Elle est particulièrement [peu émettrice de gaz à effet de serre en France](https://electricitymap.org) grâce à la part du nucléaire et des barrages hydrauliques. 
-
-Les chiffres parfois fournis par les entreprises qui fournissent de l'électricité "verte" sont des chiffres théoriques, qui ne correspondent pas à notre connaissance à l'empreinte d'un client moyen. 
-
-C'est néanmoins un bon moyen pour être en phase avec ses valeurs, participer à la création d’emplois non délocalisables en France et passer un message aux décideur·se·s en faveur du développement des énergies renouvelables. Pour aller plus loin : http://changeonsdenergie.com
-
-### Je mange bio, local, de saison, et du poisson
-
-Nous n'avons pas encore intégré ces paramètres, mais cela viendra. 
-
-Voir [ici](https://github.com/betagouv/ecolab-data/issues/185). 
-
 ### Je n'ai pas de voiture mais on me demande quand même toutes les informations de la voiture
 Dès que vous renseignez un kilométrage de voiture plus grand que 0, l'amortissement de la construction d'une voiture est appliqué. En effet, la fabrication d'une voiture (en moyenne 1 200 kg d'acier et matériaux divers) émet plusieurs tonnes de CO2.
 Pour ceux qui possèdent une voiture, toute l'empreinte de la construction de la voiture leur est attribuée. Si vous louez ou empruntez une voiture, seule une part de cette fabrication vous est ainsi appliquée, au prorata de votre utilisation.
 Une voiture reste inutilisée et à l’arrêt en moyenne 95 % du temps : vous faites donc bien de la partager !
 
-<h3 id="déplacements-pro">Dois-je renseigner mes déplacements pro ?</h3>
+### Dois-je renseigner mes déplacements personnels ? 
 
 Non. Par "déplacement professionnel", on entend couramment les déplacements pour vous rendre dans un lieu de travail qui n'est pas votre lieu de travail habituel. Par exemple, un employé qui interviendrait sur les rails d'une voie ferroviaire. Un consultant qui irait dans une autre région rencontrer un client. 
 
@@ -55,4 +30,6 @@ Nous tâchons d'estimer au mieux l'empreinte du numérique, mais c'est un travai
 
 Le calcul est *ouvert*, ce qui signifie que tout le monde peut remettre en question les calculs et les améliorer. Il est basé au mieux sur les chiffres de la [Base Carbone de l'ADEME](https://www.bilans-ges.ademe.fr). Il reprend le calcul de l'outil MicMac d'Avenir Climatique.
 
+### Dois-je renseigner mes déplacements personnels ? 
+### Pourquoi dois-je renseigner seulement 5 repas ?
 
