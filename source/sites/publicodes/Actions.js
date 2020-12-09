@@ -1,29 +1,23 @@
-import React, { useEffect } from 'react'
-import { useParams, useLocation } from 'react-router'
-import { partition, sortBy, union } from 'ramda'
-import emoji from 'react-easy-emoji'
-import tinygradient from 'tinygradient'
-import { animated, useSpring, config } from 'react-spring'
-import ShareButton from 'Components/ShareButton'
-import { findContrastedTextColor } from 'Components/utils/colors'
-import { motion } from 'framer-motion'
-import { Switch, Route } from 'react-router-dom'
-
-import BallonGES from './images/ballonGES.svg'
-import SessionBar from 'Components/SessionBar'
-import { Link } from 'react-router-dom'
-import { HumanWeight, humanWeight } from './HumanWeight'
-import {
-	flatRulesSelector,
-	analysisWithDefaultsSelector,
-} from 'Selectors/analyseSelectors'
-import { useDispatch, useSelector } from 'react-redux'
 import { setSimulationConfig } from 'Actions/actions'
+import SessionBar from 'Components/SessionBar'
+import { decodeRuleName, encodeRuleName } from 'Engine/rules'
+import { motion } from 'framer-motion'
+import { partition, sortBy, union } from 'ramda'
+import React, { useEffect } from 'react'
+import emoji from 'react-easy-emoji'
+import { useDispatch, useSelector } from 'react-redux'
+import { useLocation } from 'react-router'
+import { Link, Route, Switch } from 'react-router-dom'
+import { animated } from 'react-spring'
+import {
+	analysisWithDefaultsSelector,
+	flatRulesSelector,
+} from 'Selectors/analyseSelectors'
+import tinygradient from 'tinygradient'
 import Action from './Action'
 import ActionPlus from './ActionPlus'
-import ListeActionPlus from './ListeActionPlus'
 import { humanValueAndUnit } from './HumanWeight'
-import { encodeRuleName, decodeRuleName, splitName } from 'Engine/rules'
+import ListeActionPlus from './ListeActionPlus'
 
 const gradient = tinygradient(['#0000ff', '#ff0000']),
 	colors = gradient.rgb(20)
@@ -87,6 +81,8 @@ const AnimatedDiv = animated(({}) => {
 		analysis.targets
 	)
 
+	const sortedActions = sortBy((a) => a.nodeValue)(actions)
+
 	return (
 		<div css="padding: 0 .3rem 1rem; max-width: 600px; margin: 1rem auto;">
 			<SessionBar />
@@ -100,13 +96,57 @@ const AnimatedDiv = animated(({}) => {
 				Comment réduire mon empreinte ?
 			</h1>
 
-			{sortBy((a) => -a.nodeValue)(actions).map((action) => (
+			{sortedActions.map((action) => (
 				<MiniAction
+					key={action.dottedName}
 					data={action}
 					total={bilans.length ? bilans[0].nodeValue : null}
 				/>
 			))}
-			<Link to="/actions/plus">Consulter les fiches complètes</Link>
+
+			<Link
+				to="/actions/plus"
+				className="ui__ button plain"
+				css={`
+					margin: 0.6rem 0;
+					width: 100%;
+					text-transform: none !important;
+					img {
+						font-size: 200%;
+					}
+					a {
+						color: var(--textColor);
+						text-decoration: none;
+					}
+				`}
+			>
+				<div
+					css={`
+						display: flex;
+						justify-content: center;
+						align-items: center;
+						width: 100%;
+						> div {
+							margin-left: 1.6rem;
+							text-align: left;
+							small {
+								color: var(--textColor);
+							}
+						}
+					`}
+				>
+					{emoji('📚')}
+					<div>
+						<div>Consultez nos fiches détaillées</div>
+						<p>
+							<small>
+								Parce que ces actions ne sont jamais simples, une explication
+								permet d'aller au-delà d'un simple chiffre.
+							</small>
+						</p>
+					</div>
+				</div>
+			</Link>
 		</div>
 	)
 })

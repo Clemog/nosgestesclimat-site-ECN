@@ -1,24 +1,32 @@
+import { ScrollToTop } from 'Components/utils/Scroll'
+import { encodeRuleName } from 'Engine/rules'
 import React from 'react'
-import { flatRulesSelector } from 'Selectors/analyseSelectors'
+import emoji from 'react-easy-emoji'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
-import emoji from 'react-easy-emoji'
-import { encodeRuleName } from 'Engine/rules'
+import { flatRulesSelector } from 'Selectors/analyseSelectors'
 
 export default () => {
 	const rules = useSelector(flatRulesSelector)
 	const plus = rules.filter((r) => r.plus)
 
 	return (
-		<div css="padding: 0 .3rem 1rem; max-width: 600px; margin: 1rem auto;">
-			<h1>Nos fiches complètes</h1>
+		<div className="ui__ container">
+			<ScrollToTop />
+			<h1>
+				Nos fiches complètes{' '}
+				<img src="https://img.shields.io/badge/-beta-purple" />
+			</h1>
 			<p>
-				<em>En cours de construction</em>
+				<em>
+					Plongez-vous dans cette documentation qui détaille chaque action.
+				</em>
 			</p>
 			<ul
 				css={`
 					list-style-type: none;
 					display: flex;
+					flex-wrap: wrap;
 					li {
 						margin: 0.6rem;
 						text-align: center;
@@ -35,15 +43,17 @@ export default () => {
 								className="ui__ card"
 								css={`
 									display: flex;
-									align-items: center;
-									justify-content: center;
-									flex-wrap: wrap;
+									flex-direction: column;
+									justify-content: space-evenly;
 									width: 12rem;
 									height: 10rem;
+									img {
+										font-size: 150%;
+									}
 								`}
 							>
-								{emoji(icons || '🎯🎯')}
-								<h2>{title}</h2>
+								<div>{emoji(icons || '🎯')}</div>
+								<div>{title}</div>
 							</div>
 						</Link>
 					</li>
