@@ -113,7 +113,7 @@ const AnimatedDiv = animated(({ score, value, details, headlessMode }) => {
 				`}
 			>
 				<div css="display: flex; align-items: center; justify-content: center">
-					<img src={BallonGES} css="height: 10rem" />
+					<img src={BallonGES} css="height: 10rem; margin-right: 3rem" />
 					<div>
 						<div css="font-weight: bold; font-size: 280%; margin-bottom: .3rem">
 							<span css="width: 3.6rem; text-align: right; display: inline-block">
@@ -125,17 +125,38 @@ const AnimatedDiv = animated(({ score, value, details, headlessMode }) => {
 						</div>
 						<div
 							css={`
-								flex-direction: ${headlessMode ? 'column-reverse' : 'column'};
-								display: flex;
-								justify-content: space-evenly;
-								height: 10rem;
+								background: #ffffff3d;
+								border-radius: 0.6rem;
+								margin: 0 auto;
+								padding: 0.4rem 0.7rem;
+								width: 18rem;
+
+								> div {
+									display: flex;
+									justify-content: space-between;
+									flex-wrap: wrap;
+								}
+								strong {
+									font-weight: bold;
+								}
+								> img {
+									margin: 0 0.6rem !important;
+								}
 							`}
 						>
-							<div css="font-weight: bold; font-size: 280%;">
-								<span css="width: 3.6rem; text-align: right; display: inline-block">
-									{roundedValue}
+							<div>
+								<span>
+									{emoji('🏫 ')}
+									Moyenne à l'ECN{' '}
 								</span>{' '}
-								tonnes
+								<strong> 2.25 t</strong>
+							</div>
+							<div>
+								<span>
+									{emoji('👤 ')}
+									Mon profil-type : XX{' '}
+								</span>
+								<strong>1 à 1.5 t</strong>
 							</div>
 							<div
 								css={`

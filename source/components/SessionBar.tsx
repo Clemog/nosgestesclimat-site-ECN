@@ -1,4 +1,5 @@
 import {
+	resetSimulation,
 	deletePreviousSimulation,
 	goToQuestion,
 	loadPreviousSimulation,
@@ -90,9 +91,52 @@ export default function SessionBar({
 	const rules = useSelector((state) => state.rules)
 	const engine = useEngine(objectifs)
 
-	const history = useHistory()
-	const location = useLocation(),
-		path = location.pathname
+	if (['/fin', '/actions'].includes(location.pathname))
+		return (
+			<div
+				css={`
+					display: flex;
+					justify-content: space-between;
+					button {
+						margin: 0 0.2rem;
+					}
+					margin: 0.6rem;
+				`}
+			>
+				{arePreviousAnswers ? (
+					<Button
+						className="simple small"
+						onClick={() => {
+							dispatch(goToQuestion(last(foldedSteps)))
+							history.push('/simulateur/bilan')
+						}}
+					>
+						{emoji('📊 ')}
+						<T>Revenir à ma simulation</T>
+					</Button>
+				) : (
+					<Button
+						className="plain"
+						onClick={() => {
+							history.push('/simulateur/bilan')
+						}}
+					>
+						<T>Faire le test</T>
+					</Button>
+				)}
+				<Button
+					className="simple small"
+					onClick={() => {
+						dispatch(resetSimulation())
+						dispatch(deletePreviousSimulation())
+						history.push('/simulateur/bilan')
+					}}
+				>
+					{emoji('⏪ ')}
+					<T>Effacer et recommencer</T>
+				</Button>
+			</div>
+		)
 
 	let buttons = []
 	if (answerButtonOnly) {
@@ -151,36 +195,36 @@ export default function SessionBar({
 		buttons = [
 			...(arePreviousAnswers
 				? [
-						<Button
-							key="terminer"
-							className="simple small"
-							onClick={() => {
-								dispatch(resetSimulation())
-								dispatch(deletePreviousSimulation())
-							}}
-						>
-							{emoji('♻️ ')}
+					<Button
+						key="terminer"
+						className="simple small"
+						onClick={() => {
+							dispatch(resetSimulation())
+							dispatch(deletePreviousSimulation())
+						}}
+					>
+						{emoji('♻️ ')}
 							Recommencer
 						</Button>,
-						<Button
-							key="modifier"
-							className="simple small"
-							onClick={() => setShowAnswerModal(true)}
-						>
-							{emoji('📋 ')}
+					<Button
+						key="modifier"
+						className="simple small"
+						onClick={() => setShowAnswerModal(true)}
+					>
+						{emoji('📋 ')}
 							Mes réponses
 						</Button>,
-						true && (
-							<Button
-								key="bouger"
-								className="simple small"
-								onClick={() => history.push('/actions')}
-							>
-								{emoji('💥 ')}
+					true && (
+						<Button
+							key="bouger"
+							className="simple small"
+							onClick={() => history.push('/actions')}
+						>
+							{emoji('💥 ')}
 								Passer à l'action
-							</Button>
-						),
-				  ]
+						</Button>
+					),
+				]
 				: []),
 			showAnswerModal && <Answers onClose={() => setShowAnswerModal(false)} />,
 		]
