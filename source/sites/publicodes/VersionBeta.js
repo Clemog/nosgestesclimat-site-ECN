@@ -10,8 +10,8 @@ export default () => {
 	if (!(pathHas('/documentation') || pathHas('/simulateur'))) return null
 	return (
 		<div css=" text-align: center; color: black; ">
-			Une idée, un problème ? {emoji('📮')}{' '}
-			<Link to="/contribuer">Faites-nous un retour !</Link>
+			Une question, un problème, une idée ? {emoji('📮')}{' '}
+			<Link to="/contribuer">C'est par ici !</Link>
 		</div>
 	)
 }

@@ -85,7 +85,7 @@ const AnimatedDiv = animated(({ score, value, details }) => {
 				`}
 			>
 				<div css="display: flex; align-items: center; justify-content: center">
-					<img src={BallonGES} css="height: 10rem" />
+					<img src={BallonGES} css="height: 10rem; margin-right: 3rem" />
 					<div>
 						<div css="font-weight: bold; font-size: 280%; margin-bottom: .3rem">
 							<span css="width: 3.6rem; text-align: right; display: inline-block">
@@ -100,7 +100,8 @@ const AnimatedDiv = animated(({ score, value, details }) => {
 								background: #ffffff3d;
 								border-radius: 0.6rem;
 								margin: 0 auto;
-								padding: 0.4rem 1rem;
+								padding: 0.4rem 0.7rem;
+								width: 18rem;
 
 								> div {
 									display: flex;
@@ -117,17 +118,17 @@ const AnimatedDiv = animated(({ score, value, details }) => {
 						>
 							<div>
 								<span>
-									{emoji('🇫🇷 ')}
-									moyenne{' '}
+									{emoji('🏫 ')}
+									Moyenne à l'ECN{' '}
 								</span>{' '}
-								<strong> 11 tonnes</strong>
+								<strong> 2.25 t</strong>
 							</div>
 							<div>
 								<span>
-									{emoji('🎯 ')}
-									objectif{' '}
+									{emoji('👤 ')}
+									Mon profil-type : XX{' '}
 								</span>
-								<strong>2 tonnes</strong>
+								<strong>1 à 1.5 t</strong>
 							</div>
 							<div css="margin-top: .2rem;justify-content: flex-end !important">
 								<a

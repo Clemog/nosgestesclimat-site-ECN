@@ -76,11 +76,6 @@ const Simulateur = (props) => {
 					</>
 				}
 			/>
-			<ShareButton
-				text="Mesure ton impact sur le simulateur Ecolab climat !"
-				url={'https://' + window.location.hostname + props.match.url}
-				title={rule.title}
-			/>
 		</div>
 	)
 }

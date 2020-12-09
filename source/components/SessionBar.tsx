@@ -1,4 +1,5 @@
 import {
+	resetSimulation,
 	deletePreviousSimulation,
 	loadPreviousSimulation,
 	goToQuestion,
@@ -87,7 +88,16 @@ export default function SessionBar({ answerButtonOnly = false }) {
 
 	if (['/fin', '/actions'].includes(location.pathname))
 		return (
-			<div css={css}>
+			<div 
+				css={`
+					display: flex;
+					justify-content: space-between;
+					button {
+						margin: 0 0.2rem;
+					}
+					margin: 0.6rem;
+				`}
+			>
 				{arePreviousAnswers ? (
 					<Button
 						className="simple small"
@@ -109,6 +119,17 @@ export default function SessionBar({ answerButtonOnly = false }) {
 						<T>Faire le test</T>
 					</Button>
 				)}
+				<Button
+					className="simple small"
+					onClick={() => {
+						dispatch(resetSimulation())
+						dispatch(deletePreviousSimulation())
+						history.push('/simulateur/bilan')
+					}}
+				>
+					{emoji('⏪ ')}
+					<T>Effacer et recommencer</T>
+				</Button>
 			</div>
 		)
 
