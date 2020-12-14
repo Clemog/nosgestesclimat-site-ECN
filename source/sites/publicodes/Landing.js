@@ -13,11 +13,13 @@ export default () => {
 				border-radius: 1rem;
 				padding: 0.4rem;
 				h1 {
-					width:80%;
+					text-align:center;
 					margin-top: 0.3rem;
-					margin-left: 4.5rem;
+					margin-left: auto;
+					margin-right: auto;
 					font-size: 140%;
 					line-height: 1.2em;
+					width:80%;
 				}
 				> div > a {
 				}
@@ -35,7 +37,7 @@ export default () => {
 		>
 			<h1>Connaissez-vous l'empreinte carbone liée à votre activité au sein de Centrale Nantes ?</h1>
 			<img src={Illustration} />
-			<div css="margin: 1rem 0 .6rem;">
+			<div css="margin: 1rem auto;">
 				<Link to="/simulateur/bilan" className="ui__ plain button">
 					Faire le test
 				</Link>
@@ -43,19 +45,20 @@ export default () => {
 			<footer>
 				<div
 					css={`
+
 						display: flex;
+						justify-content: space-evenly;
 						align-items: center;
-						justify-content: center;
 						margin-bottom: 1rem;
-						img {
-							margin: 0 0.6rem;
-						}
+						margin-left: auto;
+						margin-right: auto;
+						width: 80%;
 					`}
 				>
-					<img css="height: 6rem; margin-right: .6rem" src={Marianne} />
+					<img css="height: 6rem;" src={Marianne} />
 					<a href="https://ademe.fr">
 						<img
-							css="height: 5rem; margin-right: .6rem"
+							css="height: 5rem;"
 							src="https://www.ademe.fr/sites/all/themes/ademe/logo.png"
 						/>
 					</a>
