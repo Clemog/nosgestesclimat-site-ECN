@@ -24,7 +24,7 @@ const gradient = tinygradient([
 
 const getBackgroundColor = (score) =>
 	colors[
-	Math.round((score < 2000 ? 0 : score > 20000 ? 19000 : score - 2000) / 1000)
+	Math.round((score < 1000 ? 0 : score > 20000 ? 19000 : score + 4000) / 1000)
 	]
 
 const sumFromDetails = (details) =>
@@ -71,14 +71,8 @@ export default ({ }) => {
 
 const AnimatedDiv = animated(({ score, value, details, headlessMode }) => {
 	const backgroundColor = getBackgroundColor(value).toHexString(),
-		backgroundColor2 = getBackgroundColor(value + 2000).toHexString(),
-		textColor = findContrastedTextColor(backgroundColor, true),
-		roundedValue = Math.round(value / 1000),
-		shareImage =
-			'https://aejkrqosjq.cloudimg.io/v7/' +
-			window.location.origin +
-			'/.netlify/functions/ending-screenshot?pageToScreenshot=' +
-			window.location
+		backgroundColor2 = getBackgroundColor(value + 4000).toHexString(),
+		textColor = findContrastedTextColor(backgroundColor, true)
 
 	return (
 		<div css="padding: 0 .3rem 1rem; max-width: 600px; margin: 0 auto;">
