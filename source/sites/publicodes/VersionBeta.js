@@ -7,7 +7,7 @@ export default () => {
 
 	const pathHas = (fragment) => location.pathname.includes(fragment)
 
-	if (!(pathHas('/documentation') || pathHas('/simulateur'))) return null
+	if (!(pathHas('/documentation') || pathHas('/simulateur') || pathHas('/fin'))) return null
 	return (
 		<div css=" text-align: center; color: black; ">
 			Une question, un problème, une idée ? {emoji('📮')}{' '}
