@@ -1,23 +1,39 @@
-Bonjour, et bienvenue sur la Foire Aux Questions de Nos GEStes Climat, le calculateur d’empreinte carbone individuelle et votre coach de transition bas carbone !
+Bonjour, et bienvenue sur la Foire Aux Questions de Nos GEStes Climat (ECN), le calculateur d’empreinte carbone individuelle et votre coach de transition bas carbone !
 
-Vous trouverez sur ce document la réponse aux questions les plus fréquentes. S’il vous reste des interrogations ou si vous souhaitez nous proposer des améliorations, rendez-vous plus bas dans la section dédiée aux interrogations et aux contributions.
+Vous trouverez sur ce document la réponse aux questions les plus fréquentes. S’il vous reste des interrogations, rendez-vous en bas dans de la page !
 
-### Je n'ai pas de voiture mais on me demande quand même toutes les informations de la voiture
-Dès que vous renseignez un kilométrage de voiture plus grand que 0, l'amortissement de la construction d'une voiture est appliqué. En effet, la fabrication d'une voiture (en moyenne 1 200 kg d'acier et matériaux divers) émet plusieurs tonnes de CO2.
-Pour ceux qui possèdent une voiture, toute l'empreinte de la construction de la voiture leur est attribuée. Si vous louez ou empruntez une voiture, seule une part de cette fabrication vous est ainsi appliquée, au prorata de votre utilisation.
-Une voiture reste inutilisée et à l’arrêt en moyenne 95 % du temps : vous faites donc bien de la partager !
+Bonne lecture !
 
-### Dois-je renseigner mes déplacements personnels ? 
+## GENERAL
+
+### Pourquoi ai-je un total provisoire ? 
+
+L’estimation de votre bilan carbone lié à l’activité de Centrale correspond aux réponses que vous avez indiquées. Si vous changez vos habitudes, que cela concerne l’alimentation, le transport..., votre bilan carbone changera en conséquence. En espérant qu’il change dans le bon sens !
+
+##  PROFIL
+
+### Une part d'émission carbone m'est attribuée dans le poste « profil », qu’est-ce que c’est ?
+
+Ce poste représente l’empreinte carbone des services publics français ramené à une échelle individuelle. C’est-à-dire que l’on répartit l’impact des services entre les 66 millions de français.
+
+Tout le monde prend donc en quelque sorte « sa part » et ce pour plusieurs raisons.
+
+Tout d’abord, il est extrêmement rare voire quasi impossible de vivre sans jamais utiliser un seul service public. Qu’il s’agisse de service santé, de routes aménagées, de déclaration aux impôts, etc. tout le monde bénéficie des services publics.
+
+Deuxièmement, essayer de comptabiliser la part de service public qu’un individu utilise « pour de vrai » serait un travail titanesque et peu pertinent.
+
+### Oui mais quand même, ce poste représente parfois plus que certains de mes impacts…
 
 En effet, il peut être frustrant de se voir comptabiliser des impacts pour lesquels nous n’avons aucun levier d’action direct.
 
 **Mais c’est là tout l’enjeu de la transition au sens large.**
 
-Cette transition ne peut se penser seulement à l’échelle individuelle. Elle est une condition nécessaire mais non suffisante d’une transition plus globale à l’échelle de notre société. Cela revient donc à jouer avec des leviers d’actions indirects (vote, engagement associatif, sensibilisation autour de soi, etc.).
+Cette transition ne peut se penser seulement à l’échelle individuelle. Elle une condition nécessaire mais non suffisante d’une transition plus globale à l’échelle de l'école et de notre société. Cela revient donc à jouer avec des leviers d’actions indirects (engagement associatif, sensibilisation autour de soi, etc.).
 
 C’est d’ailleurs tout l’objet de Nos GEStes Climat qui œuvre à sensibiliser et faire prendre conscience des enjeux !
 
 ## CONSOMMATION
+<<<<<<< HEAD
 ### J’achète souvent des biens durables et écologiques mais l’outil ne semble pas faire la différence. Comment cela se fait-il ?
 
 C’est une remarque qui revient souvent quand il s’agit d’évaluer son empreinte carbone.
@@ -61,33 +77,28 @@ Le principal enjeu de ce poste est la consommation de viande et de produits issu
 L’alimentation locale permet en effet de réduire les distances de transports des produits que nous consommons tout en soutenant les agriculteurs de nos régions.
 
 Néanmoins la question de la provenance de nos produits et des impacts associés ne peut être résumée à la comparaison entre une courte et longue distance. Les effets d’échelle, la centralisation des produits, l’efficacité des transports utilisés et bien d’autres paramètres complexifient la chose d’un point de vue de la comptabilité carbone. Quant à la possibilité de renseigner la provenance des produits que nous consommons, cela reviendrait à rajouter un grand nombre de question, détournant Nos GEStes Climat de sa cible grand public.
+=======
 
-### Les questions posées ne correspondent pas bien à mon type d’alimentation (de saison, poisson, légumes du potager, etc.)
+## ALIMENTATION
 
-Nos GEStes Climat est, avant tout, un outil pensé pour le grand public. C’est pourquoi nous avons souhaité limiter le nombre de questions aux aspects que nous savons les plus importants de notre alimentation.
+### Pourquoi dois-je renseigner seulement 5 repas ?
+>>>>>>> Update FAQ.md
 
-Néanmoins, Nos GEStes Climat est un outil libre d’accès où la contribution de tous est possible et souhaitée. N’hésitez donc pas à contribuer et à nous faire part de vos suggestions d’amélioration !
+Nous considérons uniquement le bilan carbone lié à l’activité sur l’école Centrale. Ces 5 repas correspondent donc aux repas du midi du lundi au vendredi.
 
-On vous explique comment [ici](https://github.com/betagouv/ecolab-data/issues/185).
+### Je consomme souvent aux distributeurs automatiques, pourquoi la question n'est pas posée ?
+
+Cette partie est en cours de développement et devrait apparaitre prochainement dans le calcul !
 
 ## TRANSPORT
-### Dois-je renseigner mes déplacements pro ?
 
-Non.
-
-Nos GEStes Climat est dédié à l’évaluation de **l’empreinte carbone individuelle**. Les déplacements que vous effectuez dans le cadre de votre travail comme livrer un client, se rendre à une réunion, prendre l’avion pour assister à 3 jours de séminaire, etc. ne sont pas à prendre en compte quand vous répondez aux questions du calculateur. 
-
-Ces déplacements relevant de l’activité professionnelle seront comptabilisés dans l’empreinte carbone de votre organisation (entreprise, collectivité, association, etc). On parle alors de bilans d’émissions de Gaz à Effet de Serre (BEGES).
-
-**Néanmoins, les déplacements réguliers domicile-travail vous sont demandés.** Pourquoi ? Car, à titre personnel, vous avez la main sur le type de transports que vous choisissez d’utiliser et sur l’endroit où vous habitez. 
-
-Cependant la réalité est souvent bien différente et loin de nous la volonté de culpabiliser ceux dont la mobilité quotidienne est centrée autour de la voiture car ils sont éloignés de leur lieu de travail. Même si certains choix peuvent être questionnés, beaucoup d’entre nous sont, en effet, contraints à la voiture individuelle, faute d’alternatives sérieuses disponibles (transports en commun, télétravail, covoiturage, etc.).
+### Dois-je renseigner mes déplacements personnels ? 
 
 ### Je n'ai pas de voiture mais on me demande quand même toutes ses informations …
 
-Dès que vous renseignez un kilométrage parcouru en voiture plus grand que 0, l’outil cherche à vous « appliquer » une part de l'amortissement de la construction de la voiture que vous utilisez. 
-
-Si vous avez des suggestions à faire quant à cette limite et de manière générale sur l’outil, n’hésitez pas à contribuer. Nos GEStes Climat est un outil libre d’accès où la contribution de tous est possible et souhaitée. On vous explique comment [ici](https://github.com/betagouv/ecolab-data/issues/185).
+Dès que vous renseignez un kilométrage de voiture plus grand que 0, l'amortissement de la construction d'une voiture est appliqué. En effet, la fabrication d'une voiture (en moyenne 1 200 kg d'acier et matériaux divers) émet plusieurs tonnes de CO2.
+Pour ceux qui possèdent une voiture, toute l'empreinte de la construction de la voiture leur est attribuée. Si vous louez ou empruntez une voiture, seule une part de cette fabrication vous est ainsi appliquée, au prorata de votre utilisation.
+Une voiture reste inutilisée et à l’arrêt en moyenne 95 % du temps : vous faites donc bien de la partager !
 
 ### Mais qu’est-ce que l’amortissement ?
 
@@ -105,42 +116,9 @@ Nos GEStes Climat fait le choix de ne pas poser de question sur le type de carbu
 
 A ce sujet, n’hésitez pas à consulter ce [simulateur](https://ecolab.ademe.fr/transport) pour comparer l’impact sur le climat de différents modes de transport pour un même trajet.
 
-## LOGEMENT
-
-### J’utilise un combustible qui n’est pas renseigné dans l’outil. Comment faire ?
-
-A l’heure actuelle, il vous faudra raisonner avec le combustible qui s’approche le plus possible du combustible que vous utilisez. Nos GEStes Climat fait le choix de se focaliser sur les types de combustible les plus utilisés en France.
-
-Néanmoins, dans le cadre du développement continu de Nos GEStes Climat, il est possible que certains types de combustible soit ajouté dans le futur.
-
-### Je suis raccordé au réseau de chaleur de ma collectivité mais cette option n’est pas proposée par l’outil…
-
-En effet, Nos GEStes Climat ne permet pas de renseigner si on est raccordé à un réseau de chaleur, et ce pour plusieurs raisons.
-
-Tout d’abord, cela nécessiterait de répertorier l’ensemble des réseaux de chaleur en France et il en existe plus de 750…
-
-De plus, la donnée (i.e. le facteur d’émission du réseau) n’est **pas toujours fiable et contrôlable** et est sujette à de fortes évolutions au cours du temps, en fonction des procédés utilisés pour faire fonctionner le réseau de chaleur (chaleur récupérée depuis les incinérateurs, énergie renouvelable mais aussi souvent fuel ou gaz naturel).
-
-Nous n’avons pas fait le choix non plus de considérer un réseau de chaleur « moyen » étant donné qu’en fonction de la part d’hydrocarbure utilisée dans leur fonctionnement, leur impact en termes de gaz à effet de serre peut varier très fortement.
-
-### Mon logement est alimenté en électricité verte, pourquoi ne puis-je pas le prendre en compte ?
-
-A moins de posséder sa propre source d’électricité (panneaux photovoltaïque), l’électricité dite « verte » fournie par les producteurs d’énergie renouvelable ne peut vous être acheminée sans l’existence du **réseau électrique français, réseau unique et partagé par tous.**
-
-Nos GEStes Climat utilise donc seulement le facteur d’émission de ce réseau, qui sera d’autant plus bas que des sources durables y seront connectées. Ce facteur d’émission est particulièrement [faible](https://www.electricitymap.org/ranking) grâce à la part importante de nucléaire et de barrages hydrauliques dans notre mix.
-
-De plus, les chiffres fournis par les fournisseurs d’électricité "verte" sont des chiffres théoriques, qui n’ont pas fait l’objet de concertations techniques comme l’ensemble des chiffres de la [Base Carbone®](https://www.bilans-ges.ademe.fr/).
-
-Néanmoins, souscrire un contrat d’électricité « verte » est un bon moyen pour être en phase avec ses valeurs, participer à la création d’emplois non délocalisables et passer un message aux décideur·se·s en faveur du développement des énergies renouvelables.
-
-Pour aller plus loin : http://changeonsdenergie.com
-
 ## NUMERIQUE
-### Pourquoi me demande-t-on l’âge de mes équipements électroniques ?
+### Pourquoi ne me demande-t-on pas d'information sur mes équipements informatiques ?
 
-A l’instar de ce qui est fait pour la voiture, un amortissement est réalisé pour les produits électroniques dont la fabrication à un très fort impact sur le climat (notamment à cause de la phase d’extraction des matières premières).
-
-Nous vous demandons donc l’âge du produit afin de connaître la durée restant à amortir. Consultez la question spécifique de l’amortissement pour comprendre de quoi il s’agit. 
 
 ### J'ai entendu dire que le numérique avait un gros impact sur le climat, le simulateur semble me dire le contraire…
 
@@ -149,5 +127,3 @@ L’évaluation des impacts du numérique et plus particulièrement des contenus
 Nous estimons au mieux l’empreinte numérique en nous basant sur les données de la [Base Carbone®](https://www.bilans-ges.ademe.fr/) mais certaines informations ou questionnements peuvent s’avérer manquant.
 
 Si vous souhaitez suivre l’impact de vos navigations sur internet, l’extension pour navigateur « carbonalyser » est là pour vous.
-
-Et si vous souhaitez nous aider à contribuer à l’amélioration de ces réflexions, n’hésitez pas à contribuer. On vous explique comment [ici](https://github.com/betagouv/ecolab-data/issues/185).
