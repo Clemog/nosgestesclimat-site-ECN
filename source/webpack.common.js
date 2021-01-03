@@ -118,7 +118,7 @@ module.exports.HTMLPlugins = ({
 	prodPath,
 } = {}) => [
 	new HTMLPlugin({
-		template: 'index.html',
+		template: './source/index.html',
 		logo: 'https://ecolab.ademe.fr/apps/climat/dessin-nosgestesclimat.png',
 		chunks: ['publicodes'],
 		title: 'Nos Gestes Climat',
