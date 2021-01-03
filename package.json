@@ -90,7 +90,6 @@
 		"test-expressions": "yarn test-common --grep 'Suite expressions'",
 		"test-units": "mocha-webpack --webpack-config source/webpack.test.js --require source-map-support/register --include componentTestSetup.js --require mock-local-storage --require test/helpers/browser.js test/units.test.js",
 		"type-check": "tsc --noEmit",
-		"test-inversions": "mocha-webpack --webpack-config source/webpack.test.config.js --require source-map-support/register --require test/helpers/browser.js \"test/inversion.test.js\" --watch",
 		"heroku-postbuild": "yarn install --production=false && yarn compile"
 
 	},
