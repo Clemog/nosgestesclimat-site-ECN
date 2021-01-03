@@ -6,6 +6,10 @@
 		"type": "git",
 		"url": "https://github.com/betagouv/ecolab-climat.git"
 	},
+	"engines": {
+    "node": "12.x",
+    "yarn": "1.x"
+  	},
 	"browserslist": [
 		"> 1% in FR"
 	],
