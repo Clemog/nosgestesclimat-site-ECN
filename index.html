@@ -36,6 +36,9 @@
 			<%= htmlWebpackPlugin.options.title %>
 		</title>
 
+		<% for (var css in htmlWebpackPlugin.files.css) { %>
+		<link href="<%= htmlWebpackPlugin.files.css[css] %>" rel="stylesheet" />
+		<% } %>
 		<style>
 			html[data-useragent*='MSIE'] #outdated-browser,
 			html[data-useragent*='Safari'][data-useragent*='Version/8']
@@ -137,6 +140,8 @@
 		</div>
 
 		<!-- Matomo : track only production code-->
+		<% if (htmlWebpackPlugin.options.injectTrackingScript) { %>
+
 		<!-- Matomo -->
 		<script type="text/javascript">
 		  var _paq = window._paq || [];
@@ -151,7 +156,8 @@
 			g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
 		  })();
 		</script>
-	  	<!-- End Matomo Code -->
+		<% } %>
+		<!-- End Matomo Code -->
 
 		<!-- Polyfill and source for old browser -->
 		<!-- Add polyfill.io for a very narrow web feature
