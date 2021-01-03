@@ -28,7 +28,6 @@
 		"i18next": "^18.0.1",
 		"iframe-resizer": "^4.2.11",
 		"js-yaml": "^3.13.1",
-		"live-server": "^1.2.1",
 		"monaco-editor": "^0.17.1",
 		"moo": "^0.5.0",
 		"nearley": "^2.19.0",
@@ -89,10 +88,7 @@
 		"test-lib": "mocha-webpack --webpack-config source/webpack.lib.js --require source-map-support/register --include componentTestSetup.js --require mock-local-storage test/library.test.js",
 		"test-expressions": "yarn test-common --grep 'Suite expressions'",
 		"test-units": "mocha-webpack --webpack-config source/webpack.test.js --require source-map-support/register --include componentTestSetup.js --require mock-local-storage --require test/helpers/browser.js test/units.test.js",
-		"type-check": "tsc --noEmit",
-		"test-inversions": "mocha-webpack --webpack-config source/webpack.test.config.js --require source-map-support/register --require test/helpers/browser.js \"test/inversion.test.js\" --watch",
-		"heroku-postbuild": "yarn install --production=false && yarn compile"
-
+		"type-check": "tsc --noEmit"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.6.4",
