@@ -46,7 +46,7 @@ class App extends Component {
 						: pullRequestNumber
 						? `deploy-preview-${pullRequestNumber}--`
 						: ''
-				}ecolab-data.netlify.app/co2.json`}
+				}5ff1d93f5559de64ea1f5b0e--peaceful-fermat-810700.netlify.app/co2.json`}
 				dataBranch={branch || pullRequestNumber}
 				sitePaths={sitePaths()}
 				tracker={tracker}
