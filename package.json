@@ -90,7 +90,7 @@
 		"test-expressions": "yarn test-common --grep 'Suite expressions'",
 		"test-units": "mocha-webpack --webpack-config source/webpack.test.js --require source-map-support/register --include componentTestSetup.js --require mock-local-storage --require test/helpers/browser.js test/units.test.js",
 		"type-check": "tsc --noEmit",
-		"heroku-postbuild": "yarn compile"
+		"heroku-postbuild": "yarn run compile"
 
 	},
 	"devDependencies": {
