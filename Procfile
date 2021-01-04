@@ -1,1 +1,1 @@
-web: yarn run live-server --entry-file=index.html
+web: yarn run webpack --config source/webpack.prod.js
