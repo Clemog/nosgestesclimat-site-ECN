@@ -1,1 +1,1 @@
-web: yarn run webpack --config source/webpack.prod.js
+web: yarn run live-server
