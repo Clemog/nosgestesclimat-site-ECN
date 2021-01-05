@@ -2,7 +2,7 @@ import fs from 'fs'
 import fetch from 'node-fetch'
 import lines from './ecolab-URLs.js'
 
-fetch('https://ecolab-data.netlify.app/co2.json')
+fetch('https://ecolab-data-ecn.netlify.app/co2.json')
 	.then((res) => res.json())
 	.then((json) => {
 		const documentationLines = Object.keys(json).map(
