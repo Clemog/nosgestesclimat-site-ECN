@@ -22,7 +22,7 @@ export default ({ nodeValue }) => {
 	return (
 		<span>
 			{!simulationStarted ? (
-				<em> Un usager de l&#39;ECN émet en moyenne</em>
+				<em> Un étudiant de l&#39;ECN émet en moyenne</em>
 			) : (
 				<em>Votre total provisoire</em>
 			)}
