@@ -79,19 +79,20 @@ const AnimatedDiv = animated(({ score, value, details }) => {
 					display: flex;
 					flex-direction: column;
 					justify-content: space-evenly;
-
 					text-align: center;
 					font-size: 110%;
 				`}
 			>
 				<div css="display: flex; align-items: center; justify-content: center">
-					<img src={BallonGES} css="height: 10rem; margin-right: 3rem" />
-					<div>
-						<div css="font-weight: bold; font-size: 280%; margin-bottom: .3rem">
-							<span css="width: 3.6rem; text-align: right; display: inline-block">
+					<div >
+						<div css="font-weight: bold; font-size: 200%; margin-bottom: 0.8rem">
+							<span css="display: inline-block">
+								Mon total :
+							</span>{' '}
+							<span css="display: inline-block">
 								{Number.parseFloat(value / 1000).toFixed(2)}
 							</span>{' '}
-							<span css="width: 13rem; text-align: right; display: inline-block">
+							<span css="display: inline-block">
 								tonnes
 							</span>{' '}
 						</div>
@@ -101,7 +102,7 @@ const AnimatedDiv = animated(({ score, value, details }) => {
 								border-radius: 0.6rem;
 								margin: 0 auto;
 								padding: 0.4rem 0.7rem;
-								width: 18rem;
+								width: 25rem;
 
 								> div {
 									display: flex;
@@ -125,10 +126,31 @@ const AnimatedDiv = animated(({ score, value, details }) => {
 							</div>
 							<div>
 								<span>
-									{emoji('👤 ')}
-									Mon profil-type : XX{' '}
-								</span>
-								<strong>1 à 1.5 t</strong>
+									{emoji('🎓 ')}
+									Moyenne d'un étudiant {' '}
+								</span>{' '}
+								<strong> 1.58 t</strong>
+							</div>
+							<div>
+								<span>
+									{emoji('📚 ')}
+									Moyenne d'un doctorant {' '}
+								</span>{' '}
+								<strong> 3.35 t</strong>
+							</div>
+							<div>
+								<span>
+									{emoji('💼 ')}
+									Moyenne d'un enseignant-chercheur{' '}
+								</span>{' '}
+								<strong> 4.47 t</strong>
+							</div>
+							<div>
+								<span>
+									{emoji('📂 ')}
+									Moyenne d'un membre du personnel{' '}
+								</span>{' '}
+								<strong> 2.05 t</strong>
 							</div>
 							<div css="margin-top: .2rem;justify-content: flex-end !important">
 								<a
