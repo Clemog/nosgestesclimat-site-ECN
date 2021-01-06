@@ -153,16 +153,6 @@ const AnimatedDiv = animated(({ score, value, details }) => {
 				<div css="padding: 1rem">
 					<Chart details={details} color={textColor} noAnimation noText />
 				</div>
-
-				<div css="display: flex; flex-direction: column;">
-					<ShareButton
-						text="Voilà mon empreinte climat. Mesure la tienne !"
-						url={window.location}
-						title={'Nos Gestes Climat'}
-						color={textColor}
-						label="Partager mes résultats"
-					/>
-				</div>
 			</motion.div>
 			{true && (
 				<Link
