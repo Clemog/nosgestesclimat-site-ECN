@@ -5,7 +5,7 @@ const script = document.getElementById('ecolab-climat'),
 	integratorUrl = encodeURIComponent(window.location.href.toString())
 
 const hostname = 'ecolab.ademe.fr/apps/climat/'
-const src = `https://${hostname}?iframe&integratorUrl=${integratorUrl}`
+const src = `https://nosgestesclimat-ecn.netlify.app/apps/climat/`
 
 const iframe = document.createElement('iframe')
 
