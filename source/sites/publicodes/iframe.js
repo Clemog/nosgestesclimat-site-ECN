@@ -1,12 +1,12 @@
 import { iframeResize } from 'iframe-resizer'
 
 const script =
-		document.getElementById('ecolab-climat') ||
-		document.getElementById('nosgestesclimat'),
+	document.getElementById('ecolab-climat') ||
+	document.getElementById('nosgestesclimat'),
 	integratorUrl = encodeURIComponent(window.location.href.toString())
 
-const hostname = 'nosgestesclimat.fr/'
-const src = `https://${hostname}?iframe&integratorUrl=${integratorUrl}`
+const hostname = 'ecolab.ademe.fr/apps/climat/'
+const src = `https://nosgestesclimat-ecn.netlify.app/apps/climat/`
 
 const iframe = document.createElement('iframe')
 
