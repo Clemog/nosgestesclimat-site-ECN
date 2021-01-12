@@ -3,10 +3,6 @@
   to = "/publicodes.html"
   status = 200
 
-  from = "/api/*"
-  to = "/.netlify/functions/:splat"
-  status = 200
-
 [build]
   functions = "functions"
 
