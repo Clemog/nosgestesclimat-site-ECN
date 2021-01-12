@@ -90,8 +90,8 @@ export default compose(FormDecorator('selectWeeklyTransport'))(function Question
 											!value ? 'disabled' : ''
 										}`}
 										onClick={() =>
-											value > 0 &&
-											dispatch(updateSituation(question.dottedName, value - 10))
+											value >= 5 &&
+											dispatch(updateSituation(question.dottedName, value - 5))
 										}
 									>
 										-
@@ -113,7 +113,8 @@ export default compose(FormDecorator('selectWeeklyTransport'))(function Question
 									<button
 										className="ui__ button small plain"
 										onClick={() =>
-											dispatch(updateSituation(question.dottedName, value + 10))
+											value <= 95 &&
+											dispatch(updateSituation(question.dottedName, value + 5))
 										}
 									>
 										+
