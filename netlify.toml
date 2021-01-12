@@ -3,6 +3,13 @@
   to = "/publicodes.html"
   status = 200
 
+  from = “/api/*”
+  to = “/.netlify/functions/:splat”
+  status = 200
+
+[build]
+ functions=”functions”
+
 [dev]
   framework = "#custom"
   command = "yarn start" # Command to start your dev server
