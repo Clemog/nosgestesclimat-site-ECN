@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { useLocation, useParams } from 'react-router'
 import emoji from 'react-easy-emoji'
 import tinygradient from 'tinygradient'
 import { animated, useSpring } from 'react-spring'
@@ -9,7 +8,6 @@ import { motion } from 'framer-motion'
 import BallonGES from './images/ballonGES.svg'
 import StartingBlock from './images/starting block.svg'
 import SessionBar from 'Components/SessionBar'
-import AddAnswer from './AddAnswer'
 import Chart from './chart'
 import { Link } from 'react-router-dom'
 
