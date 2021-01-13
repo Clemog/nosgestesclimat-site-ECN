@@ -9,6 +9,7 @@ import { motion } from 'framer-motion'
 import BallonGES from './images/ballonGES.svg'
 import StartingBlock from './images/starting block.svg'
 import SessionBar from 'Components/SessionBar'
+import AddAnswer from './AddAnswer'
 import Chart from './chart'
 import { Link } from 'react-router-dom'
 
@@ -58,18 +59,6 @@ const AnimatedDiv = animated(({ score, value, details }) => {
 		backgroundColor2 = getBackgroundColor(value + 4000).toHexString(),
 		textColor = findContrastedTextColor(backgroundColor, true)
 
-const [thought, setThought] = useState({ date: new Date().toISOString().split('T')[0], text: '' });
-
-const saveAnswer = async () => {
-  	const resp = await fetch('/.netlify/functions/postanswer', { 
-  		method: 'POST',
-  		body: JSON.stringify(thought)
-  	})
-    
-	const { error, message } = await resp.json()
-	error ? console.error(error) : console.log(message)
-}
-
 
 	return (
 		<div css="padding: 0 .3rem 1rem; max-width: 600px; margin: 0 auto;">
@@ -108,7 +97,7 @@ const saveAnswer = async () => {
 							<span css="display: inline-block">
 								tonnes
 							</span>{' '}
-							<button onClick={saveAnswer}>Commit to memory</button>
+							<button onClick={AddAnswer}>Commit to memory</button>
 						</div>
 						<div
 							css={`
