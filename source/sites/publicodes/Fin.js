@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useLocation, useParams } from 'react-router'
 import emoji from 'react-easy-emoji'
 import tinygradient from 'tinygradient'
@@ -58,6 +58,19 @@ const AnimatedDiv = animated(({ score, value, details }) => {
 		backgroundColor2 = getBackgroundColor(value + 4000).toHexString(),
 		textColor = findContrastedTextColor(backgroundColor, true)
 
+const [thought, setThought] = useState({ date: new Date().toISOString().split('T')[0], text: '' });
+
+const saveAnswer = async () => {
+  	const resp = await fetch('/.netlify/functions/postanswer', { 
+  		method: 'POST',
+  		body: JSON.stringify(thought)
+  	})
+    
+	const { error, message } = await resp.json()
+	error ? console.error(error) : console.log(message)
+}
+
+
 	return (
 		<div css="padding: 0 .3rem 1rem; max-width: 600px; margin: 0 auto;">
 			<SessionBar />
@@ -95,6 +108,7 @@ const AnimatedDiv = animated(({ score, value, details }) => {
 							<span css="display: inline-block">
 								tonnes
 							</span>{' '}
+							<button onClick={saveAnswer}>Commit to memory</button>
 						</div>
 						<div
 							css={`
