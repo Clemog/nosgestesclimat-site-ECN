@@ -25,7 +25,7 @@ const AddAnswerButton = (props) => {
 		>
 			<button
 				className="ui__ simple small button"
-				onClick={() => {AddAnswer}}
+				onClick={AddAnswer}
 			>
 			{emoji('📄')}
 			</button>
