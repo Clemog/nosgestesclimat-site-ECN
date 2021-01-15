@@ -9,9 +9,9 @@ import { motion } from 'framer-motion'
 import BallonGES from './images/ballonGES.svg'
 import StartingBlock from './images/starting block.svg'
 import SessionBar from 'Components/SessionBar'
-import AddAnswer from './AddAnswer'
 import Chart from './chart'
 import { Link } from 'react-router-dom'
+import AddAnswerButton from './AddAnswer'
 
 const gradient = tinygradient([
 		'#78e08f',
@@ -59,7 +59,6 @@ const AnimatedDiv = animated(({ score, value, details }) => {
 		backgroundColor2 = getBackgroundColor(value + 4000).toHexString(),
 		textColor = findContrastedTextColor(backgroundColor, true)
 
-
 	return (
 		<div css="padding: 0 .3rem 1rem; max-width: 600px; margin: 0 auto;">
 			<SessionBar />
@@ -88,6 +87,7 @@ const AnimatedDiv = animated(({ score, value, details }) => {
 				<div css="display: flex; align-items: center; justify-content: center">
 					<div >
 						<div css="font-weight: bold; font-size: 200%; margin-bottom: 0.8rem">
+							<AddAnswerButton />
 							<span css="display: inline-block">
 								Mon total :
 							</span>{' '}
@@ -97,7 +97,6 @@ const AnimatedDiv = animated(({ score, value, details }) => {
 							<span css="display: inline-block">
 								tonnes
 							</span>{' '}
-							<button onClick={AddAnswer}>Commit to memory</button>
 						</div>
 						<div
 							css={`
