@@ -118,10 +118,6 @@ a:not(:disabled):not(.button):not(.button-choice):hover {
 	opacity: 0.8;
 }
 
-strong,
-b {
-	font-weight: bold;
-}
 
 textarea {
 	font-family: inherit;
