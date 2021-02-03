@@ -19,10 +19,12 @@ import { DottedName } from 'modele-social'
 import DateInput from './DateInput'
 import ParagrapheInput from './ParagrapheInput'
 import SelectWeeklyDiet from './select/SelectWeeklyDiet'
+import SelectWeeklyTransport from './select/SelectWeeklyTransport'
 import TextInput from './TextInput'
 import { useSelector } from 'react-redux'
 import { parentName } from 'Components/publicodesUtils'
 import { weeklyDietQuestion } from './select/SelectWeeklyDiet'
+import { weeklyTransportQuestion } from './select/SelectWeeklyTransport'
 
 type Value = any
 export type RuleInputProps<Name extends string = DottedName> = {
@@ -104,6 +106,25 @@ export default function RuleInput<Name extends string = DottedName>({
 				{...{
 					...commonProps,
 					dietRules,
+				}}
+			/>
+		)
+	}
+
+	if (weeklyTransportQuestion(rule.dottedName)) {
+		// This selected a precise set of questions to bypass their regular components and answer all of them in one big custom UI
+		const transportRules = Object.entries(rules)
+			.filter(([dottedName]) => weeklyTransportQuestion(dottedName))
+			.map(([dottedName, questionRule]) => {
+				const parentRule = parentName(dottedName)
+				return [rules[parentRule], questionRule]
+			})
+
+		return (
+			<SelectWeeklyTransport
+				{...{
+					...commonProps,
+					transportRules,
 				}}
 			/>
 		)

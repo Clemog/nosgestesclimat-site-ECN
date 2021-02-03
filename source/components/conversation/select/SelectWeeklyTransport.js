@@ -1,33 +1,42 @@
 import classnames from 'classnames'
-import { T } from 'Components'
 import { ThemeColorsContext } from 'Components/utils/colors'
-import { compose, is } from 'ramda'
 import React, { useCallback, useContext, useState } from 'react'
-import Explicable from 'Components/conversation/Explicable'
-import { FormDecorator } from 'Components/conversation/FormDecorator'
-import 'Components/conversation/Question.css'
-import SendButton from 'Components/conversation/SendButton'
+import { Explicable } from 'Components/conversation/Explicable'
 import emoji from 'react-easy-emoji'
 import { useDispatch, useSelector } from 'react-redux'
-import { situationSelector } from 'Selectors/analyseSelectors'
+import { situationSelector } from 'Selectors/simulationSelectors'
 import { updateSituation } from 'Actions/actions'
-import NumberFormat from 'react-number-format'
 
+export const weeklyTransportQuestionText =
+	'Dans quelles proportions utilisez-vous ces moyens de transport pour vous rendre à Centrale ?'
 
+export const weeklyTransportQuestion = (dottedName) =>
+	dottedName.includes('transport . moyens de transport') &&
+	dottedName.includes(' . pourcent')
 // This is the number of possible answers in this very custom input component
 const chipsTotal = 100
 
-export default compose(FormDecorator('selectWeeklyTransport'))(function Question({
+export default function SelectWeeklyTransport({
 	name,
 	setFormValue,
 	transportRules,
 	value: currentValue,
+	question,
 }) {
 	const dispatch = useDispatch()
 	const situation = useSelector(situationSelector)
 
 	const chipsCount = transportRules.reduce(
-		(memo, [_, { dottedName, defaultValue }]) =>
+		(
+			memo,
+			[
+				_,
+				{
+					dottedName,
+					rawNode: { 'par défaut': defaultValue },
+				},
+			]
+		) =>
 			memo +
 			(situation[dottedName] != undefined
 				? situation[dottedName]
@@ -53,7 +62,7 @@ export default compose(FormDecorator('selectWeeklyTransport'))(function Question
 
 					> li {
 						width: 14rem;
-						margin: 0.7rem;
+						margin: 1rem;
 						display: flex;
 						flex-direction: column;
 						justify-content: space-between;
@@ -62,7 +71,6 @@ export default compose(FormDecorator('selectWeeklyTransport'))(function Question
 					}
 
 					> li h4 {
-						text-align: center;
 						margin: 0;
 					}
 					> li p {
@@ -73,47 +81,63 @@ export default compose(FormDecorator('selectWeeklyTransport'))(function Question
 				`}
 			>
 				{transportRules.map(
-					([{ name, title, description, dottedName, icônes }, question]) => {
+					([
+						{
+							name,
+							title,
+							rawNode: { description, icônes },
+						},
+						question,
+					]) => {
 						const situationValue = situation[question.dottedName],
 							value =
-								situationValue != null ? situationValue : question.defaultValue
+								situationValue != null
+									? situationValue
+									: question.rawNode['par défaut']
 						return (
 							<li className="ui__ card" key={name}>
 								<h4>{title}</h4>
-								<div css={'{margin: .5rem; font-size: 200%}'}>
-									{emoji(icônes)}
-								</div>
+								<div>{emoji(icônes)}</div>
 								<p>{description.split('\n')[0]}</p>
-								<div css={' span {margin: .5rem; font-size: 120%}'}>
+								<div css={' span {margin: .8rem; font-size: 120%}'}>
 									<button
 										className={`ui__ button small plain ${
 											!value ? 'disabled' : ''
 										}`}
 										onClick={() =>
 											value >= 5 &&
-											dispatch(updateSituation(question.dottedName, value - 5))
+											// HACK
+											// This is a custom piece of code to counter the fact that the validation button visibility is handled by conversation.tsx
+											// if you hit - on 'viande 1', all the other inputs will be set, hence the validation button made visible since `currentQuestionIsAnswered` in conversation.tsx
+											// TODO should be rewritter as this component gets generic, used by other variables
+											// note : we don't need to write this transportRules.map in the (+) button, since you can't + a variable without - another one ;)
+											transportRules.map(
+												([
+													_,
+													{
+														dottedName,
+														rawNode: { 'par défaut': defaultValue },
+													},
+												]) =>
+													dispatch(
+														updateSituation(
+															dottedName,
+															question.dottedName === dottedName
+																? value - 5
+																: situation[dottedName] == null
+																? defaultValue
+																: situation[dottedName]
+														)
+													)
+											)
 										}
 									>
 										-
 									</button>
-									<span>
-										<NumberFormat
-											autoFocus
-											className={'suffixed'}
-											allowEmptyFormatting={true}
-											style={{ border: `1px solid` }}
-											value={value}
-											suffix={'%'}
-											autoComplete="off"
-											onValueChange={({ floatValue }) =>
-												dispatch(updateSituation(question.dottedName, floatValue))
-											}
-										/>
-									</span>
+									<span>{value}</span>
 									<button
 										className="ui__ button small plain"
 										onClick={() =>
-											value <= 95 &&
 											dispatch(updateSituation(question.dottedName, value + 5))
 										}
 									>
@@ -144,23 +168,9 @@ export default compose(FormDecorator('selectWeeklyTransport'))(function Question
 	return (
 		<div css="margin-top: 0.6rem; display: flex; align-items: center; flex-wrap: wrap; justify-content: flex-end">
 			{choiceElements}
-			<SendButton
-				{...{
-					disabled: chipsCount !== chipsTotal,
-					// This component is special : it folds multiple questions at a time
-					submit: () =>
-						transportRules.map(([_, { dottedName }]) =>
-							dispatch({
-								type: 'STEP_ACTION',
-								name: 'fold',
-								step: dottedName,
-							})
-						),
-				}}
-			/>
 		</div>
 	)
-})
+}
 
 let RadioLabel = (props) => (
 	<>
@@ -196,7 +206,7 @@ function RadioLabelContent({
 			className={classnames('radio', 'userAnswerButton', { selected })}
 		>
 			{icônes && emoji(icônes)}
-			<T>{label}</T>
+			{label}
 			<input
 				type="radio"
 				onClick={click(value)}

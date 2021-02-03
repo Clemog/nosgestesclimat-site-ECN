@@ -27,6 +27,10 @@ import {
 	weeklyDietQuestion,
 	weeklyDietQuestionText,
 } from './select/SelectWeeklyDiet'
+import {
+	weeklyTransportQuestion,
+	weeklyTransportQuestionText,
+} from './select/SelectWeeklyTransport'
 import styled, { css } from 'styled-components'
 import { CategoryLabel } from './UI'
 
@@ -138,8 +142,12 @@ export default function Conversation({
 			</div>
 		)
 
-	const questionText = weeklyDietQuestion(currentQuestion)
-		? weeklyDietQuestionText
+	// const questionText = weeklyDietQuestion(currentQuestion)
+	// 	? weeklyDietQuestionText
+	// 	: rules[currentQuestion]?.rawNode?.question
+
+	const questionText = weeklyTransportQuestion(currentQuestion)
+		? weeklyTransportQuestionText
 		: rules[currentQuestion]?.rawNode?.question
 
 	const questionCategoryName = currentQuestion.split(' . ')[0],
