@@ -14,6 +14,8 @@ import Contribution from './Contribution'
 import Fin from './Fin'
 import Landing from './Landing'
 import Logo from './Logo'
+import LogoNCO2 from './images/logo-NCO2.png'
+import LogoECN from './images/logo-ECN.png'
 import Documentation from './pages/Documentation'
 import Privacy from './Privacy'
 import Simulateur from './Simulateur'
@@ -66,7 +68,20 @@ export default function Root({}) {
 const Router = ({}) => (
 	<>
 		<div className="ui__ container">
-			<nav css="display: flex; justify-content: center; margin: .6rem auto">
+			<nav 
+				css={`
+					display: flex;
+					justify-content: space-evenly;
+					margin: .6rem;
+					margin-right: 2rem;
+				`}
+			>
+				<a href="https://www.ec-nantes.fr">
+					<img
+						css="height: 4.5rem;"
+						src={LogoECN}
+					/>
+				</a>						
 				<Link
 					to="/"
 					css={`
@@ -79,6 +94,12 @@ const Router = ({}) => (
 				>
 					<Logo />
 				</Link>
+				<a href="https://neutralite-carbone.ec-nantes.fr">
+					<img
+						css="height: 4.5rem;"
+						src={LogoNCO2}
+					/>
+				</a>											
 			</nav>
 			<Switch>
 				<Route exact path="/" component={Landing} />
