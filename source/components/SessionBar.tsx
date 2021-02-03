@@ -1,4 +1,4 @@
-import { goToQuestion, loadPreviousSimulation } from 'Actions/actions'
+import { goToQuestion, loadPreviousSimulation, resetSimulation, deletePreviousSimulation } from 'Actions/actions'
 import { Button } from 'Components/ui/Button'
 import { useEngine } from 'Components/utils/EngineContext'
 import { last } from 'ramda'
@@ -84,7 +84,7 @@ export default function SessionBar({ answerButtonOnly = false }) {
 
 	if (['/fin', '/actions'].includes(location.pathname))
 		return (
-			<div 
+			<div
 				css={`
 					display: flex;
 					justify-content: space-between;
@@ -106,15 +106,15 @@ export default function SessionBar({ answerButtonOnly = false }) {
 						Revenir à ma simulation
 					</Button>
 				) : (
-					<Button
-						className="plain"
-						onClick={() => {
-							history.push('/simulateur/bilan')
-						}}
-					>
-						Faire le test
-					</Button>
-				)}
+						<Button
+							className="plain"
+							onClick={() => {
+								history.push('/simulateur/bilan')
+							}}
+						>
+							Faire le test
+						</Button>
+					)}
 				<Button
 					className="simple small"
 					onClick={() => {
@@ -124,7 +124,7 @@ export default function SessionBar({ answerButtonOnly = false }) {
 					}}
 				>
 					{emoji('⏪ ')}
-					<T>Effacer et recommencer</T>
+					Effacer et recommencer
 				</Button>
 			</div>
 		)
