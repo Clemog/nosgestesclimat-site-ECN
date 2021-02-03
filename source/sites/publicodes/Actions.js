@@ -26,7 +26,7 @@ const { encodeRuleName, decodeRuleName, splitName } = utils
 const gradient = tinygradient(['#0000ff', '#ff0000']),
 	colors = gradient.rgb(20)
 
-export default ({}) => {
+export default ({ }) => {
 	return (
 		<Switch>
 			<Route exact path="/actions/plus">
@@ -60,7 +60,7 @@ export const correctValue = (evaluated) => {
 	return result
 }
 
-const AnimatedDiv = animated(({}) => {
+const AnimatedDiv = animated(({ }) => {
 	const location = useLocation()
 
 	const rules = useSelector((state) => state.rules)
@@ -72,12 +72,12 @@ const AnimatedDiv = animated(({}) => {
 	const config = !simulation
 		? { objectifs: ['bilan', ...flatActions.formule.somme] }
 		: {
-				...simulation.config,
-				objectifs: union(
-					simulation.config.objectifs,
-					flatActions.formule.somme
-				),
-		  }
+			...simulation.config,
+			objectifs: union(
+				simulation.config.objectifs,
+				flatActions.formule.somme
+			),
+		}
 
 	const objectifs = useSelector(objectifsSelector)
 
@@ -94,7 +94,7 @@ const AnimatedDiv = animated(({}) => {
 
 	const [bilans, actions] = partition((t) => t.dottedName === 'bilan', targets)
 
-	const sortedActions = sortBy((a) => correctValue(a))(actions)
+	const sortedActions = sortBy((a) => -correctValue(a))(actions)
 
 	return (
 		<div css="padding: 0 .3rem 1rem; max-width: 600px; margin: 1rem auto;">
