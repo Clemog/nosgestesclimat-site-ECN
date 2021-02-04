@@ -1,33 +1,31 @@
-import React, { useState } from 'react'
-import { useLocation, useParams } from 'react-router'
-import emoji from 'react-easy-emoji'
-import tinygradient from 'tinygradient'
-import { animated, useSpring } from 'react-spring'
-import ShareButton from 'Components/ShareButton'
+import SessionBar from 'Components/SessionBar'
 import { findContrastedTextColor } from 'Components/utils/colors'
 import { motion } from 'framer-motion'
-import BallonGES from './images/ballonGES.svg'
-import StartingBlock from './images/starting block.svg'
-import SessionBar from 'Components/SessionBar'
-import Chart from './chart'
+import React from 'react'
+import emoji from 'react-easy-emoji'
+import { useLocation, useParams } from 'react-router'
 import { Link } from 'react-router-dom'
-import AddAnswerButton from './AddAnswer'
+import { animated, useSpring } from 'react-spring'
+import tinygradient from 'tinygradient'
+import AddAnswerButton from './AddAnswerButton'
+import Chart from './chart'
+import StartingBlock from './images/starting block.svg'
 
 const gradient = tinygradient([
-		'#78e08f',
-		'#e1d738',
-		'#f6b93b',
-		'#b71540',
-		'#000000',
-	]),
+	'#78e08f',
+	'#e1d738',
+	'#f6b93b',
+	'#b71540',
+	'#000000',
+]),
 	colors = gradient.rgb(20)
 
 const getBackgroundColor = (score) =>
 	colors[
-		Math.round((score < 1000 ? 0 : score > 20000 ? 19000 : score + 4000) / 1000)
+	Math.round((score < 1000 ? 0 : score > 20000 ? 19000 : score + 4000) / 1000)
 	]
 
-export default ({}) => {
+export default ({ }) => {
 	const query = new URLSearchParams(useLocation().search),
 		score = query.get('total') || useParams().score
 
@@ -58,6 +56,7 @@ const AnimatedDiv = animated(({ score, value, details }) => {
 	const backgroundColor = getBackgroundColor(value).toHexString(),
 		backgroundColor2 = getBackgroundColor(value + 4000).toHexString(),
 		textColor = findContrastedTextColor(backgroundColor, true)
+
 
 	return (
 		<div css="padding: 0 .3rem 1rem; max-width: 600px; margin: 0 auto;">
