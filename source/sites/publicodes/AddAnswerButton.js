@@ -1,14 +1,17 @@
-import React, { useState, useContext } from 'react'
+import React from 'react'
 import emoji from 'react-easy-emoji'
-import { AddAnswer } from './API'
 import { useSelector } from 'react-redux'
+import { situationSelector } from 'Selectors/analyseSelectors'
+import { AddAnswer } from './API'
 
 
 const AddAnswerButton = () => {
 
 	const myData = {
-  		test: 'This is my test'
+		test: 'This is my test'
 	}
+
+	const situation = useSelector(situationSelector)
 
 	return (
 		<div
@@ -25,15 +28,15 @@ const AddAnswerButton = () => {
 				className="ui__ simple small button"
 				// toujours une fonction dans le onClick /  fonction anonyme () =>
 				onClick={() =>
-					AddAnswer(myData).then((response) => {
-  						console.log('API response', response)
-  						// set app state
+					AddAnswer(situation).then((response) => {
+						console.log('API response', response)
+						// set app state
 					}).catch((error) => {
-  					console.log('API error', error)
+						console.log('API error', error)
 					})
 				}
 			>
-			{emoji('📄')}
+				{emoji('📄')}
 			</button>
 		</div>
 	)
