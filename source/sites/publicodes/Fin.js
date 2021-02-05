@@ -8,7 +8,6 @@ import { useLocation, useParams } from 'react-router'
 import { Link } from 'react-router-dom'
 import { animated, useSpring } from 'react-spring'
 import tinygradient from 'tinygradient'
-import AddAnswerButton from './AddAnswerButton'
 import Chart from './chart'
 import StartingBlock from './images/starting block.svg'
 
@@ -96,7 +95,6 @@ const AnimatedDiv = animated(({ score, value, details }) => {
 				<div css="display: flex; align-items: center; justify-content: center">
 					<div >
 						<div css="font-weight: bold; font-size: 200%; margin-bottom: 0.8rem">
-							<AddAnswerButton />
 							<span css="display: inline-block">
 								Mon total :
 							</span>{' '}
