@@ -63,6 +63,10 @@ export default ({ }) => {
 		<div className="ui__ container" css="padding-bottom: 1rem">
 			<h2 css="font-size: 180%">{emoji('❔')}Questions fréquentes</h2>
 			<div className="ui__ card" css="padding-bottom: 1rem">
+				<p>Bonjour, et bienvenue sur la Foire Aux Questions de Nos GEStes Climat (ECN), le calculateur d’empreinte carbone individuelle et votre coach de transition bas carbone !</p>
+				<p>Vous trouverez sur ce document la réponse aux questions les plus fréquentes. S’il vous reste des interrogations, rendez-vous en bas dans de la page !</p>
+				<p>Si vous désirez en apprendre davantage sur le modèle de calcul, plongez vous dans la{' '} <Link to="/documentation">documentation</Link>!</p>
+				<p>Bonne lecture !</p>
 				<Markdown escapeHtml={false} source={FAQ} />
 			</div>
 			<h2 css="font-size: 180%">{emoji('🙋‍♀️')}J'ai une autre question</h2>
