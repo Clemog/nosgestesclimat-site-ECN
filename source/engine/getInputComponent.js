@@ -1,3 +1,6 @@
+import SelectAsso from 'Components/conversation/custom/SelectAsso'
+import SelectWeeklyDiet from 'Components/conversation/custom/SelectWeeklyDiet'
+import SelectWeeklyTransport from 'Components/conversation/custom/SelectWeeklyTransport'
 import Input from 'Components/conversation/Input'
 import Question from 'Components/conversation/Question'
 import SelectAtmp from 'Components/conversation/select/SelectTauxRisque'
@@ -5,16 +8,14 @@ import { serialiseUnit } from 'Engine/units'
 import { is, pick, prop, unless } from 'ramda'
 import React, { Suspense } from 'react'
 import {
-	findRuleByDottedName,
-	queryRule,
-	disambiguateRuleReference,
-	parentName,
+	disambiguateRuleReference, findRuleByDottedName,
+
+
+	parentName, queryRule
 } from './rules'
 let SelectTwoAirports = React.lazy(() =>
 	import('Components/conversation/select/SelectTwoAirports')
 )
-import SelectWeeklyDiet from 'Components/conversation/custom/SelectWeeklyDiet'
-import SelectWeeklyTransport from 'Components/conversation/custom/SelectWeeklyTransport'
 
 // This function takes the unknown rule and finds which React component should be displayed to get a user input through successive if statements
 // That's not great, but we won't invest more time until we have more diverse input components and a better type system.
@@ -72,6 +73,30 @@ export default (rules) => (dottedName) => {
 						'Dans quelles proportions utilisez-vous ces moyens de transport pour vous rendre à Centrale ?',
 					transportRules: rules
 						.filter((rule) => weeklyTransportQuestion(rule.dottedName))
+						.map((question) => [
+							rules.find(
+								({ dottedName }) =>
+									dottedName === parentName(question.dottedName)
+							),
+							question,
+						]),
+				}}
+			/>
+		)
+
+	const AssoQuestion = (dottedName) =>
+		dottedName.includes('divers . associatif . asso') &&
+		dottedName.includes(' . adhésion')
+	if (AssoQuestion(rule.dottedName))
+		// This selected a precise set of questions to bypass their regular components and answer all of them in one big custom UI
+		return (
+			<SelectAsso
+				{...{
+					...commonProps,
+					question:
+						'Vos assos ?',
+					assoRules: rules
+						.filter((rule) => AssoQuestion(rule.dottedName))
 						.map((question) => [
 							rules.find(
 								({ dottedName }) =>
@@ -151,9 +176,9 @@ let buildVariantTree = (allRules, path) => {
 			node,
 			shouldBeExpanded
 				? {
-						canGiveUp,
-						children: variants.map((v) => rec(path + ' . ' + v)),
-				  }
+					canGiveUp,
+					children: variants.map((v) => rec(path + ' . ' + v)),
+				}
 				: null
 		)
 	}
