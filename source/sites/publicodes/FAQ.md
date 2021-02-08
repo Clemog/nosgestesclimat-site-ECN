@@ -1,9 +1,3 @@
-Bonjour, et bienvenue sur la Foire Aux Questions de Nos GEStes Climat (ECN), le calculateur d’empreinte carbone individuelle et votre coach de transition bas carbone !
-
-Vous trouverez sur ce document la réponse aux questions les plus fréquentes. S’il vous reste des interrogations, rendez-vous en bas dans de la page !
-
-Bonne lecture !
-
 ## GENERAL
 
 ### Pourquoi ai-je un total provisoire ? 
