@@ -1,12 +1,10 @@
+import Modal from 'Components/Modal'
 import React, { useState } from 'react'
-import ContributionButton from './ContributionButton'
-import DocumentationButton from './DocumentationButton'
-import Suggestions from './Suggestions'
+import emoji from 'react-easy-emoji'
 import { Link } from 'react-router-dom'
+import DocumentationButton from './DocumentationButton'
 import Illustration from './images/ecolab-climat-dessin.svg'
 import Marianne from './images/Marianne.png'
-import emoji from 'react-easy-emoji'
-import Modal from 'Components/Modal'
 
 export default () => {
 
@@ -38,11 +36,11 @@ export default () => {
 				}
 			`}
 		>
-			<Modal 
-		        isOpen={open}
-		        closeModal={()=>setOpen(false)}
-		        children={
-		         	<div
+			<Modal
+				isOpen={open}
+				closeModal={() => setOpen(false)}
+				children={
+					<div
 						css={`
 							text-align: justify;
 							h3 {
@@ -65,13 +63,13 @@ export default () => {
 						`}
 					>
 
-		         		<h3>Bienvenue sur Nos Gestes Climat<br></br><i>Centrale Nantes</i></h3>
-			     		<p>Cet simulateur a été développé dans le cadre de l’option <b><a href="https://neutralite-carbone.ec-nantes.fr">Neutralité Carbone</a></b> à Centrale Nantes. Il vous permet d'évaluer votre <b>empreinte carbone individuelle professionnelle annuelle </b>. Le calcul vous permet de vous situer par rapport aux objectifs climatiques et surtout de <b>passer à l’action</b> à votre niveau avec des actions personnalisées en fonction de vos réponses.</p>
-			     		<p>Vos émissions sont classées par catégories (profil, alimentation, transport, numérique, divers).</p>
-			     		<p css="font-size: 85%;">Il est basé sur le simulateur <a href="https://ecolab.ademe.fr/impactcarbone">Nos GEStes Climat</a> créé par Ecolab, une start-up d'état. Ce simulateur est inspiré du modèle MicMac des associations <a href="https://avenirclimatique.org/les-outils/">Avenir Climatique</a> et <a href="https://www.taca.asso.fr/">TaCa</a>.</p>
-			     	</div> 
-		        }>
-		    </Modal>
+						<h3>Bienvenue sur Nos Gestes Climat<br></br><i>Centrale Nantes</i></h3>
+						<p>Cet simulateur a été développé dans le cadre de l’option <b><a href="https://neutralite-carbone.ec-nantes.fr">Neutralité Carbone</a></b> à Centrale Nantes. Il vous permet d'évaluer votre <b>empreinte carbone individuelle professionnelle annuelle </b>. Le calcul vous permet de vous situer par rapport aux objectifs climatiques et surtout de <b>passer à l’action</b> à votre niveau avec des actions personnalisées en fonction de vos réponses.</p>
+						<p>Vos émissions sont classées par <b>catégories</b> (profil, alimentation, transport, numérique, divers). N'hésitez pas à visiter <b>les pages dédiées aux différents postes d'émissions</b> (en cliquant sur le graphe des émissions) pour entrer dans le <b>détail des calculs</b>.</p>
+						<p css="font-size: 85%;">Il est basé sur le simulateur <a href="https://ecolab.ademe.fr/impactcarbone">Nos GEStes Climat</a> créé par Ecolab, une start-up d'état. Ce simulateur est inspiré du modèle MicMac des associations <a href="https://avenirclimatique.org/les-outils/">Avenir Climatique</a> et <a href="https://www.taca.asso.fr/">TaCa</a>.</p>
+					</div>
+				}>
+			</Modal>
 			<h1>Connaissez-vous l'empreinte carbone liée à votre activité au sein de Centrale Nantes ?</h1>
 			<img src={Illustration} />
 			<div css="margin: 1rem auto;">
