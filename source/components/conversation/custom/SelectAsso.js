@@ -5,9 +5,9 @@ import 'Components/conversation/Question.css'
 import SendButton from 'Components/conversation/SendButton'
 import { compose } from 'ramda'
 import React, { useState } from 'react'
-import emoji from 'react-easy-emoji'
 import { useDispatch, useSelector } from 'react-redux'
 import { situationSelector } from 'Selectors/analyseSelectors'
+
 
 
 
@@ -78,8 +78,11 @@ export default compose(FormDecorator('selectAsso'))(function Question({
 						return (
 							<li className="ui__ card" key={name}>
 								<h4>{title}</h4>
-								<div css={'{margin: .5rem; font-size: 200%}'}>
-									{emoji(icônes)}
+								<div css={'{margin: .5rem; font-size: 200%; }'}>
+									<img
+										css="height: 4rem; margin-left: 1rem"
+										src={icônes}
+									/>
 								</div>
 								<p>{description.split('\n')[0]}</p>
 								<Switch
