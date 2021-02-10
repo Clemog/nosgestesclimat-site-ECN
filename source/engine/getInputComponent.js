@@ -85,7 +85,7 @@ export default (rules) => (dottedName) => {
 		)
 
 	const AssoQuestion = (dottedName) =>
-		dottedName.includes('divers . associatif . asso') &&
+		dottedName.includes('associatif . asso') &&
 		dottedName.includes(' . adhésion')
 	if (AssoQuestion(rule.dottedName))
 		// This selected a precise set of questions to bypass their regular components and answer all of them in one big custom UI
@@ -94,7 +94,7 @@ export default (rules) => (dottedName) => {
 				{...{
 					...commonProps,
 					question:
-						'Vos assos ?',
+						'Quelles sont les associations dans lesquelles vous êtes adhérent ?',
 					assoRules: rules
 						.filter((rule) => AssoQuestion(rule.dottedName))
 						.map((question) => [

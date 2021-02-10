@@ -12,7 +12,6 @@ import { situationSelector } from 'Selectors/analyseSelectors'
 
 
 // This is the number of possible answers in this very custom input component
-const chipsTotal = 100
 
 export default compose(FormDecorator('selectAsso'))(function Question({
 	name,
@@ -37,12 +36,12 @@ export default compose(FormDecorator('selectAsso'))(function Question({
 					}
 
 					> li > div > img {
-						margin-right: 0.4rem !important;
-						font-size: 130% !important;
+						margin-left: 0.4rem !important;
+						height: 3rem;
 					}
 
 					> li {
-						width: 14rem;
+						width: 10rem;
 						margin: 0.7rem;
 						display: flex;
 						flex-direction: column;
@@ -72,17 +71,15 @@ export default compose(FormDecorator('selectAsso'))(function Question({
 
 						const handleChange = (event) => {
 							setSwhitchValue({ ...switchValue, [event.target.name]: event.target.checked });
-							dispatch(updateSituation(question.dottedName, event.target.checked))
+							dispatch(updateSituation(question.dottedName, +event.target.checked))
 						}
+
 
 						return (
 							<li className="ui__ card" key={name}>
 								<h4>{title}</h4>
 								<div css={'{margin: .5rem; font-size: 200%; }'}>
-									<img
-										css="height: 4rem; margin-left: 1rem"
-										src={icônes}
-									/>
+									<img src={icônes} />
 								</div>
 								<p>{description.split('\n')[0]}</p>
 								<Switch
