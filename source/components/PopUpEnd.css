@@ -1,0 +1,32 @@
+.popup-parent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 99;
+  background-color: rgba(0, 0, 0, 50%);
+  position: fixed;
+}
+
+.popup-content {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow-y: auto;
+  background-color: white;
+  box-shadow: grey;
+  border-radius: 15px;
+  padding: 25px 80px;
+  max-width: 55%;
+  max-height: 90vh;
+}
+
+.div-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
