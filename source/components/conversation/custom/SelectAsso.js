@@ -8,8 +8,13 @@ import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { situationSelector } from 'Selectors/analyseSelectors'
 
+function importAll(r) {
+	let images = {};
+	r.keys().map((item, index) => { images[item.replace('./', '')] = r(item); });
+	return images;
+}
 
-
+const images = importAll(require.context('../../../sites/publicodes/images', false, /\.(png|jpe?g|svg)$/));
 
 // This is the number of possible answers in this very custom input component
 
@@ -63,6 +68,7 @@ export default compose(FormDecorator('selectAsso'))(function Question({
 			>
 				{assoRules.map(
 					([{ name, title, description, dottedName, icônes }, question]) => {
+
 						const situationValue = situation[question.dottedName],
 							value =
 								situationValue != null ? situationValue : question.defaultValue
@@ -74,12 +80,11 @@ export default compose(FormDecorator('selectAsso'))(function Question({
 							dispatch(updateSituation(question.dottedName, +event.target.checked))
 						}
 
-
 						return (
 							<li className="ui__ card" key={name}>
 								<h4>{title}</h4>
 								<div css={'{margin: .5rem; font-size: 200%; }'}>
-									<img src={icônes} />
+									<img src={images[icônes].default} />
 								</div>
 								<p>{description.split('\n')[0]}</p>
 								<Switch
