@@ -1,32 +1,31 @@
-import React from 'react'
-import { useLocation, useParams } from 'react-router'
-import emoji from 'react-easy-emoji'
-import tinygradient from 'tinygradient'
-import { animated, useSpring } from 'react-spring'
-import ShareButton from 'Components/ShareButton'
+import PopUpEnd from 'Components/PopUpEnd'
+import SessionBar from 'Components/SessionBar'
 import { findContrastedTextColor } from 'Components/utils/colors'
 import { motion } from 'framer-motion'
-import BallonGES from './images/ballonGES.svg'
-import StartingBlock from './images/starting block.svg'
-import SessionBar from 'Components/SessionBar'
-import Chart from './chart'
+import React, { useEffect, useState } from 'react'
+import emoji from 'react-easy-emoji'
+import { useLocation, useParams } from 'react-router'
 import { Link } from 'react-router-dom'
+import { animated, useSpring } from 'react-spring'
+import tinygradient from 'tinygradient'
+import Chart from './chart'
+import StartingBlock from './images/starting block.svg'
 
 const gradient = tinygradient([
-		'#78e08f',
-		'#e1d738',
-		'#f6b93b',
-		'#b71540',
-		'#000000',
-	]),
+	'#78e08f',
+	'#e1d738',
+	'#f6b93b',
+	'#b71540',
+	'#000000',
+]),
 	colors = gradient.rgb(20)
 
 const getBackgroundColor = (score) =>
 	colors[
-		Math.round((score < 1000 ? 0 : score > 20000 ? 19000 : score + 4000) / 1000)
+	Math.round((score < 1000 ? 0 : score > 20000 ? 19000 : score + 4000) / 1000)
 	]
 
-export default ({}) => {
+export default ({ }) => {
 	const query = new URLSearchParams(useLocation().search),
 		score = query.get('total') || useParams().score
 
@@ -57,6 +56,16 @@ const AnimatedDiv = animated(({ score, value, details }) => {
 	const backgroundColor = getBackgroundColor(value).toHexString(),
 		backgroundColor2 = getBackgroundColor(value + 4000).toHexString(),
 		textColor = findContrastedTextColor(backgroundColor, true)
+
+	const [open, setOpen] = useState(false);
+
+	useEffect(() => {
+		const timer = setTimeout(() => {
+			setOpen(true);
+		}, 3000);
+		return () => clearTimeout(timer);
+	}, []);
+
 
 	return (
 		<div css="padding: 0 .3rem 1rem; max-width: 600px; margin: 0 auto;">
@@ -199,6 +208,40 @@ const AnimatedDiv = animated(({ score, value, details }) => {
 					</div>
 				</Link>
 			)}
+			<PopUpEnd
+				isOpen={open}
+				closeModal={() => setOpen(false)}
+				children={
+					<div
+						css={`
+							text-align: justify;
+							h3 {
+								font-size: 140%;
+								color:#102648;
+								text-align: center;
+							}
+							h3:last-of-type {
+								margin-top: 0;
+								margin-bottom: 20px;
+							}
+							a {
+								color:#102648;
+								text-decoration: underline;
+							}
+							p {
+								color:#102648;
+								margin-bottom: 10px;
+								line-height:125%;
+							}
+						`}
+					>
+						<h3>On a besoin de vous ! </h3>
+						<p><b>Félicitations</b>, vous avez réalisé votre <b>bilan carbone professionnel</b>, directement lié à votre activité à Centrale Nantes. L'équipe projet NCO2 a maintenant besoin de vous : la collecte des informations relatives à vos habitudes à l'ECN est un réel enjeu dans l'optique d'améliorer la précision du calcul du Bilan Carbone de l'école. Nous aimerions donc collecter les données de votre simulation pour nos études statistiques !</p>
+						<p>Si vous estimez que la simulation que vous venez de réaliser est représentative de vos habitudes, aidez-nous et cliquez sur <b>"Je partage ma simulation"</b> ! Les données de votre simulation seront sauvegardées de manière anonyme dans l'unique but de contribuer à la précision du calcul.</p>
+						<p>La méthode de sauvegarde actuelle ne permet pas de vérifier le nombre d'envoi de simulations par personne. Il est donc nécessaire que vous ne partagiez qu'<b>une seule fois vos résultats</b>. Nous vous remercions par avance !</p>
+					</div>
+				}>
+			</PopUpEnd>
 		</div>
 	)
 })
