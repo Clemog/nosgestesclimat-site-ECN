@@ -12,7 +12,7 @@ import { useEngine } from 'Components/utils/EngineContext'
 import { correctValue, splitName } from '../../components/publicodesUtils'
 import { lightenColor } from '../../components/utils/colors'
 
-export default ({}) => {
+export default ({ }) => {
 	const objectif = useSelector(objectifsSelector)[0],
 		// needed for this component to refresh on situation change :
 		situation = useSelector(situationSelector),

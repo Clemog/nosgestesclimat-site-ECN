@@ -1,5 +1,4 @@
 import React from 'react'
-import emoji from 'react-easy-emoji'
 import { useSelector } from 'react-redux'
 
 export const humanWeight = (v) => {
