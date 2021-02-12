@@ -1,5 +1,4 @@
 import React from 'react'
-import emoji from 'react-easy-emoji'
 import { useSelector } from 'react-redux'
 
 export const humanWeight = (v) => {
@@ -7,16 +6,16 @@ export const humanWeight = (v) => {
 		v === 0
 			? [v, '']
 			: v < 1
-			? [v * 1000, 'g']
-			: v < 1000
-			? [v, 'kg']
-			: [v / 1000, 'tonnes']
+				? [v * 1000, 'g']
+				: v < 1000
+					? [v, 'kg']
+					: [v / 1000, 'tonnes']
 	return [raw, unit]
 }
 export default ({ nodeValue }) => {
 	const foldedSteps = useSelector(
-			(state) => state.conversationSteps?.foldedSteps
-		),
+		(state) => state.conversationSteps?.foldedSteps
+	),
 		simulationStarted = foldedSteps && foldedSteps.length
 
 	return (
@@ -24,8 +23,8 @@ export default ({ nodeValue }) => {
 			{!simulationStarted ? (
 				<em> Un étudiant de l&#39;ECN émet en moyenne</em>
 			) : (
-				<em>Votre total provisoire</em>
-			)}
+					<em>Votre total provisoire</em>
+				)}
 			<HumanWeight nodeValue={nodeValue} />
 		</span>
 	)

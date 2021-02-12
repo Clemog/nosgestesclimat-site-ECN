@@ -2,12 +2,20 @@ import { SitePathsContext } from 'Components/utils/withSitePaths'
 import { encodeRuleName } from 'Engine/rules'
 import React, { useContext } from 'react'
 import emoji from 'react-easy-emoji'
+import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import SimulationHumanWeight from './HumanWeight'
+
 
 export default ({ nodeValue, formule, dottedName }) => {
 	const sitePaths = useContext(SitePathsContext)
 	let interestingFormula = formule && formule.explanation.text !== '0'
+
+	const foldedSteps = useSelector(
+		(state) => state.conversationSteps?.foldedSteps
+	),
+		simulationStarted = foldedSteps && foldedSteps.length
+
 	return (
 		<div
 			css={`
@@ -18,9 +26,9 @@ export default ({ nodeValue, formule, dottedName }) => {
 				text-align: center;
 			`}
 		>
-			<div>
-				<SimulationHumanWeight nodeValue={nodeValue} />
-				{interestingFormula && (
+			{simulationStarted ? (
+				<div>
+					<SimulationHumanWeight nodeValue={nodeValue} />
 					<div>
 						<span css="font-size: 120%">{emoji('🔬 ')}</span>
 						<Link
@@ -29,10 +37,14 @@ export default ({ nodeValue, formule, dottedName }) => {
 							}
 						>
 							comprendre le calcul
-						</Link>
+							</Link>
+						<p>(cliquez sur le graphe ci-dessous pour le détail des postes d'émission)</p>
 					</div>
+				</div>
+			) : (
+					<p></p>
 				)}
-			</div>
+
 		</div>
 	)
 }
