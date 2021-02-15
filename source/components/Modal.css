@@ -10,18 +10,20 @@
     z-index: 99;
     background-color: rgba(0, 0, 0, 50%);
     position: fixed;
+
   }
   
   .modal-content {
     display: flex;
     flex-direction: column;
     position: relative;
+    overflow-y: auto;
     background-color: white;
     box-shadow: grey;
     border-radius: 15px;
     padding: 25px 80px;
+    max-height: 100vh;
     max-width: 950px;
-    max-height: 90vh;
   }
 
 .close-btn {
