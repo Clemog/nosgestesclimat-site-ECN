@@ -43,7 +43,7 @@ export default ({ details, color, noText, noAnimation }) => {
 				const category = rules[reference.dottedName]
 				return {
 					...category,
-					nodeValue: details[category.name[0]],
+					nodeValue: details[category.name[0] + category.name[1]],
 				}
 			})
 		)

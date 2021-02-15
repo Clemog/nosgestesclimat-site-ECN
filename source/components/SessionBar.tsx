@@ -1,24 +1,21 @@
 import {
-	resetSimulation,
 	deletePreviousSimulation,
-	loadPreviousSimulation,
-	goToQuestion,
+
+	goToQuestion, loadPreviousSimulation, resetSimulation
 } from 'Actions/actions'
-import React, { useEffect, useState } from 'react'
 import { T } from 'Components'
-import { Trans } from 'react-i18next'
+import { Button } from 'Components/ui/Button'
+import { last } from 'ramda'
+import React, { useEffect, useState } from 'react'
+import emoji from 'react-easy-emoji'
 import { useDispatch, useSelector } from 'react-redux'
+import { useHistory, useLocation } from 'react-router-dom'
 import { RootState } from 'Reducers/rootReducer'
 import {
-	noUserInputSelector,
-	analysisWithDefaultsSelector,
+	analysisWithDefaultsSelector
 } from 'Selectors/analyseSelectors'
-import emoji from 'react-easy-emoji'
-import { Button } from 'Components/ui/Button'
-import Answers from './conversation/AnswerList'
-import { useLocation, useHistory } from 'react-router-dom'
-import { last } from 'ramda'
 import { extractCategories } from '../sites/publicodes/chart'
+import Answers from './conversation/AnswerList'
 
 export const buildEndURL = (analysis) => {
 	const total = analysis.targets[0].nodeValue,
@@ -29,6 +26,7 @@ export const buildEndURL = (analysis) => {
 				(memo, next) =>
 					memo +
 					next.name[0] +
+					next.name[1] +
 					(Math.round(next.nodeValue / 10) / 100).toFixed(2),
 				''
 			)
@@ -88,7 +86,7 @@ export default function SessionBar({ answerButtonOnly = false }) {
 
 	if (['/fin', '/actions'].includes(location.pathname))
 		return (
-			<div 
+			<div
 				css={`
 					display: flex;
 					justify-content: space-between;
@@ -110,15 +108,15 @@ export default function SessionBar({ answerButtonOnly = false }) {
 						<T>Revenir à ma simulation</T>
 					</Button>
 				) : (
-					<Button
-						className="plain"
-						onClick={() => {
-							history.push('/simulateur/bilan')
-						}}
-					>
-						<T>Faire le test</T>
-					</Button>
-				)}
+						<Button
+							className="plain"
+							onClick={() => {
+								history.push('/simulateur/bilan')
+							}}
+						>
+							<T>Faire le test</T>
+						</Button>
+					)}
 				<Button
 					className="simple small"
 					onClick={() => {
