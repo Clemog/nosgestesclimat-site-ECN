@@ -38,7 +38,7 @@ export default ({ nodeValue, formule, dottedName }) => {
 						>
 							comprendre le calcul
 							</Link>
-						<p>(cliquez sur le graphe ci-dessous pour le détail des postes d'émission)</p>
+						<p>(cliquez sur le graphe ci-dessous pour accéder au détail des postes d'émission)</p>
 					</div>
 				</div>
 			) : (

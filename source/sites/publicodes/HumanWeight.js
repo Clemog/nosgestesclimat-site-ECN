@@ -21,8 +21,9 @@ export default ({ nodeValue }) => {
 		simulationStarted = foldedSteps && foldedSteps.length,
 		profilValue = getProfilValue()
 	return (
-		<span>
-			<em>Votre total provisoire</em>
+		<span css="display: flex; align-items: center; justify-content: center">
+			<em css="font-size: 120%">Votre total provisoire :</em>
+			<span css="width: 0.3rem"></span>
 			<HumanWeight nodeValue={nodeValue - profilValue} />
 		</span>
 	)

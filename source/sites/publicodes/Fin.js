@@ -27,21 +27,16 @@ const getBackgroundColor = (score) =>
 
 export default ({ }) => {
 	const query = new URLSearchParams(useLocation().search),
-		score = query.get('total') || useParams().score
-
+		score = query.get('total') || useParams().score,
+		scoreProfil = query.get('details')
 	// details=a2.6t2.1s1.3l1.0b0.8f0.2n0.1
 	const encodedDetails = query.get('details'),
 		rehydratedDetails =
 			encodedDetails &&
 			Object.fromEntries(
 				encodedDetails
-					.match(/[a-z][0-9]+\.[0-9][0-9]/g)
-					.map(([category, ...rest]) => [category, 1000 * +rest.join('')])
-					// Here we convert categories with an old name to the new one
-					// 'biens divers' was renamed to 'divers'
-					.map(([category, ...rest]) =>
-						category === 'b' ? ['d', ...rest] : [category, ...rest]
-					)
+					.match(/[a-z][a-z][0-9]+\.[0-9][0-9]/g)
+					.map(([category1, category2, ...rest]) => [category1 + category2, 1000 * +rest.join('')])
 			)
 	const { value } = useSpring({
 		config: { mass: 1, tension: 150, friction: 150, precision: 1000 },
@@ -49,10 +44,13 @@ export default ({ }) => {
 		from: { value: 0 },
 	})
 
-	return <AnimatedDiv value={value} score={score} details={rehydratedDetails} />
+	const valueProfil = rehydratedDetails["pr"]
+	console.log(valueProfil)
+
+	return <AnimatedDiv value={value} score={score} valueProfil={valueProfil} details={rehydratedDetails} />
 }
 
-const AnimatedDiv = animated(({ score, value, details }) => {
+const AnimatedDiv = animated(({ score, value, valueProfil, details }) => {
 	const backgroundColor = getBackgroundColor(value).toHexString(),
 		backgroundColor2 = getBackgroundColor(value + 4000).toHexString(),
 		textColor = findContrastedTextColor(backgroundColor, true)
@@ -94,7 +92,7 @@ const AnimatedDiv = animated(({ score, value, details }) => {
 			>
 				<div css="display: flex; align-items: center; justify-content: center">
 					<div >
-						<div css="font-weight: bold; font-size: 200%; margin-bottom: 0.8rem">
+						<div css="font-weight: bold; font-size: 180%;">
 							<span css="display: inline-block">
 								Mon total :
 							</span>{' '}
@@ -103,6 +101,17 @@ const AnimatedDiv = animated(({ score, value, details }) => {
 							</span>{' '}
 							<span css="display: inline-block">
 								tonnes
+							</span>{' '}
+						</div>
+						<div css="font-weight: normal; font-style: italic; font-size: 120%; margin-bottom: 0.6rem">
+							<span css="display: inline-block">
+								Dont
+							</span>{' '}
+							<span css="display: inline-block">
+								{Number.parseFloat(valueProfil / 1000).toFixed(2)}
+							</span>{' '}
+							<span css="display: inline-block">
+								tonnes liées à votre profil
 							</span>{' '}
 						</div>
 						<div
@@ -172,7 +181,7 @@ const AnimatedDiv = animated(({ score, value, details }) => {
 						</div>
 					</div>
 				</div>
-				<div css="padding: 1rem">
+				<div css="padding: 1rem;">
 					<Chart details={details} color={textColor} noAnimation noText />
 				</div>
 			</motion.div>
