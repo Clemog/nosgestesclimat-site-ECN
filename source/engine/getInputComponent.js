@@ -1,4 +1,5 @@
 import SelectAsso from 'Components/conversation/custom/SelectAsso'
+import SelectLabo from 'Components/conversation/custom/SelectLabo'
 import SelectWeeklyDiet from 'Components/conversation/custom/SelectWeeklyDiet'
 import SelectWeeklyTransport from 'Components/conversation/custom/SelectWeeklyTransport'
 import Input from 'Components/conversation/Input'
@@ -97,6 +98,30 @@ export default (rules) => (dottedName) => {
 						'Quelles sont les associations dans lesquelles vous êtes adhérent ?',
 					assoRules: rules
 						.filter((rule) => AssoQuestion(rule.dottedName))
+						.map((question) => [
+							rules.find(
+								({ dottedName }) =>
+									dottedName === parentName(question.dottedName)
+							),
+							question,
+						]),
+				}}
+			/>
+		)
+
+	const LaboQuestion = (dottedName) =>
+		dottedName.includes('profil . labo') &&
+		dottedName.includes(' . appartenance')
+	if (LaboQuestion(rule.dottedName))
+		// This selected a precise set of questions to bypass their regular components and answer all of them in one big custom UI
+		return (
+			<SelectLabo
+				{...{
+					...commonProps,
+					question:
+						'De quel laboratoire faites-vous partie ?',
+					laboRules: rules
+						.filter((rule) => LaboQuestion(rule.dottedName))
 						.map((question) => [
 							rules.find(
 								({ dottedName }) =>
