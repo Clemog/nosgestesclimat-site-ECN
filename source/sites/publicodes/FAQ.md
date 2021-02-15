@@ -4,9 +4,15 @@
 
 L’estimation de votre bilan carbone lié à l’activité de Centrale correspond aux réponses que vous avez indiquées. Si vous changez vos habitudes, que cela concerne l’alimentation, le transport..., votre bilan carbone changera en conséquence. En espérant qu’il change dans le bon sens !
 
+Des valeurs sont attribuées aux différentes questions **par défaut**. C'est pour cette raison que le total n'est pas 0 au départ.
+
 ##  PROFIL
 
-### Une part d'émission carbone m'est attribuée dans le poste « profil », qu’est-ce que c’est ?
+### On me pose des questions sur la catégorie "Profil" mais je ne la vois pas apparaitre dans les résultats ?
+
+Le poste lié à votre profil est parfois important et peut masquer les écolutions liées à vos réponses lors de votre simulation. Nous avons fait le choix de l'ajouter seulement à la fin de votre simulation, le total sur la page de fin inclut la catégorie "Profil".
+
+### Une part d'émission carbone m'est attribuée dans le poste "Profil", qu’est-ce que c’est ?
 
 Ce poste représente l’empreinte carbone des services publics français ramené à une échelle individuelle. C’est-à-dire que l’on répartit l’impact des services entre les 66 millions de français.
 
@@ -34,11 +40,11 @@ C’est d’ailleurs tout l’objet de Nos GEStes Climat qui œuvre à sensibili
 
 Nous considérons uniquement le bilan carbone lié à l’activité sur l’école Centrale. Ces 5 repas correspondent donc aux repas du midi du lundi au vendredi.
 
-### Je consomme souvent aux distributeurs automatiques, pourquoi la question n'est pas posée ?
-
-Cette partie est en cours de développement et devrait apparaitre prochainement dans le calcul !
-
 ## TRANSPORT
+
+### Dois-je renseigner mes déplacements personnels ? 
+
+Pour le moment, nous avons fait le choix de ne pas prendre en compte les émissions qui relèvent des décisions personnelles. Seules les émissions dues à votre vie centralienne sont intégrées dans le simulateur.
 
 ### Je n'ai pas de voiture mais on me demande quand même toutes ses informations …
 
@@ -82,6 +88,9 @@ A ce sujet, n’hésitez pas à consulter ce [simulateur](https://ecolab.ademe.f
 ## NUMERIQUE
 ### Pourquoi ne me demande-t-on pas d'information sur mes équipements informatiques ?
 
+Pour les enseignants-chercheurs, les doctorants, et les autres personnels, la part liées aux équipements informatiques est inclue dans la catégorie "Profil" (qui prend en compte les achats). Nous faisons ici une approximation en attribuant l'émission moyenne par personne des équipements à chacun.
+
+Pour les étudiants, les équipements informatiques sont aujourd'hui considérés comme faisant parti du "bilan carbone personnel".
 
 ### J'ai entendu dire que le numérique avait un gros impact sur le climat, le simulateur semble me dire le contraire…
 
