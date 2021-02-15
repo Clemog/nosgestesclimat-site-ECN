@@ -8,7 +8,7 @@ import { useLocation, useParams } from 'react-router'
 import { Link } from 'react-router-dom'
 import { animated, useSpring } from 'react-spring'
 import tinygradient from 'tinygradient'
-import Chart from './chart'
+import Chart from './chart/indexprofil'
 import StartingBlock from './images/starting block.svg'
 
 const gradient = tinygradient([
