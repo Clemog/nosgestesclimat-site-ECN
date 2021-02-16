@@ -51,6 +51,7 @@ export default ({ details, color, noText, noAnimation }) => {
 	if (!categories) return null
 
 	// Find profil category to avoid displaying profil in chart	
+	// categories.filter 
 	const index = categories.findIndex(obj => obj.name == "profil");
 	if (index > -1) {
 		categories.splice(index, 1);

@@ -33,17 +33,14 @@ const orderedCurrentQuestionSelector = createSelector(
 	],
 	(analysis, nextSteps, unfoldedStep) => {
 		const firstTargetFormula = analysis.targets[0].formule.explanation,
-			isProfil = firstTargetFormula.explanation.name === 'profil',
 			isSum = firstTargetFormula.name === 'somme',
 			currentQuestion = unfoldedStep || head(nextSteps)
-		return currentQuestion
 		if ((!isSum)) return currentQuestion
 		try {
 			const items = firstTargetFormula.explanation
 			const sortedSteps = sortBy(
 				(question) =>
-					-items.find((item) => question.indexOf(item.dottedName) === 0)
-						?.nodeValue,
+					items.findIndex(obj => obj.name == question.split(" . ")[0]),
 				nextSteps
 			)
 			return unfoldedStep || head(sortedSteps)
