@@ -54,14 +54,13 @@ export default function Conversation({
 	const objectifs = useSelector(objectifsSelector)
 	const rawRules = useSelector((state) => state.rules)
 	const previousSimulation = useSelector((state) => state.previousSimulation)
-
+	console.log(rules.bilan)
 	const sortedQuestions = orderByCategories
 		? sortBy(
-				(question) =>
-					-orderByCategories.find((c) => question.indexOf(c.dottedName) === 0)
-						?.nodeValue,
-				nextQuestions
-		  )
+			(question) =>
+				rules.bilan.rawNode.formule.somme.indexOf(question.split(" . ")),
+			nextQuestions
+		)
 		: nextQuestions
 	const unfoldedStep = useSelector((state) => state.simulation.unfoldedStep)
 	const isMainSimulation = objectifs.length === 1 && objectifs[0] === 'bilan',
@@ -131,11 +130,11 @@ export default function Conversation({
 							{customEndMessages ? (
 								customEndMessages
 							) : (
-								<Trans i18nKey="simulation-end.text">
-									Vous avez maintenant accès à l'estimation la plus précise
-									possible.
-								</Trans>
-							)}
+									<Trans i18nKey="simulation-end.text">
+										Vous avez maintenant accès à l'estimation la plus précise
+										possible.
+									</Trans>
+								)}
 						</p>
 					</>
 				)}
@@ -166,71 +165,71 @@ export default function Conversation({
 	return orderByCategories &&
 		isCategoryFirstQuestion &&
 		!dismissedRespirations.includes(questionCategory.dottedName) ? (
-		<CategoryRespiration
-			questionCategory={questionCategory}
-			dismiss={() =>
-				dismissRespiration([
-					...dismissedRespirations,
-					questionCategory.dottedName,
-				])
-			}
-		/>
-	) : (
-		<>
-			<Aide />
-			<div style={{ outline: 'none' }} onKeyDown={handleKeyDown}>
-				{orderByCategories && questionCategory && (
-					<div>
-						<CategoryLabel color={questionCategory.color}>
-							{emoji(questionCategory.icons || '🌍')}
-							{questionCategory.title}
-						</CategoryLabel>
-					</div>
-				)}
-				<Animate.fadeIn>
-					<div className="step">
-						<h3>
-							{questionText} <ExplicableRule dottedName={currentQuestion} />
-						</h3>
-						<fieldset>
-							<RuleInput
-								dottedName={currentQuestion}
-								onChange={onChange}
-								onSubmit={submit}
-							/>
-						</fieldset>
-					</div>
-				</Animate.fadeIn>
-				<div className="ui__ answer-group">
-					{previousAnswers.length > 0 && (
-						<>
+			<CategoryRespiration
+				questionCategory={questionCategory}
+				dismiss={() =>
+					dismissRespiration([
+						...dismissedRespirations,
+						questionCategory.dottedName,
+					])
+				}
+			/>
+		) : (
+			<>
+				<Aide />
+				<div style={{ outline: 'none' }} onKeyDown={handleKeyDown}>
+					{orderByCategories && questionCategory && (
+						<div>
+							<CategoryLabel color={questionCategory.color}>
+								{emoji(questionCategory.icons || '🌍')}
+								{questionCategory.title}
+							</CategoryLabel>
+						</div>
+					)}
+					<Animate.fadeIn>
+						<div className="step">
+							<h3>
+								{questionText} <ExplicableRule dottedName={currentQuestion} />
+							</h3>
+							<fieldset>
+								<RuleInput
+									dottedName={currentQuestion}
+									onChange={onChange}
+									onSubmit={submit}
+								/>
+							</fieldset>
+						</div>
+					</Animate.fadeIn>
+					<div className="ui__ answer-group">
+						{previousAnswers.length > 0 && (
+							<>
+								<button
+									onClick={goToPrevious}
+									className="ui__ simple small push-left button"
+								>
+									← <Trans>Précédent</Trans>
+								</button>
+							</>
+						)}
+						{currentQuestionIsAnswered ? (
 							<button
-								onClick={goToPrevious}
-								className="ui__ simple small push-left button"
+								className="ui__ plain small button"
+								onClick={() => submit('accept')}
 							>
-								← <Trans>Précédent</Trans>
-							</button>
-						</>
-					)}
-					{currentQuestionIsAnswered ? (
-						<button
-							className="ui__ plain small button"
-							onClick={() => submit('accept')}
-						>
-							<span className="text">
-								<Trans>Suivant</Trans> →
+								<span className="text">
+									<Trans>Suivant</Trans> →
 							</span>
-						</button>
-					) : (
-						<button
-							onClick={setDefault}
-							className="ui__ simple small push-right button"
-						>
-							<Trans>Je ne sais pas</Trans> →
-						</button>
-					)}
+							</button>
+						) : (
+								<button
+									onClick={setDefault}
+									className="ui__ simple small push-right button"
+								>
+									<Trans>Je ne sais pas</Trans> →
+								</button>
+							)}
+					</div>
 				</div>
-			</div>
-		</>
-	)
+			</>
+		)
 }
