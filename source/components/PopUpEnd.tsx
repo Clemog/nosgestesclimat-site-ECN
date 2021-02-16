@@ -1,12 +1,19 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { useLocation } from 'react-router';
 import { situationSelector } from 'Selectors/analyseSelectors';
 import { AddAnswer } from '../sites/publicodes/API';
 import './PopUpEnd.css';
 
 const PopUpEnd = ({ isOpen, closeModal, children }) => {
 
-  const situation = useSelector(situationSelector)
+  const situation = useSelector(situationSelector),
+    query = new URLSearchParams(useLocation().search),
+    score = query.get('total')
+
+  situation["total"] = score
+
+  console.log(situation)
 
   if (!isOpen) return null;
   return (
