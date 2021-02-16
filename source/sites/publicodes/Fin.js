@@ -45,7 +45,6 @@ export default ({ }) => {
 	})
 
 	const valueProfil = rehydratedDetails["pr"]
-	console.log(valueProfil)
 
 	return <AnimatedDiv value={value} score={score} valueProfil={valueProfil} details={rehydratedDetails} />
 }
