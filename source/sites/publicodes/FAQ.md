@@ -40,6 +40,11 @@ C’est d’ailleurs tout l’objet de Nos GEStes Climat qui œuvre à sensibili
 
 Nous considérons uniquement le bilan carbone lié à l’activité sur l’école Centrale. Ces 5 repas correspondent donc aux repas du midi du lundi au vendredi.
 
+### Pourquoi ne me pose-t-on aucune question à propos de l'origine de la viande que je consomme ?
+
+L'origine géographique de la viande n'est pas prise en compte dans le calcul de l'impact.
+Le mode d'élevage est aussi négligé car trop complexe pour notre domaine d'étude.
+
 ## TRANSPORT
 
 ### Dois-je renseigner mes déplacements personnels ? 
