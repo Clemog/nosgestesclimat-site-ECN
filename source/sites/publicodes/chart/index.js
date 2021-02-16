@@ -105,10 +105,10 @@ export default ({ details, noText, noAnimation, noCompletion }) => {
 								noAnimation
 									? null
 									: {
-											type: 'spring',
-											damping: 100,
-											stiffness: 100,
-									  }
+										type: 'spring',
+										damping: 100,
+										stiffness: 100,
+									}
 							}
 							key={category.title}
 							css={`
