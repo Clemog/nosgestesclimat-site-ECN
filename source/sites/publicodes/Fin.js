@@ -179,49 +179,13 @@ const AnimatedDiv = animated(({ score, value, details, headlessMode }) => {
 								</span>{' '}
 								<strong> 2.05 t</strong>
 							</div>
-							<div
-								css={`
-									background: #ffffff3d;
-									border-radius: 0.6rem;
-									padding: 0.4rem 1rem;
-
-									> div {
-										display: flex;
-										justify-content: space-between;
-										flex-wrap: wrap;
-									}
-									strong {
-										font-weight: bold;
-									}
-									> img {
-										margin: 0 0.6rem !important;
-									}
-								`}
-							>
-								<div>
-									<span>
-										{emoji('🇫🇷 ')}
-										moyenne{' '}
-									</span>{' '}
-									<strong> 11 tonnes</strong>
-								</div>
-								<div>
-									<span>
-										{emoji('🎯 ')}
-										objectif{' '}
-									</span>
-									<strong>2 tonnes</strong>
-								</div>
-								{!headlessMode && (
-									<div css="margin-top: .2rem;justify-content: flex-end !important">
-										<a
-											css="color: inherit"
-											href="https://datagir.ademe.fr/blog/budget-empreinte-carbone-c-est-quoi/"
-										>
-											Comment ça ?
-										</a>
-									</div>
-								)}
+							<div css="margin-top: .2rem;justify-content: flex-end !important">
+								<a
+									css="color: inherit"
+									href="https://neutralite-carbone.ec-nantes.fr/fr/bilan-carbone-2018/resultats-par-profils-types"
+								>
+									Comment ça ?
+								</a>
 							</div>
 						</div>
 					</div>
