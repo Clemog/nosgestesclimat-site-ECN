@@ -172,7 +172,7 @@ const AnimatedDiv = animated(({ score, value, valueProfil, details }) => {
 							<div css="margin-top: .2rem;justify-content: flex-end !important">
 								<a
 									css="color: inherit"
-									href="https://ecolab.ademe.fr/blog/général/budget-empreinte-carbone-c-est-quoi.md"
+									href="https://neutralite-carbone.ec-nantes.fr/fr/bilan-carbone-2018/resultats-par-profils-types"
 								>
 									Comment ça ?
 								</a>
