@@ -13,7 +13,7 @@ const iframe = document.createElement('iframe')
 const iframeAttributes = {
 	src,
 	style:
-		'border: none; width: 100%; display: block; margin: 10px auto; min-height: 800px',
+		'border: none; width: 100%; display: block; margin: 10px auto; min-height: 1000px',
 	allowfullscreen: true,
 	webkitallowfullscreen: true,
 	mozallowfullscreen: true,
