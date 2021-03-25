@@ -21,9 +21,9 @@
     background-color: white;
     box-shadow: grey;
     border-radius: 15px;
-    padding: 25px 80px;
     max-height: 100vh;
     max-width: 950px;
+    margin: 30px;
   }
 
 .close-btn {
