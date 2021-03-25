@@ -223,6 +223,8 @@ const AnimatedDiv = animated(({ score, value, valueProfil, details }) => {
 					<div
 						css={`
 							text-align: justify;
+							padding: 25px 30px;
+							padding-bottom: 0;
 							h3 {
 								font-size: 140%;
 								color:#102648;

@@ -19,7 +19,11 @@ const PopUpEnd = ({ isOpen, closeModal, children }) => {
   return (
     <div className="popup-parent">
       <div className="popup-content" >
-        <div css="position: absolute"><button css="margin-top: -20%; margin-left:1550%;" className="ui__ small button" onClick={closeModal}>x</button></div>
+        <div css="position: relative">
+          <button css="position: absolute; top:0; right:0; margin: 1rem" className="ui__ small button" onClick={closeModal}>
+            x
+          </button>
+        </div>
         {children}
         <div className="div-buttons"
           css={`
