@@ -44,7 +44,7 @@ const Modal = ({ isOpen, closeModal, children }) => {
           </a>
         </nav>
         {children}
-        <button css="margin: 1rem 16rem;" className="ui__ plain button" onClick={closeModal}>
+        <button css="margin: 1rem auto; width: 10rem" className="ui__ plain button" onClick={closeModal}>
           Ok >>>
         </button>
       </div>
