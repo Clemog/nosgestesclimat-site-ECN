@@ -13,8 +13,6 @@ const PopUpEnd = ({ isOpen, closeModal, children }) => {
 
   situation["total"] = score
 
-  console.log(situation)
-
   if (!isOpen) return null;
   return (
     <div className="popup-parent">
