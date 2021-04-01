@@ -31,7 +31,7 @@ export default function SendButton({ disabled, submit }: SendButtonProps) {
 			onClick={() => getAction('accept')}
 		>
 			<span className="text">
-				<Trans>Suivant</Trans> →
+				<Trans>Next</Trans> →
 			</span>
 		</button>
 	)

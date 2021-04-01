@@ -147,7 +147,7 @@ export default function Conversation({
 														onClick={goToPrevious}
 														className="ui__ simple small push-left button"
 													>
-														← <T>Précédent</T>
+														← <T>Previous</T>
 													</button>
 												</>
 											)}
@@ -155,7 +155,7 @@ export default function Conversation({
 												onClick={setDefault}
 												className="ui__ simple small push-right button"
 											>
-												<T>Je ne sais pas</T> →
+												<T>I don't know</T> →
 										</button>
 										</div>
 									</React.Fragment>

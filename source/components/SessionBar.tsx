@@ -105,7 +105,7 @@ export default function SessionBar({ answerButtonOnly = false }) {
 						}}
 					>
 						{emoji('📊 ')}
-						<T>Revenir à ma simulation</T>
+						<T>Go back to my simulation</T>
 					</Button>
 				) : (
 						<Button
@@ -126,7 +126,7 @@ export default function SessionBar({ answerButtonOnly = false }) {
 					}}
 				>
 					{emoji('⏪ ')}
-					<T>Effacer et recommencer</T>
+					<T>Erase and start again</T>
 				</Button>
 			</div>
 		)
@@ -155,7 +155,7 @@ export default function SessionBar({ answerButtonOnly = false }) {
 							onClick={() => history.push('/actions')}
 						>
 							{emoji('💥 ')}
-							<T>Passer à l'action</T>
+							<T>Take Action</T>
 						</Button>
 					)}
 				</>

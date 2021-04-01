@@ -30,7 +30,7 @@ export default (rules) => (dottedName) => {
 		fieldName: dottedName,
 		...pick(['dottedName', 'title', 'question', 'defaultValue'], rule),
 	}
-	if (rule.dottedName === 'transport . avion . distance de vol aller')
+	if (rule.dottedName === 'transportation . avion . distance de vol aller')
 		return (
 			<Suspense fallback={<div>Chargement des aéroports ...</div>}>
 				<SelectTwoAirports {...{ ...commonProps }} />
@@ -38,7 +38,7 @@ export default (rules) => (dottedName) => {
 		)
 
 	const weeklyDietQuestion = (dottedName) =>
-		dottedName.includes('alimentation . plats') &&
+		dottedName.includes('food . plats') &&
 		dottedName.includes(' . nombre')
 	if (weeklyDietQuestion(rule.dottedName))
 		// This selected a precise set of questions to bypass their regular components and answer all of them in one big custom UI
@@ -47,7 +47,7 @@ export default (rules) => (dottedName) => {
 				{...{
 					...commonProps,
 					question:
-						'Choisissez les 5 plats de vos déjeuners pour une semaine type',
+						'Choose your 5 lunch meal for a typical week',
 					dietRules: rules
 						.filter((rule) => weeklyDietQuestion(rule.dottedName))
 						.map((question) => [
@@ -62,7 +62,7 @@ export default (rules) => (dottedName) => {
 		)
 
 	const weeklyTransportQuestion = (dottedName) =>
-		dottedName.includes('transport . moyens de transport') &&
+		dottedName.includes('transportation . moyens de transport') &&
 		dottedName.includes(' . pourcent')
 	if (weeklyTransportQuestion(rule.dottedName))
 		// This selected a precise set of questions to bypass their regular components and answer all of them in one big custom UI
@@ -86,7 +86,7 @@ export default (rules) => (dottedName) => {
 		)
 
 	const AssoQuestion = (dottedName) =>
-		dottedName.includes('associatif . asso') &&
+		dottedName.includes('associative . asso') &&
 		dottedName.includes(' . adhésion')
 	if (AssoQuestion(rule.dottedName))
 		// This selected a precise set of questions to bypass their regular components and answer all of them in one big custom UI
@@ -119,7 +119,7 @@ export default (rules) => (dottedName) => {
 				{...{
 					...commonProps,
 					question:
-						'De quel laboratoire faites-vous partie ?',
+						'Which laboratory do you belong to?',
 					laboRules: rules
 						.filter((rule) => LaboQuestion(rule.dottedName))
 						.map((question) => [
@@ -160,8 +160,8 @@ export default (rules) => (dottedName) => {
 				{...{
 					...commonProps,
 					choices: [
-						{ value: 'non', label: 'Non' },
-						{ value: 'oui', label: 'Oui' },
+						{ value: 'non', label: 'No' },
+						{ value: 'oui', label: 'Yes' },
 					],
 				}}
 			/>

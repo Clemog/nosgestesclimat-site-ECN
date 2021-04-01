@@ -2,7 +2,7 @@ import { setSimulationConfig } from 'Actions/actions'
 import SessionBar from 'Components/SessionBar'
 import { decodeRuleName, encodeRuleName } from 'Engine/rules'
 import { motion } from 'framer-motion'
-import { partition, sortBy, union, negate, compose } from 'ramda'
+import { compose, negate, partition, sortBy, union } from 'ramda'
 import React, { useEffect } from 'react'
 import emoji from 'react-easy-emoji'
 import { useDispatch, useSelector } from 'react-redux'
@@ -11,7 +11,7 @@ import { Link, Route, Switch } from 'react-router-dom'
 import { animated } from 'react-spring'
 import {
 	analysisWithDefaultsSelector,
-	flatRulesSelector,
+	flatRulesSelector
 } from 'Selectors/analyseSelectors'
 import tinygradient from 'tinygradient'
 import Action from './Action'
@@ -22,7 +22,7 @@ import ListeActionPlus from './ListeActionPlus'
 const gradient = tinygradient(['#0000ff', '#ff0000']),
 	colors = gradient.rgb(20)
 
-export default ({}) => {
+export default ({ }) => {
 	return (
 		<Switch>
 			<Route exact path="/actions/plus">
@@ -46,7 +46,7 @@ export default ({}) => {
 	}
 }
 
-const AnimatedDiv = animated(({}) => {
+const AnimatedDiv = animated(({ }) => {
 	const location = useLocation()
 
 	const rules = useSelector(flatRulesSelector)
@@ -58,12 +58,12 @@ const AnimatedDiv = animated(({}) => {
 	const config = !simulation
 		? { objectifs: ['bilan', ...flatActions.formule.somme] }
 		: {
-				...simulation.config,
-				objectifs: union(
-					simulation.config.objectifs,
-					flatActions.formule.somme
-				),
-		  }
+			...simulation.config,
+			objectifs: union(
+				simulation.config.objectifs,
+				flatActions.formule.somme
+			),
+		}
 
 	const analysis = useSelector(analysisWithDefaultsSelector)
 
@@ -93,7 +93,7 @@ const AnimatedDiv = animated(({}) => {
 				</p>
 			)}
 			<h1 css="margin: 1rem 0 .6rem;font-size: 160%">
-				Comment réduire mon empreinte ?
+				How to reduce my footprint?
 			</h1>
 
 			{sortedActions.map((action) => (
@@ -261,8 +261,8 @@ const ActionValue = ({ total, nodeValue }) => {
 				)}
 			</span>
 			<span css="font-size: 80%">
-				<div>de CO₂e / an</div>
-				{displayRelative && <div>de votre total</div>}
+				<div>of CO₂e / an</div>
+				{displayRelative && <div>from your total</div>}
 			</span>
 		</div>
 	)

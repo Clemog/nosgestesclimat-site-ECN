@@ -93,7 +93,7 @@ const AnimatedDiv = animated(({ score, value, valueProfil, details }) => {
 					<div >
 						<div css="font-weight: bold; font-size: 180%;">
 							<span css="display: inline-block">
-								Mon total :
+								My Total:
 							</span>{' '}
 							<span css="display: inline-block">
 								{Number.parseFloat(value / 1000).toFixed(2)}
@@ -104,13 +104,13 @@ const AnimatedDiv = animated(({ score, value, valueProfil, details }) => {
 						</div>
 						<div css="font-weight: normal; font-style: italic; font-size: 120%; margin-bottom: 0.6rem">
 							<span css="display: inline-block">
-								Dont
+								of which
 							</span>{' '}
 							<span css="display: inline-block">
 								{Number.parseFloat(valueProfil / 1000).toFixed(2)}
 							</span>{' '}
 							<span css="display: inline-block">
-								tonnes liées à votre profil
+								are profile-related emissions
 							</span>{' '}
 						</div>
 						<div
@@ -137,35 +137,35 @@ const AnimatedDiv = animated(({ score, value, valueProfil, details }) => {
 							<div>
 								<span>
 									{emoji('🏫 ')}
-									Moyenne à l'ECN{' '}
+									Average at school{' '}
 								</span>{' '}
 								<strong> 2.25 t</strong>
 							</div>
 							<div>
 								<span>
 									{emoji('🎓 ')}
-									Moyenne d'un étudiant {' '}
+									Average for a student {' '}
 								</span>{' '}
 								<strong> 1.58 t</strong>
 							</div>
 							<div>
 								<span>
 									{emoji('📚 ')}
-									Moyenne d'un doctorant {' '}
+									Average for a PhD {' '}
 								</span>{' '}
 								<strong> 3.35 t</strong>
 							</div>
 							<div>
 								<span>
 									{emoji('💼 ')}
-									Moyenne d'un enseignant-chercheur{' '}
+									Average for a researcher or professor{' '}
 								</span>{' '}
 								<strong> 4.47 t</strong>
 							</div>
 							<div>
 								<span>
 									{emoji('📂 ')}
-									Moyenne d'un membre du personnel{' '}
+									Average for a staff member{' '}
 								</span>{' '}
 								<strong> 2.05 t</strong>
 							</div>
@@ -174,7 +174,7 @@ const AnimatedDiv = animated(({ score, value, valueProfil, details }) => {
 									css="color: inherit"
 									href="https://neutralite-carbone.ec-nantes.fr/fr/bilan-carbone-2018/resultats-par-profils-types"
 								>
-									Comment ça ?
+									Go further ?
 								</a>
 							</div>
 						</div>
@@ -212,7 +212,7 @@ const AnimatedDiv = animated(({ score, value, valueProfil, details }) => {
 						`}
 					>
 						<img src={StartingBlock} />
-						Passer à l'action
+						Take Action
 					</div>
 				</Link>
 			)}

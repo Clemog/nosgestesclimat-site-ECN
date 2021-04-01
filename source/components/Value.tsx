@@ -19,15 +19,15 @@ let style = customStyle => `
 
 export type ValueProps = Partial<
 	Pick<EvaluatedRule, 'nodeValue' | 'unit'> &
-		Pick<
-			formatValueOptions,
-			'maximumFractionDigits' | 'minimumFractionDigits'
-		> & {
-			nilValueSymbol: string
-			children: number
-			negative: boolean
-			customCSS: string
-		}
+	Pick<
+		formatValueOptions,
+		'maximumFractionDigits' | 'minimumFractionDigits'
+	> & {
+		nilValueSymbol: string
+		children: number
+		negative: boolean
+		customCSS: string
+	}
 >
 
 export default function Value({
