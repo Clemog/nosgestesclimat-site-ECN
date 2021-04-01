@@ -2,7 +2,7 @@
 
 ## C'est quoi ?
 
-Un simulateur d'empreinte carbone personnelle à l'année, utilisant le modèle climat de [ecolab-data](https://github.com/betagouv/ecolab-data).
+Un simulateur d'empreinte carbone personnelle à l'année, utilisant le [modèle ECN](https://github.com/Clemog/nosgestesclimat-model-ECN/).
 
 Pour contribuer au modèle et données sous-jacentes (calculs, textes, questions, suggestions de saisie), rendez-vous [ici](https://github.com/betagouv/ecolab-data/blob/master/CONTRIBUTING.md).
 
