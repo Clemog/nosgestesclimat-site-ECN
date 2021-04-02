@@ -110,7 +110,7 @@ export default (rules) => (dottedName) => {
 		)
 
 	const LaboQuestion = (dottedName) =>
-		dottedName.includes('profil . labo') &&
+		dottedName.includes('profile . labo') &&
 		dottedName.includes(' . appartenance')
 	if (LaboQuestion(rule.dottedName))
 		// This selected a precise set of questions to bypass their regular components and answer all of them in one big custom UI

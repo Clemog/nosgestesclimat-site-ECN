@@ -52,7 +52,7 @@ export default ({ details, color, noText, noAnimation }) => {
 
 	// Find profil category to avoid displaying profil in chart	
 	// categories.filter 
-	const index = categories.findIndex(obj => obj.name == "profil");
+	const index = categories.findIndex(obj => obj.name == "profile");
 	if (index > -1) {
 		categories.splice(index, 1);
 	}

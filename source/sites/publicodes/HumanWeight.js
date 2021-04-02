@@ -62,7 +62,7 @@ export const UnitSuffix = () => (
 export const getProfilValue = () => {
 	const analysis = useSelector(analysisWithDefaultsSelector),
 		categories = extractCategories(analysis),
-		index = categories.findIndex(obj => obj.name == "profil");
+		index = categories.findIndex(obj => obj.name == "profile");
 	var profilValue = 0;
 	if (index > -1) {
 		profilValue = categories[index].nodeValue;
