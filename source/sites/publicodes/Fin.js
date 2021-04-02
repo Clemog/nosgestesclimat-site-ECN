@@ -137,7 +137,7 @@ const AnimatedDiv = animated(({ score, value, valueProfil, details }) => {
 							<div>
 								<span>
 									{emoji('🏫 ')}
-									Average at school{' '}
+									Average in Centrale Nantes{' '}
 								</span>{' '}
 								<strong> 2.25 t</strong>
 							</div>
@@ -158,7 +158,7 @@ const AnimatedDiv = animated(({ score, value, valueProfil, details }) => {
 							<div>
 								<span>
 									{emoji('💼 ')}
-									Average for a researcher or professor{' '}
+									Average for a faculty member{' '}
 								</span>{' '}
 								<strong> 4.47 t</strong>
 							</div>

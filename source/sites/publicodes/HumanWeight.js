@@ -22,7 +22,7 @@ export default ({ nodeValue }) => {
 		profilValue = getProfilValue()
 	return (
 		<span css="display: flex; align-items: center; justify-content: center">
-			<em css="font-size: 120%">Votre total provisoire :</em>
+			<em css="font-size: 120%">Your provisional total:</em>
 			<span css="width: 0.3rem"></span>
 			<HumanWeight nodeValue={nodeValue - profilValue} />
 		</span>
@@ -55,7 +55,7 @@ export const HumanWeight = ({ nodeValue }) => {
 
 export const UnitSuffix = () => (
 	<span>
-		de <strong>CO₂</strong>e / an
+		of <strong>CO₂</strong>e / year
 	</span>
 )
 

@@ -1,31 +1,27 @@
-import React, { useEffect, useContext } from 'react'
+import { setSimulationConfig } from 'Actions/actions'
+import SessionBar from 'Components/SessionBar'
+import Simulation from 'Components/Simulation'
+import { Markdown } from 'Components/utils/markdown'
+import { ScrollToTop } from 'Components/utils/Scroll'
+import { SitePathsContext } from 'Components/utils/withSitePaths'
+import { decodeRuleName, encodeRuleName, splitName } from 'Engine/rules'
+import React, { useContext, useEffect } from 'react'
+import emoji from 'react-easy-emoji'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router'
-import emoji from 'react-easy-emoji'
-import { animated, useSpring, config } from 'react-spring'
-import ShareButton from 'Components/ShareButton'
-import { findContrastedTextColor } from 'Components/utils/colors'
-import { motion } from 'framer-motion'
-
-import BallonGES from './images/ballonGES.svg'
-import SessionBar from 'Components/SessionBar'
 import { Link } from 'react-router-dom'
-import { humanWeight, HumanWeight } from './HumanWeight'
-import { Markdown } from 'Components/utils/markdown'
-import { encodeRuleName, decodeRuleName, splitName } from 'Engine/rules'
-import { SitePathsContext } from 'Components/utils/withSitePaths'
 import {
-	flatRulesSelector,
-	analysisWithDefaultsSelector,
-	nextStepsSelector,
+	analysisWithDefaultsSelector, flatRulesSelector,
+
+	nextStepsSelector
 } from 'Selectors/analyseSelectors'
-import { setSimulationConfig } from 'Actions/actions'
-import Simulation from 'Components/Simulation'
-import { ScrollToTop } from 'Components/utils/Scroll'
+import { HumanWeight } from './HumanWeight'
+import BallonGES from './images/ballonGES.svg'
+
 
 export const Footprint = ({ value }) => <div>Lala {value}</div>
 
-export default ({}) => {
+export default ({ }) => {
 	const { encodedName } = useParams()
 	const sitePaths = useContext(SitePathsContext)
 	const rules = useSelector(flatRulesSelector)
@@ -80,7 +76,7 @@ export default ({}) => {
 										encodeRuleName(dottedName)
 									}
 								>
-									{emoji('🔬 ')} comprendre le calcul
+									{emoji('🔬 ')} understand the model
 								</Link>
 							</div>
 						</div>
