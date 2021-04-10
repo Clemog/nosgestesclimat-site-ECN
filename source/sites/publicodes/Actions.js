@@ -253,7 +253,7 @@ const ActionValue = ({ total, nodeValue }) => {
 					margin-right: 0.3rem;
 				`}
 			>
-				{-value} {unit}
+				−{value} {unit}
 				{displayRelative && (
 					<div>
 						<strong>{Math.round(100 * (nodeValue / total))}%</strong>
