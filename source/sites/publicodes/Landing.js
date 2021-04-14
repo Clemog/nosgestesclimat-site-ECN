@@ -43,7 +43,7 @@ export default () => {
 					<div
 						css={`
 							text-align: justify;
-							padding : 25px 30px;
+							padding : 0px 30px;
 							h3 {
 								font-size: 140%;
 								color:#102648;
