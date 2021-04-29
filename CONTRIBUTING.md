@@ -28,9 +28,9 @@ Nous utilisons :
 
 Si l'historique des commits est trop volumineux, vous pouvez utiliser le paramètre `depth` de la commande `git clone` pour ne télécharger que les derniers commits.
 
-Pour débuter, il est nécessaire de cloner chacun des deux dépôts, model et site, vers le même dossier local (à la même racine donc). Via le terminal, il faut ensuite se déplacer dans nosgestesclimat-site-ecn et lancer la commande “yarn” qui installera les paquets puis, “yarn start” :
+Pour débuter, il est nécessaire de cloner chacun des deux dépôts, model et site, vers le même dossier local (à la même racine donc). Via le terminal, il faut ensuite se déplacer dans nosgestesclimat-site-ecn et lancer la commande `yarn` qui installera les paquets puis, `yarn start` :
 
-yarn && yarn start
+`yarn && yarn start`
 
 Il suffit ensuite d’ouvrir son navigateur, l’application apparaît à l’adresse : http://localhost:8080/. Toute modification du modèle ou de l’interface sera visible directement sur le navigateur. Les fichiers du modèle YAML sont chargés par webpack, et les modifications apportées à ces fichiers seront actualisées dans l'interface utilisateur instantanément.
 
