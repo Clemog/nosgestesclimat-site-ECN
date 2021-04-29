@@ -2,9 +2,7 @@
 
 Merci de prendre le temps de contribuer ! 🎉
 
-Pour contribuer aux modèles de calcul climat, direction [ecolab-data](https://github.com/betagouv/ecolab-data).
-
-Une fois que vous y aurez créé une PR (Pull Request), ajoutez simplement `?branch=votre-nouvelle-branche` à l'adresse pour tester le site avec vos modifications des modèles.
+Pour contribuer aux modèles de calcul climat, direction [nosgestesclimat-model-ECN](https://github.com/SustainabilityCN/nosgestesclimat-model-ECN).
 
 Pour contribuer au code du site, RDV dans la section *issues* pour voir les discussions et avancement actuels.
 
@@ -28,18 +26,13 @@ Nous utilisons :
 
 ### Démarrage
 
-Si l'historique des commits est trop volumineux, vous pouvez utiliser le paramètre `depth` de git pour ne télécharger que les derniers commits.
+Si l'historique des commits est trop volumineux, vous pouvez utiliser le paramètre `depth` de la commande `git clone` pour ne télécharger que les derniers commits.
 
-```
-# Clone this repo on your computer
-git clone --depth 100 git@github.com:betagouv/mon-entreprise.git && cd mon-entreprise
+Pour débuter, il est nécessaire de cloner chacun des deux dépôts, model et site, vers le même dossier local (à la même racine donc). Via le terminal, il faut ensuite se déplacer dans nosgestesclimat-site-ecn et lancer la commande “yarn” qui installera les paquets puis, “yarn start” :
 
-# Install the Javascript dependencies through Yarn
-yarn install
+yarn && yarn start
 
-# Run the server
-yarn start
-```
+Il suffit ensuite d’ouvrir son navigateur, l’application apparaît à l’adresse : http://localhost:8080/. Toute modification du modèle ou de l’interface sera visible directement sur le navigateur. Les fichiers du modèle YAML sont chargés par webpack, et les modifications apportées à ces fichiers seront actualisées dans l'interface utilisateur instantanément.
 
 L'application est exécuté sur https://localhost:8080/mon-entreprise pour la version française et http://localhost:8080/infrance pour la version anglaise.
 
