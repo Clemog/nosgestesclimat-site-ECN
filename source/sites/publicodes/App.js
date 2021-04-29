@@ -1,28 +1,28 @@
 import Route404 from 'Components/Route404'
 import RulePage from 'Components/RulePage'
 import React, { Component, Suspense } from 'react'
-import { Link, Route, Redirect, Switch } from 'react-router-dom'
+import { Link, Route, Switch } from 'react-router-dom'
 import 'Ui/index.css'
 import Provider from '../../Provider'
-import RulesList from '../mon-entreprise.fr/pages/Documentation/RulesList'
-import About from './About'
-import Privacy from './Privacy'
-import Contribution from './Contribution'
-import Landing from './Landing'
-import Simulateur from './Simulateur'
-import Fin from './Fin'
-import VersionBeta from './VersionBeta'
-import Actions from './Actions'
-import sitePaths from './sitePaths'
-import Logo from './Logo'
-import LogoNCO2 from './images/logo-NCO2.png'
-import LogoECN from './images/logo-ECN.png'
-import { StoreProvider } from './StoreContext'
 import {
 	persistSimulation,
-	retrievePersistedSimulation,
+	retrievePersistedSimulation
 } from '../../storage/persistSimulation'
 import Tracker, { devTracker } from '../../Tracker'
+import RulesList from '../mon-entreprise.fr/pages/Documentation/RulesList'
+import About from './About'
+import Actions from './Actions'
+import Contribution from './Contribution'
+import Fin from './Fin'
+import LogoECN from './images/logo-ECN.png'
+import LogoNCO2 from './images/logo-NCO2.png'
+import Landing from './Landing'
+import Logo from './Logo'
+import Privacy from './Privacy'
+import Simulateur from './Simulateur'
+import sitePaths from './sitePaths'
+import { StoreProvider } from './StoreContext'
+import VersionBeta from './VersionBeta'
 
 let Studio = React.lazy(() => import('./Studio'))
 
@@ -40,13 +40,12 @@ class App extends Component {
 		const pullRequestNumber = urlParams.get('PR')
 		return (
 			<Provider
-				rulesURL={`https://${
-					branch
-						? `${branch}--`
-						: pullRequestNumber
+				rulesURL={`https://${branch
+					? `${branch}--`
+					: pullRequestNumber
 						? `deploy-preview-${pullRequestNumber}--`
 						: ''
-				}ecolab-data-ecn.netlify.app/co2.json`}
+					}nosgestesclimat-model-ecn.netlify.app/co2.json`}
 				dataBranch={branch || pullRequestNumber}
 				sitePaths={sitePaths()}
 				tracker={tracker}
@@ -62,7 +61,7 @@ class App extends Component {
 			>
 				<StoreProvider>
 					<div className="ui__ container">
-						<nav 
+						<nav
 							css={`
 								display: flex;
 								justify-content: space-evenly;
@@ -75,7 +74,7 @@ class App extends Component {
 									css="height: 4.5rem;"
 									src={LogoECN}
 								/>
-							</a>						
+							</a>
 							<Link
 								to="/"
 								css={`
@@ -93,7 +92,7 @@ class App extends Component {
 									css="height: 4.5rem;"
 									src={LogoNCO2}
 								/>
-							</a>											
+							</a>
 						</nav>
 						<Switch>
 							<Route exact path="/" component={Landing} />

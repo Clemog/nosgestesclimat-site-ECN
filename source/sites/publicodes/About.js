@@ -8,7 +8,7 @@ export default () => (
 		<p>
 			<Markdown source={about} />
 			Le code de ce site{' '}
-			<a href="https://github.com/clemog/ecolab-data"> est libre</a>. Plongez-vous
+			<a href="https://github.com/SustainabilityCN/nosgestesclimat-model-ECN"> est libre</a>. Plongez-vous
 			dans nos modèles carbone en explorant la{' '}
 			<Link to="/documentation">documentation</Link>.
 		</p>

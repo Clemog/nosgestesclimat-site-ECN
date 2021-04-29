@@ -1,8 +1,8 @@
-import {toPairs} from 'ramda'
-import React, {useState} from 'react'
-import emoji from 'react-easy-emoji'
-import {Markdown} from 'Components/utils/markdown'
+import { Markdown } from 'Components/utils/markdown'
+import { toPairs } from 'ramda'
 import FAQ from 'raw-loader!./FAQ.md'
+import React, { useState } from 'react'
+import emoji from 'react-easy-emoji'
 
 let formStyle = `
 label {
@@ -31,10 +31,10 @@ let createIssue = (title, body, setURL, disableButton) => {
 
 	fetch(
 		'https://publicodes.netlify.app/.netlify/functions/createIssue?' +
-		toPairs({repo: 'betagouv/ecolab-data', title, body})
+		toPairs({ repo: 'SustainabilityCN/nosgestesclimat-model-ECN', title, body })
 			.map(([k, v]) => k + '=' + encodeURIComponent(v))
 			.join('&'),
-		{mode: 'cors'}
+		{ mode: 'cors' }
 	)
 		.then((response) => response.json())
 		.then((json) => {
@@ -43,7 +43,7 @@ let createIssue = (title, body, setURL, disableButton) => {
 		})
 }
 
-export default ({match}) => {
+export default ({ match }) => {
 	let input = match.params.input
 	let [sujet, setSujet] = useState(input)
 	let [source, setSource] = useState('')
@@ -62,7 +62,7 @@ export default ({match}) => {
 				{emoji('➡ ')}Vous connaissez Github ? Dans ce cas, venez contribuer
 				directement sur le projet{' '}
 				<a
-					href="https://github.com/betagouv/ecolab-data/blob/master/CONTRIBUTING.md"
+					href="https://github.com/SustainabilityCN/nosgestesclimat-model-ECN/blob/master/CONTRIBUTING.md"
 					target="_blank"
 				>
 					en suivant ce guide
@@ -121,11 +121,11 @@ export default ({match}) => {
 					</button>
 				</form>
 			) : (
-					<p>
-						Merci {emoji('😍')} ! Suivez l'avancement de votre suggestion en
+				<p>
+					Merci {emoji('😍')} ! Suivez l'avancement de votre suggestion en
 					cliquant sur <a href={URL}>ce lien</a>.
-					</p>
-				)}
+				</p>
+			)}
 		</div>
 	)
 }

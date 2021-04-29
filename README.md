@@ -17,7 +17,7 @@ An article, published in April 2021, presents the approach adopted in this proje
 
 ### Installation
 
-You need to clone another repo, https://github.com/SustainabilityCN/nosgestesclimat-model-ECN, in the same directory than this one (and rename nosgestesclimat-model-ecn folder as ecolab-data). The model YAML files will then be loaded locally (no installation needed, they are loaded by webpack), and your changes to these files will refresh the UI instantly!
+You need to clone another repo, https://github.com/SustainabilityCN/nosgestesclimat-model-ECN, in the same directory than this one. The model YAML files will then be loaded locally (no installation needed, they are loaded by webpack), and your changes to these files will refresh the UI instantly!
 
 Then run this command in the nosgestesclimat-site-ECN folder :
 

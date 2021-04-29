@@ -1,10 +1,10 @@
 import React from 'react'
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
 
 export default connect(
-	(state) => ({rulesLoaded: state.rules != null}),
+	(state) => ({ rulesLoaded: state.rules != null }),
 	(dispatch) => ({
-		setRules: (rules) => dispatch({type: 'SET_RULES', rules}),
+		setRules: (rules) => dispatch({ type: 'SET_RULES', rules }),
 	})
 )(
 	class extends React.Component {
@@ -28,14 +28,14 @@ export default connect(
 			if (process.env.NODE_ENV === 'development' && !props.dataBranch) {
 				// Rules are stored in nested yaml files
 				const req = require.context(
-					'../../ecolab-data/data/',
+					'../../nosgestesclimat-model-ECN/data/',
 					true,
 					/\.(yaml)$/
 				)
 
 				// Bigger rule explanations are stored in nested .md files
 				const reqPlus = require.context(
-					'raw-loader!../../ecolab-data/data/actions/plus/',
+					'raw-loader!../../nosgestesclimat-model-ECN/data/actions/plus/',
 					true,
 					/\.(md)$/
 				)
@@ -54,16 +54,16 @@ export default connect(
 					const ruleSetPlus = Object.fromEntries(
 						Object.entries(jsonRuleSet).map(([k, v]) =>
 							plusDottedNames[k]
-								? [k, {...v, plus: plusDottedNames[k]}]
+								? [k, { ...v, plus: plusDottedNames[k] }]
 								: [k, v]
 						)
 					)
-					return {...memo, ...ruleSetPlus}
+					return { ...memo, ...ruleSetPlus }
 				}, {})
 				this.props.setRules(rules)
 				this.removeLoader()
 			} else {
-				fetch(props.rulesURL, {mode: 'cors'})
+				fetch(props.rulesURL, { mode: 'cors' })
 					.then((response) => response.json())
 					.then((json) => {
 						this.props.setRules(json)
