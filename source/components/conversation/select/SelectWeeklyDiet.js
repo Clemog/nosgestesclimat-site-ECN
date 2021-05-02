@@ -63,9 +63,8 @@ export default function SelectWeeklyDiet({
 								<p>{description.split('\n')[0]}</p>
 								<div css={' span {margin: .8rem; font-size: 120%}'}>
 									<button
-										className={`ui__ button small plain ${
-											!value ? 'disabled' : ''
-										}`}
+										className={`ui__ button small plain ${!value ? 'disabled' : ''
+											}`}
 										onClick={() =>
 											value > 0 &&
 											dispatch(updateSituation(question.dottedName, value - 1))
