@@ -39,14 +39,14 @@ export default ({ children, rulesURL, dataBranch }) => {
 		if (NODE_ENV === 'development' && !dataBranch) {
 			// Rules are stored in nested yaml files
 			const req = require.context(
-				'../../nosgestesclimat/data/',
+				'../../nosgestesclimat-model-ECN/data/',
 				true,
 				/\.(yaml)$/
 			)
 
 			// Bigger rule explanations are stored in nested .md files
 			const reqPlus = require.context(
-				'raw-loader!../../nosgestesclimat/data/actions/plus/',
+				'raw-loader!../../nosgestesclimat-model-ECN/data/actions/plus/',
 				true,
 				/\.(md)$/
 			)
@@ -89,9 +89,9 @@ export default ({ children, rulesURL, dataBranch }) => {
 
 const EngineWrapper = ({ rules, children }) => {
 	const engine = useMemo(() => new Engine(rules, engineOptions), [
-			rules,
-			engineOptions,
-		]),
+		rules,
+		engineOptions,
+	]),
 		userSituation = useSelector(situationSelector),
 		configSituation = useSelector(configSituationSelector),
 		situation = useMemo(
