@@ -7,6 +7,9 @@ import emoji from 'react-easy-emoji'
 import { useLocation, useParams } from 'react-router'
 import { Link } from 'react-router-dom'
 import Meta from '../../components/utils/Meta'
+import tinygradient from 'tinygradient'
+import { animated } from 'react-spring'
+
 
 const gradient = tinygradient([
 	'#78e08f',
