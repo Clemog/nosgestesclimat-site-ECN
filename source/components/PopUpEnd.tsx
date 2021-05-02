@@ -7,11 +7,12 @@ import './PopUpEnd.css';
 
 const PopUpEnd = ({ isOpen, closeModal, children }) => {
 
-  const situation = useSelector(situationSelector),
-    query = new URLSearchParams(useLocation().search),
-    score = query.get('total')
+  // const situation = useSelector(situationSelector),
+  //   query = new URLSearchParams(useLocation().search),
+  //   score = query.get('total')
 
-  situation["total"] = score
+  // situation["total"] = score
+  const situation = "test";
 
   if (!isOpen) return null;
   return (
