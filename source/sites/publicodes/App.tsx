@@ -28,7 +28,7 @@ if (NODE_ENV === 'production') {
 	tracker = new Tracker()
 }
 
-export default function Root({}) {
+export default function Root({ }) {
 	const { language } = useTranslation().i18n
 	const paths = sitePaths()
 
@@ -50,13 +50,12 @@ export default function Root({}) {
 				//...retrievePersistedState(),
 				previousSimulation: retrievePersistedSimulation(),
 			}}
-			rulesURL={`https://${
-				branch
+			rulesURL={`https://${branch
 					? `${branch}--`
 					: pullRequestNumber
-					? `deploy-preview-${pullRequestNumber}--`
-					: ''
-			}ecolab-data.netlify.app/co2.json`}
+						? `deploy-preview-${pullRequestNumber}--`
+						: ''
+				}ecolab-data.netlify.app/co2.json`}
 			dataBranch={branch || pullRequestNumber}
 		>
 			<Router />
@@ -64,7 +63,7 @@ export default function Root({}) {
 	)
 }
 
-const Router = ({}) => {
+const Router = ({ }) => {
 	const location = useLocation()
 	return (
 		<>
