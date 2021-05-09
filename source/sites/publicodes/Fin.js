@@ -8,7 +8,10 @@ import { useLocation, useParams } from 'react-router'
 import { Link } from 'react-router-dom'
 import Meta from '../../components/utils/Meta'
 import tinygradient from 'tinygradient'
-import { animated } from 'react-spring'
+import { animated, useSpring } from 'react-spring'
+
+import StartingBlock from './images/starting block.svg'
+import Chart from './chart'
 
 
 const gradient = tinygradient([
@@ -70,7 +73,13 @@ export default ({ }) => {
 const AnimatedDiv = animated(({ score, value, details, headlessMode }) => {
 	const backgroundColor = getBackgroundColor(value).toHexString(),
 		backgroundColor2 = getBackgroundColor(value + 4000).toHexString(),
-		textColor = findContrastedTextColor(backgroundColor, true)
+		textColor = findContrastedTextColor(backgroundColor, true),
+		roundedValue = Math.round(value / 1000),
+		shareImage =
+		'https://aejkrqosjq.cloudimg.io/v7/' +
+		window.location.origin +
+		'/.netlify/functions/ending-screenshot?pageToScreenshot=' +
+		window.location
 
 	const [open, setOpen] = useState(false);
 
