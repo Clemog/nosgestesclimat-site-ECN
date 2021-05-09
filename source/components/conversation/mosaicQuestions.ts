@@ -1,6 +1,7 @@
 import SelectWeeklyDiet from './select/SelectWeeklyDiet'
 import SelectWeeklyTransport from './select/SelectWeeklyTransport'
 import SelectDevices from './select/SelectDevices'
+import SelectLaboratory from './custom/SelectLaboratory'
 import { DottedName } from 'Rules'
 
 const mosaicQuestions: Array<{
@@ -57,6 +58,20 @@ A compléter
 				dottedName.includes('transport . moyens de transport') &&
 				dottedName.includes(' . pourcent'),
 			component: SelectWeeklyTransport,
+		},
+		{
+			dottedName: "profil . labo",
+			question: 'A quel laboratoire appartenez-vous ?',
+			description: `
+
+A compléter 
+
+> A compléter
+
+			`,
+			isApplicable: (dottedName: DottedName) =>
+				dottedName.includes('profil . labo') && dottedName.includes(' . appartient'),
+			component: SelectLaboratory,
 		},
 	]
 
