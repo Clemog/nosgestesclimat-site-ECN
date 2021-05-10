@@ -1,7 +1,7 @@
 import SelectWeeklyDiet from './select/SelectWeeklyDiet'
 import SelectWeeklyTransport from './select/SelectWeeklyTransport'
 import SelectDevices from './select/SelectDevices'
-import SelectLaboratory from './custom/SelectLaboratory'
+import SelectLabo from './select/SelectLabo'
 import { DottedName } from 'Rules'
 
 const mosaicQuestions: Array<{
@@ -71,7 +71,7 @@ A compléter
 			`,
 			isApplicable: (dottedName: DottedName) =>
 				dottedName.includes('profil . labo') && dottedName.includes(' . appartient'),
-			component: SelectLaboratory,
+			component: SelectLabo,
 		},
 	]
 
