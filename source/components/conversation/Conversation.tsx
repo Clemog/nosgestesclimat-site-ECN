@@ -51,8 +51,15 @@ export default function Conversation({
 	const rawRules = useSelector((state) => state.rules)
 	const previousSimulation = useSelector((state) => state.previousSimulation)
 
-	const sortedQuestions = nextQuestions
-	console.log(sortedQuestions)
+	const categoriesByDefault = rules["bilan"].explanation.valeur.explanation.valeur.explanation
+
+	const sortedQuestions = sortBy(
+		(question) =>
+			categoriesByDefault.findIndex(obj => obj.name == question.split(" . ")[0]),
+		nextQuestions
+	)
+
+	// const sortedQuestions = nextQuestions
 	const unfoldedStep = useSelector((state) => state.simulation.unfoldedStep)
 	const isMainSimulation = objectifs.length === 1 && objectifs[0] === 'bilan',
 		currentQuestion = !isMainSimulation
