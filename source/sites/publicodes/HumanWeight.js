@@ -1,7 +1,8 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 
-export const humanWeight = (v) => {
+export const humanWeight = (possiblyNegativeValue, concise = false) => {
+	const v = Math.abs(possiblyNegativeValue)
 	const [raw, unit] =
 		v === 0
 			? [v, '']
@@ -9,8 +10,15 @@ export const humanWeight = (v) => {
 				? [v * 1000, 'g']
 				: v < 1000
 					? [v, 'kg']
-					: [v / 1000, v > 2000 ? 'tonnes' : 'tonne']
-	return [raw, unit]
+					: [v / 1000, concise ? 't' : v > 2000 ? 'tonnes' : 'tonne']
+
+	const signedValue = raw * (possiblyNegativeValue < 0 ? -1 : 1),
+		value =
+			raw < 10
+				? raw.toLocaleString('fr-FR', { maximumSignificantDigits: 2 })
+				: Math.round(raw).toLocaleString('fr-FR')
+
+	return [value, unit]
 }
 export default ({ nodeValue }) => {
 	const foldedSteps = useSelector(
@@ -30,15 +38,8 @@ export default ({ nodeValue }) => {
 	)
 }
 
-export const humanValueAndUnit = (possiblyNegativeValue) => {
-	let v = Math.abs(possiblyNegativeValue),
-		[raw, unit] = humanWeight(v),
-		value = raw.toPrecision(3) * (possiblyNegativeValue < 0 ? -1 : 1)
-	return { value, unit }
-}
-
 export const HumanWeight = ({ nodeValue }) => {
-	const { value, unit } = humanValueAndUnit(nodeValue)
+	const [value, unit] = humanWeight(nodeValue)
 	return (
 		<span>
 			<strong

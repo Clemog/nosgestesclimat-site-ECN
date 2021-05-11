@@ -10,7 +10,21 @@ Il est basé sur le simulateur [Nos GEStes Climat](https://ecolab.ademe.fr/impac
 
 Ce simulateur d'empreinte carbone liée à l'activité au sein de Centrale Nantes est développé par les membres du pôle informatique de l'équipe-projet Neutralité Carbone.
 
-Le simulateur NosGEStesClimat est développé par une équipe de [beta.gouv.fr](https://beta.gouv.fr/), financée par l’[ADEME](https://www.ademe.fr/) (Agence de la transition écologique) en partenariat avec l’[Association Bilan Carbone](https://www.associationbilancarbone.fr/) (ABC). Depuis sa création en 2011, l'ABC est partenaire de l’ADEME. Ce partenariat a vu naître de nombreux projets autour du développement et de la promotion des méthodes et outils innovants pour la mise en œuvre de stratégies climat, en France et à l’international, que ce soit à l’échelle des organisations, territoires ou des citoyens.
+## Nouveautés
+
+Le simulateur est amélioré en continu.
+
+[✨️ Découvrez les dernières nouveautés et les notes de versions](/nouveautés).
+
+## Vie privée
+
+Nous collectons des donées anonymisées uniquement pour améliorer ce simulateur.
+
+[🙈 En savoir plus](/vie-privée)
+
+## Comment intégrer ce simulateur dans votre site ?
+
+On vous dit tout sur notre page [partenaires](/partenaires).
 
 ## Nous contacter
 

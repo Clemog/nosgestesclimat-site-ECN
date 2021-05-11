@@ -114,6 +114,9 @@ export default () => {
 						> * {
 							margin: 0 0.6rem;
 						}
+						img {
+							font-size: 120%;
+						}
 					`}
 				>
 					<Link to="/à-propos">
@@ -121,14 +124,7 @@ export default () => {
 						À propos
 					</Link>
 					<DocumentationButton />
-					<Link to="/nouveautés">
-						{emoji('✨️ ')}
-						Nouveautés
-					</Link>
-					<Link to="/vie-privée">
-						{emoji('🙈 ')}
-						Vie privée
-					</Link>
+					<Link to="/partenaires">{emoji('🤝 ')}Partenaires</Link>
 				</div>
 			</footer>
 		</div>
