@@ -17,7 +17,6 @@ function importAll(r) {
 }
 
 const images = importAll(require.context('../../../sites/publicodes/images', false, /\.(png|jpe?g|svg)$/));
-console.log(images)
 
 export default function SelectLaboratory({
 	name,
