@@ -4,7 +4,7 @@ const { encodeRuleName, decodeRuleName } = utils
 import { motion } from 'framer-motion'
 import Emoji from '../../components/utils/Emoji'
 import emoji from 'react-easy-emoji'
-import { humanValueAndUnit } from './HumanWeight'
+import { humanWeight } from './HumanWeight'
 import { correctValue } from '../../components/publicodesUtils'
 import { useSelector } from 'react-redux'
 
@@ -126,7 +126,7 @@ const ActionValue = ({
 	noFormula,
 }) => {
 	const correctedValue = correctValue({ nodeValue: rawValue, unit: rawUnit })
-	const { unit, value } = humanValueAndUnit(correctedValue),
+	const [value, unit] = humanWeight(correctedValue),
 		relativeValue = Math.round(100 * (correctedValue / total))
 
 	return (
