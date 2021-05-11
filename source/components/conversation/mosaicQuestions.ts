@@ -2,6 +2,7 @@ import SelectWeeklyDiet from './select/SelectWeeklyDiet'
 import SelectWeeklyTransport from './select/SelectWeeklyTransport'
 import SelectDevices from './select/SelectDevices'
 import SelectLabo from './select/SelectLabo'
+import SelectAsso from './select/SelectAsso'
 import { DottedName } from 'Rules'
 
 const mosaicQuestions: Array<{
@@ -72,6 +73,20 @@ A compléter
 			isApplicable: (dottedName: DottedName) =>
 				dottedName.includes('profil . labo') && dottedName.includes(' . appartient'),
 			component: SelectLabo,
+		},
+		{
+			dottedName: "associatif . asso",
+			question: 'A quelle(s) association(s) adhérez-vous ?',
+			description: `
+
+A compléter 
+
+> A compléter
+
+			`,
+			isApplicable: (dottedName: DottedName) =>
+				dottedName.includes('associatif . asso') && dottedName.includes(' . adhésion'),
+			component: SelectAsso,
 		},
 	]
 
