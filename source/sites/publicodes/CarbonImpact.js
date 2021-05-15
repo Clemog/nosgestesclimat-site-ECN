@@ -72,7 +72,7 @@ export default ({ }) => {
 				{isMainSimulation &&
 					!persona &&
 					(!simulationStarted ? (
-						<em>{emoji('🇫🇷 ')} Un Français émet en moyenne</em>
+						<em>Votre empreinte a priori</em>
 					) : (
 						<em>Votre total provisoire</em>
 					))}
