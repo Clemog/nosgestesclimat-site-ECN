@@ -40,13 +40,8 @@ export default ({ }) => {
 		rehydratedDetails =
 			encodedDetails &&
 			encodedDetails
-				.match(/[a-z][0-9]+\.[0-9][0-9]/g)
-				.map(([category, ...rest]) => [category, 1000 * +rest.join('')])
-				// Here we convert categories with an old name to the new one
-				// 'biens divers' was renamed to 'divers'
-				.map(([category, ...rest]) =>
-					category === 'b' ? ['d', ...rest] : [category, ...rest]
-				)
+				.match(/[a-z][a-z][0-9]+\.[0-9][0-9]/g)
+				.map(([category1, category2, ...rest]) => [category1 + category2, 1000 * +rest.join('')])
 
 	const score = sumFromDetails(rehydratedDetails)
 	const headlessMode =
@@ -76,10 +71,10 @@ const AnimatedDiv = animated(({ score, value, details, headlessMode }) => {
 		textColor = findContrastedTextColor(backgroundColor, true),
 		roundedValue = Math.round(value / 1000),
 		shareImage =
-		'https://aejkrqosjq.cloudimg.io/v7/' +
-		window.location.origin +
-		'/.netlify/functions/ending-screenshot?pageToScreenshot=' +
-		window.location
+			'https://aejkrqosjq.cloudimg.io/v7/' +
+			window.location.origin +
+			'/.netlify/functions/ending-screenshot?pageToScreenshot=' +
+			window.location
 
 	const [open, setOpen] = useState(false);
 
@@ -118,12 +113,13 @@ const AnimatedDiv = animated(({ score, value, details, headlessMode }) => {
 					display: flex;
 					flex-direction: column;
 					justify-content: space-evenly;
+					
 					text-align: center;
 					font-size: 110%;
 				`}
 			>
-				<div css="display: flex; align-items: center; justify-content: center">
-					<div >
+				<div css="padding: 2rem 0">
+					<div>
 						<div css="font-weight: bold; font-size: 200%; margin-bottom: 0.8rem">
 							<span css="display: inline-block">
 								Mon total :

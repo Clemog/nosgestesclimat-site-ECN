@@ -31,7 +31,7 @@ export const extractCategories = (rules, engine, valuesFromURL) => {
 			...node,
 			icons: icônes,
 			color: couleur,
-			nodeValue: valuesFromURL ? valuesFromURL[name[0]] : node.nodeValue,
+			nodeValue: valuesFromURL ? valuesFromURL[name[0] + name[1]] : node.nodeValue,
 		}
 	})
 
