@@ -78,8 +78,10 @@ const Router = ({ }) => {
 					css={`
 						display: flex;
 						justify-content: space-evenly;
-						margin: .6rem auto;
-						margin-right: 2rem;
+						align-items: center;
+						margin-top: 1rem;
+						margin-left: auto;
+						margin-right: auto;
 					`}
 				>
 					<a href="https://www.ec-nantes.fr">
