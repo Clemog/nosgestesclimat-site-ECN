@@ -45,7 +45,7 @@ Choisissez 5 plats qui représentent votre semaine type.
 			component: SelectWeeklyDiet,
 		},
 		{
-			dottedName: 'transport . moyens de transport',
+			dottedName: 'transport . domicile-travail . moyens de transport',
 			question:
 				'Dans quelles proportions utilisez-vous ces moyens de transport pour vous rendre à Centrale ?',
 			description: `
@@ -56,7 +56,7 @@ A compléter
 
 			`,
 			isApplicable: (dottedName: DottedName) =>
-				dottedName.includes('transport . moyens de transport') &&
+				dottedName.includes('transport . domicile-travail . moyens de transport') &&
 				dottedName.includes(' . pourcent'),
 			component: SelectWeeklyTransport,
 		},
