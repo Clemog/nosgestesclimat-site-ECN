@@ -18,6 +18,8 @@ import Contribution from './Contribution'
 import Fin from './Fin'
 import Landing from './Landing'
 import Logo, { InlineLogo } from './Logo'
+import LogoNCO2 from './images/logo-NCO2.png'
+import LogoECN from './images/logo-ECN.png'
 import Documentation from './pages/Documentation'
 import Personas from './Personas.tsx'
 import Privacy from './Privacy'
@@ -54,10 +56,10 @@ export default function Root({ }) {
 				previousSimulation: retrievePersistedSimulation(),
 			}}
 			rulesURL={`https://${branch
-					? `${branch}--`
-					: pullRequestNumber
-						? `deploy-preview-${pullRequestNumber}--`
-						: ''
+				? `${branch}--`
+				: pullRequestNumber
+					? `deploy-preview-${pullRequestNumber}--`
+					: ''
 				}ecolab-data.netlify.app/co2.json`}
 			dataBranch={branch || pullRequestNumber}
 		>
@@ -72,7 +74,20 @@ const Router = ({ }) => {
 		<>
 			<div className="ui__ container">
 				<ConferenceBarLazy />
-				<nav css="display: flex; justify-content: center; margin: .6rem auto">
+				<nav
+					css={`
+						display: flex;
+						justify-content: space-evenly;
+						margin: .6rem auto;
+						margin-right: 2rem;
+					`}
+				>
+					<a href="https://www.ec-nantes.fr">
+						<img
+							css="height: 4.5rem;"
+							src={LogoECN}
+						/>
+					</a>
 					<Link
 						to="/"
 						css={`
@@ -88,6 +103,12 @@ const Router = ({ }) => {
 					>
 						{location.pathname === '/' ? <Logo /> : <InlineLogo />}
 					</Link>
+					<a href="https://neutralite-carbone.ec-nantes.fr">
+						<img
+							css="height: 4.5rem;"
+							src={LogoNCO2}
+						/>
+					</a>
 				</nav>
 				<Switch>
 					<Route exact path="/" component={Landing} />

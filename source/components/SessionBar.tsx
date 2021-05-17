@@ -53,6 +53,7 @@ export const buildEndURL = (rules, engine) => {
 				(memo, next) =>
 					memo +
 					next.name[0] +
+					next.name[1] +
 					(Math.round(next.nodeValue / 10) / 100).toFixed(2),
 				''
 			)
