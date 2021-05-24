@@ -72,6 +72,10 @@ const Simulateur = (props) => {
 				targets={<>{rule.period === 'flexible' && <PeriodBlock />}</>}
 				explanations={
 					<>
+						<div css="display: flex; justify-content: center">
+							<span css="font-size: 120%">{emoji('🔬 ')} </span>&nbsp;
+							<p>(cliquez sur le graphe ci-dessous pour accéder au détail des postes d'émission)</p>
+						</div>
 						<Chart />
 					</>
 				}
