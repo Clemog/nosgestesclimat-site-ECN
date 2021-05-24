@@ -134,7 +134,7 @@ export default function SessionBar({
 					}}
 				>
 					{emoji('📊 ')}
-					Ma simulation
+					Revenir à ma simulation
 				</Button>
 			) : (
 				<Button
@@ -147,6 +147,17 @@ export default function SessionBar({
 					Faire le test
 				</Button>
 			),
+			<Button
+				className="simple small"
+				onClick={() => {
+					dispatch(resetSimulation())
+					dispatch(deletePreviousSimulation())
+					history.push('/simulateur/bilan')
+				}}
+			>
+				{emoji('⏪ ')}
+				<T></T>Effacer et recommencer
+			</Button>
 		]
 	} else {
 		buttons = [
