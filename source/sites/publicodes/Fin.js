@@ -11,7 +11,7 @@ import tinygradient from 'tinygradient'
 import { animated, useSpring } from 'react-spring'
 
 import StartingBlock from './images/starting block.svg'
-import Chart from './chart'
+import Chart from './chart/indexprofil'
 
 
 const gradient = tinygradient([
@@ -64,7 +64,6 @@ export default ({ }) => {
 		/>
 	)
 }
-
 const AnimatedDiv = animated(({ score, value, details, headlessMode }) => {
 	const backgroundColor = getBackgroundColor(value).toHexString(),
 		backgroundColor2 = getBackgroundColor(value + 4000).toHexString(),
@@ -129,6 +128,17 @@ const AnimatedDiv = animated(({ score, value, details, headlessMode }) => {
 							</span>{' '}
 							<span css="display: inline-block">
 								tonnes
+							</span>{' '}
+						</div>
+						<div css="font-weight: normal; font-style: italic; font-size: 120%; margin-bottom: 0.6rem">
+							<span css="display: inline-block">
+								Dont
+							</span>{' '}
+							<span css="display: inline-block">
+								{Number.parseFloat(details["pr"] / 1000).toFixed(2)}
+							</span>{' '}
+							<span css="display: inline-block">
+								tonnes liées à votre profil
 							</span>{' '}
 						</div>
 						<div

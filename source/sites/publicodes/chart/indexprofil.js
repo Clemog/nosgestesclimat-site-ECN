@@ -1,14 +1,17 @@
-import { encodeRuleName, getRuleFromAnalysis } from 'Engine/rules'
+import { utils } from 'publicodes'
+
+import { useEngine } from 'Components/utils/EngineContext'
 import { motion } from 'framer-motion'
 import { sortBy } from 'ramda'
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import {
-	analysisWithDefaultsSelector,
-	parsedRulesSelector
-} from 'Selectors/analyseSelectors'
+	situationSelector,
+	objectifsSelector,
+} from 'Selectors/simulationSelectors'
 import Bar from './Bar'
+import { useNextQuestions } from '../../../components/utils/useNextQuestion'
 
 const showBudget = false
 const // Rough estimate of the 2050 budget per person to stay under 2° by 2100
@@ -19,34 +22,36 @@ const // Rough estimate of the 2050 budget per person to stay under 2° by 2100
 	transportShare = 1 / 4,
 	transportClimateBudget = climateBudgetPerDay * transportShare
 
-const sortCategories = sortBy(({ nodeValue }) => -nodeValue)
-export const extractCategories = (analysis) => {
-	const getRule = getRuleFromAnalysis(analysis)
-
-	const bilan = getRule('bilan')
-	if (!bilan) return null
-	const categories = bilan.formule.explanation.explanation.map(
-		(category) => category.explanation
-	)
+export const sortCategories = sortBy(({ nodeValue }) => -nodeValue)
+export const extractCategories = (rules, engine, valuesFromURL) => {
+	const categories = rules['bilan'].formule.somme.map((name) => {
+		const node = engine.evaluate(name)
+		const { icônes, couleur } = rules[name]
+		return {
+			...node,
+			icons: icônes,
+			color: couleur,
+			nodeValue: valuesFromURL ? valuesFromURL[name[0] + name[1]] : node.nodeValue,
+		}
+	})
 
 	return sortCategories(categories)
 }
-export default ({ details, color, noText, noAnimation }) => {
-	const analysis = useSelector(analysisWithDefaultsSelector),
-		rules = useSelector(parsedRulesSelector)
-
-	const categories = analysis?.targets.length
-		? extractCategories(analysis)
-		: details &&
-		sortCategories(
-			rules['bilan'].formule.explanation.explanation.map((reference) => {
-				const category = rules[reference.dottedName]
-				return {
-					...category,
-					nodeValue: details[category.name[0] + category.name[1]],
-				}
-			})
+export default ({ details, noText, noAnimation, noCompletion }) => {
+	// needed for this component to refresh on situation change :
+	const situation = useSelector(situationSelector)
+	const objectifs = useSelector(objectifsSelector)
+	const rules = useSelector((state) => state.rules)
+	const engine = useEngine(objectifs)
+	const categories = extractCategories(rules, engine, details)
+	const nextQuestions = useNextQuestions()
+	const completedCategories = categories
+		.filter(
+			({ dottedName }) =>
+				!nextQuestions.find((question) => question.includes(dottedName))
 		)
+		.map(({ dottedName }) => dottedName)
+
 	if (!categories) return null
 
 	const empreinteMaximum = categories.reduce(
@@ -117,9 +122,22 @@ export default ({ details, color, noText, noAnimation }) => {
 							`}
 						>
 							<Link
-								to={'/documentation/' + encodeRuleName(category.dottedName)}
+								to={
+									'/documentation/' + utils.encodeRuleName(category.dottedName)
+								}
 							>
-								<Bar {...{ ...category, color, noText, empreinteMaximum }} />
+								<Bar
+									{...{
+										...category,
+										noText,
+										empreinteMaximum,
+										completed:
+											!noCompletion &&
+											completedCategories.find(
+												(c) => c === category.dottedName
+											),
+									}}
+								/>
 							</Link>
 						</motion.li>
 					))}

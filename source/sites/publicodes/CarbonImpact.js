@@ -7,6 +7,7 @@ import {
 	objectifsSelector,
 	situationSelector,
 } from '../../selectors/simulationSelectors'
+import { extractCategories } from './chart'
 import SimulationHumanWeight from './HumanWeight'
 import { useEngine } from 'Components/utils/EngineContext'
 import { correctValue, splitName } from '../../components/publicodesUtils'
@@ -28,6 +29,8 @@ export default ({ }) => {
 
 	const category = rules[splitName(dottedName)[0]],
 		color = category && category.couleur
+
+	const valeurProfil = extractCategories(rules, engine).filter((category) => category.name === "profil")[0].nodeValue
 
 	const isMainSimulation = objectif === 'bilan'
 	return (
@@ -72,7 +75,7 @@ export default ({ }) => {
 				{isMainSimulation &&
 					!persona &&
 					(!simulationStarted ? (
-						<em>Votre empreinte a priori</em>
+						<em>Ce type de profil émet en moyenne</em>
 					) : (
 						<em>Votre total provisoire</em>
 					))}
@@ -81,9 +84,11 @@ export default ({ }) => {
 						{emoji('👤')} {persona}
 					</em>
 				)}
-				<div>
-					<SimulationHumanWeight nodeValue={nodeValue} />
-				</div>
+				{!simulationStarted ? (
+					<div><SimulationHumanWeight nodeValue={nodeValue} /></div>
+				) : (
+					<div><SimulationHumanWeight nodeValue={nodeValue - valeurProfil} /></div>
+				)}
 			</div>
 			<div>
 				<Link to={'/documentation/' + utils.encodeRuleName(dottedName)}>
