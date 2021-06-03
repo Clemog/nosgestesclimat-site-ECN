@@ -156,7 +156,7 @@ export default function SessionBar({
 				}}
 			>
 				{emoji('⏪ ')}
-				<T></T>Effacer et recommencer
+				Effacer et recommencer
 			</Button>
 		]
 	} else {
