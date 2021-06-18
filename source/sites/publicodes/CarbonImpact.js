@@ -93,7 +93,7 @@ export default ({ }) => {
 			<div>
 				<Link to={'/documentation/' + utils.encodeRuleName(dottedName)}>
 					<span css="font-size: 140%" alt="Comprendre le calcul">
-						{emoji('❔️ ')}
+						{emoji('❔ ')}
 					</span>
 					<small
 						css={`

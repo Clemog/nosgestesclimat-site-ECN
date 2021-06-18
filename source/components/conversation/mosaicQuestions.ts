@@ -29,12 +29,28 @@ Renseignez ici vos appareils parmi ces choix limités.
 			component: SelectDevices,
 		},
 		{
+			dottedName: "divers . électroménager . liste d'appareils",
+			question:
+				'Quels appareils électroménagers de moins de 10 ans possédez-vous ?',
+			description: `
+L'essentiel de l'empreinte de l'électroménager réside dans les appareils que nous achetons.
+
+> ✨️ Par simplicité, ne renseignez que les appareils récents : un smartphone utilisé depuis 5 ans a déjà été bien amorti.
+
+Si tous vos appareils ne sont pas proposés dans cette liste, ce n'est pas grave, ce test ne se veut pas exhaustif.
+			`,
+			isApplicable: (dottedName: DottedName) =>
+				dottedName.includes('divers . électroménager') &&
+				dottedName.includes(' . présent'),
+			component: SelectDevices,
+		},
+		{
 			dottedName: 'alimentation . régime',
 			question:
-				'Choisissez les plats de vos midis pour une semaine type',
+				'Choisissez les plats de vos midis et dîners pour une semaine type',
 			description: `
 
-Choisissez 5 plats qui représentent votre semaine type. 
+Choisissez 14 plats qui représentent votre semaine type : 7 midi et 7 dîners. 
 
 > Bien sûr, toute la diversité des régimes ne peut-être simplifiée en 4 boutons : il manque par exemple le poison... le menu du pêcheur arrive bientôt ! 
 

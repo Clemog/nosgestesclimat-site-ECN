@@ -1,6 +1,7 @@
 import Modal from 'Components/Modal'
 import React, { useState } from 'react'
 import emoji from 'react-easy-emoji'
+import DocumentationButton from './DocumentationButton'
 import { Link } from 'react-router-dom'
 import DocumentationButton from './DocumentationButton'
 import Illustration from './images/ecolab-climat-dessin.svg'
@@ -74,10 +75,18 @@ export default () => {
 			</Modal>
 			<h1>Connaissez-vous l'empreinte carbone liée à votre activité au sein de Centrale Nantes ?</h1>
 			<img src={Illustration} />
-			<div css="margin: 1rem auto;">
-				<Link to="/simulateur/bilan" className="ui__ plain button">
-					Faire le test
-				</Link>
+			<div css="margin-bottom: 1rem">
+				<div css="margin: 1rem 0 .6rem;">
+					<Link to="/simulateur/bilan" className="ui__ plain button">
+						Faire le test
+					</Link>
+				</div>
+				<div css="margin: .6rem 0 1rem;">
+					<Link to="/conférence" className="ui__ button small">
+						{emoji('👥')} Faire le test à plusieurs
+					</Link>
+				</div>
+				<NewsBanner />
 			</div>
 			<footer>
 				<div
@@ -124,7 +133,7 @@ export default () => {
 						À propos
 					</Link>
 					<DocumentationButton />
-					<Link to="/partenaires">{emoji('🤝 ')}Partenaires</Link>
+					<Link to="/diffuser">{emoji('📤 ')}Diffuser</Link>
 				</div>
 			</footer>
 		</div>
