@@ -182,34 +182,25 @@ export default function SessionBar({
 						{emoji('📋 ')}
 							Mes réponses
 						</Button>,
-					true && (
+					<Button
+						key="bouger"
+						className="simple small"
+						onClick={() => history.push('/actions')}
+					>
+						{emoji('💥 ')}
+								Passer à l'action
+						</Button >,
+					NODE_ENV === 'development' && (
 						<Button
-							key="bouger"
+							key="fin"
 							className="simple small"
-							onClick={() => history.push('/actions')}
+							onClick={() => history.push(buildEndURL(rules, engine))}
 						>
-							{emoji('📋 ')}
-							Mes réponses
-						</Button>,
-						<Button
-							key="bouger"
-							className="simple small"
-							onClick={() => history.push('/actions')}
-						>
-							{emoji('💥 ')}
-							Passer à l'action
-						</Button>,
-						NODE_ENV === 'development' && (
-							<Button
-								key="fin"
-								className="simple small"
-								onClick={() => history.push(buildEndURL(rules, engine))}
-							>
-								{emoji('🔚 ')}
+							{emoji('🔚 ')}
 								Ecran de fin [DEVMODE]
-							</Button>
-						),
-				  ]
+						</Button>
+					),
+				]
 				: []),
 			showAnswerModal && <Answers onClose={() => setShowAnswerModal(false)} />,
 		]

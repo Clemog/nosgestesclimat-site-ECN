@@ -1,11 +1,11 @@
 import Modal from 'Components/Modal'
 import React, { useState } from 'react'
 import emoji from 'react-easy-emoji'
-import DocumentationButton from './DocumentationButton'
 import { Link } from 'react-router-dom'
 import DocumentationButton from './DocumentationButton'
 import Illustration from './images/ecolab-climat-dessin.svg'
 import Marianne from './images/Marianne.png'
+import NewsBanner from '../../components/NewsBanner'
 
 export default () => {
 

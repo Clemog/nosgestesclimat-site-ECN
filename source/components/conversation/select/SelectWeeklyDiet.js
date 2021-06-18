@@ -4,9 +4,11 @@ import React, { useCallback, useContext, useState } from 'react'
 import { Explicable } from 'Components/conversation/Explicable'
 import emoji from 'react-easy-emoji'
 import { useDispatch, useSelector } from 'react-redux'
+import { useEngine } from 'Components/utils/EngineContext'
 import { situationSelector } from 'Selectors/simulationSelectors'
 import { updateSituation } from 'Actions/actions'
 import { Mosaic } from './UI'
+import Engine from 'publicodes'
 
 // This is the number of possible answers in this very custom input component
 const chipsTotal = 5
@@ -20,6 +22,9 @@ export default function SelectWeeklyDiet({
 }) {
 	const dispatch = useDispatch()
 	const situation = useSelector(situationSelector)
+	const engine = new Engine(selectedRules)
+
+	console.log(engine)
 
 	const chipsCount = selectedRules.reduce(
 		(
