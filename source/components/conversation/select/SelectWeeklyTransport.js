@@ -64,7 +64,7 @@ export default function SelectWeeklyTransport({
 									{emoji(icônes)}
 								</div>
 								<p>{description.split('\n')[0]}</p>
-								<div css={' span {margin: .5rem; font-size: 120%}'}>
+								<div css={' span {margin: .5rem; font-size: 120%;}'}>
 									<button
 										className={`ui__ button small plain ${!value ? 'disabled' : ''
 											}`}
@@ -78,8 +78,8 @@ export default function SelectWeeklyTransport({
 									<span>
 										<NumberFormat
 											autoFocus
-											className={'suffixed'}
-											allowEmptyFormatting={true}
+											className={'ui__ suffixed'}
+											allowEmptyFormatting={false}
 											style={{ border: `1px solid` }}
 											value={value}
 											suffix={'%'}
