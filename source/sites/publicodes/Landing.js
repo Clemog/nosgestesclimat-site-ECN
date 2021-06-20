@@ -86,7 +86,7 @@ export default () => {
 						{emoji('👥')} Faire le test à plusieurs
 					</Link>
 				</div>
-				<NewsBanner />
+				{/* <NewsBanner /> */}
 			</div>
 			<footer>
 				<div
