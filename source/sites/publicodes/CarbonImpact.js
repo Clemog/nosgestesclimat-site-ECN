@@ -36,7 +36,7 @@ export default ({ }) => {
 	const category = rules[splitName(dottedName)[0]],
 		color = category && category.couleur
 
-	const valeurProfil = getProfileValue(rules, engine)
+	const valeurProfil = 1000
 
 	const isMainSimulation = objectif === 'bilan'
 	return (
