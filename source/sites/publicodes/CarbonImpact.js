@@ -13,6 +13,12 @@ import { useEngine } from 'Components/utils/EngineContext'
 import { correctValue, splitName } from '../../components/publicodesUtils'
 import { lightenColor } from '../../components/utils/colors'
 
+const getProfileValue = (rules, engine) => {
+	const profilValue = extractCategories(rules, engine).filter((category) => category.name === "profil")[0].nodeValue;
+	return profilValue
+}
+
+
 export default ({ }) => {
 	const objectif = useSelector(objectifsSelector)[0],
 		// needed for this component to refresh on situation change :
@@ -30,7 +36,7 @@ export default ({ }) => {
 	const category = rules[splitName(dottedName)[0]],
 		color = category && category.couleur
 
-	const valeurProfil = extractCategories(rules, engine).filter((category) => category.name === "profil")[0].nodeValue
+	const valeurProfil = getProfileValue(rules, engine)
 
 	const isMainSimulation = objectif === 'bilan'
 	return (
