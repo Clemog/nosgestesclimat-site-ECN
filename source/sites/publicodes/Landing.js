@@ -77,44 +77,16 @@ export default () => {
 			<img src={Illustration} />
 			<div css="margin-bottom: 1rem">
 				<div css="margin: 1rem 0 .6rem;">
-					<Link to="/simulateur/bilan" className="ui__ plain button">
+					<Link css="margin-right: 1rem;" to="/simulateur/bilan" className="ui__ plain button">
 						Faire le test
 					</Link>
-				</div>
-				<div css="margin: .6rem 0 1rem;">
-					<Link to="/conférence" className="ui__ button small">
+					<Link css="margin-left: 1rem;"to="/conférence" className="ui__ button small">
 						{emoji('👥')} Faire le test à plusieurs
 					</Link>
 				</div>
 				{/* <NewsBanner /> */}
 			</div>
 			<footer>
-				<div
-					css={`
-
-						display: flex;
-						justify-content: space-evenly;
-						align-items: center;
-						margin-bottom: 1rem;
-						margin-left: auto;
-						margin-right: auto;
-						width: 80%;
-					`}
-				>
-					<img css="height: 6rem;" src={Marianne} />
-					<a href="https://ademe.fr">
-						<img
-							css="height: 5rem;"
-							src="https://www.ademe.fr/sites/all/themes/ademe/logo.png"
-						/>
-					</a>
-					<a href="https://www.associationbilancarbone.fr/">
-						<img
-							css="height: 2.5rem"
-							src="https://www.associationbilancarbone.fr/wp-content/themes/abc/assets/images/brand/abc_main_logo.svg"
-						/>
-					</a>
-				</div>
 				<div
 					css={`
 						display: flex;
